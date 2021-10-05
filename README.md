@@ -6,8 +6,8 @@
 </div>
 </hr>
 
-[![Build Status](https://app.travis-ci.com/kavyadevd/AcmeRoboticsPathPlanne.svg?branch=main)](https://app.travis-ci.com/kavyadevd/AcmeRoboticsPathPlanne)
-[![Coverage Status](https://coveralls.io/repos/github/kavyadevd/AcmeRoboticsPathPlanne/badge.svg?branch=main)](https://coveralls.io/github/kavyadevd/AcmeRoboticsPathPlanner?branch=main)
+[![Build Status](https://app.travis-ci.com/kavyadevd/AcmeRoboticsPathPlanner.svg?branch=main)](https://app.travis-ci.com/kavyadevd/AcmeRoboticsPathPlanner)
+[![Coverage Status](https://coveralls.io/repos/github/kavyadevd/AcmeRoboticsPathPlanner/badge.svg?branch=main)](https://coveralls.io/github/kavyadevd/AcmeRoboticsPathPlanner?branch=main)
 
 </hr>
 This is a C++ project for motion planning of a robotic arm manipulator. The work was proposed and developed for Acme Robotics. The project was developed using standard software development practices.
