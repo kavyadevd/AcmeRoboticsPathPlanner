@@ -1,32 +1,11 @@
-# Prerequisites
-*.d
+# VS Code files
+*.VC.db*
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# OS X files
+.DS_Store
 
-# Precompiled Headers
-*.gch
-*.pch
+# Build artifacts
+build/
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+# Python
+*.pyc
