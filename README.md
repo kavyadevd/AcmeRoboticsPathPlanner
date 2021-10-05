@@ -4,10 +4,14 @@
     A manipulator path planner with IK solver for Acme Robotics
   </h3>
 </div>
+</hr>
 
+[![Build Status](https://app.travis-ci.com/kavyadevd/AcmeRoboticsPathPlanne.svg?branch=main)](https://app.travis-ci.com/kavyadevd/AcmeRoboticsPathPlanne)
+[![Coverage Status](https://coveralls.io/repos/github/kavyadevd/AcmeRoboticsPathPlanne/badge.svg?branch=main)](https://coveralls.io/github/kavyadevd/AcmeRoboticsPathPlanner?branch=main)
 
+</hr>
 This is a C++ project for motion planning of a robotic arm manipulator. The work was proposed and developed for Acme Robotics. The project was developed using standard software development practices.
-
+</br>
 
 ## Installation
 
@@ -34,7 +38,7 @@ make code_coverage
 
 ## Plugins
 
-- CppChEclipse
+- CppCheckEclipse
 
     To install and run cppcheck in Eclipse
 
