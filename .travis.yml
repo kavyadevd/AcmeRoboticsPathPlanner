@@ -1,6 +1,6 @@
 # We need a decent ubuntu dist
 sudo: required
-dist: trusty
+dist: xenial
 
 # Modern cpp settings from
 #  http://genbattle.bitbucket.org/blog/2016/01/17/c++-travis-ci/
