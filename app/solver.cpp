@@ -11,6 +11,9 @@
 
 #include "solver.h"     // NOLINT
 
+Solver::Solver() {
+}
+
 int Solver::solve() {
     return 0;
 }

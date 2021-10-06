@@ -13,10 +13,14 @@
 
 class Solver{
  public:
-  /**
-   * @brief Methods to solve IK
-   * @return int flag indicating successful operation
-   */ 
+ /**
+ * @brief Construct a new PID object. Sets values of kp, ki, kd to 0
+ */
+  Solver();
+ /**
+  * @brief Methods to solve IK
+  * @return int flag indicating successful operation
+  */ 
   int solve();
  private:
 };
