@@ -14,7 +14,7 @@
 Solver::Solver() {
 }
 
-int Solver::solve() {
+int Solver::PerformIK() {
     return 0;
 }
 
