@@ -7,11 +7,16 @@
 </hr>
 
 [![Build Status](https://app.travis-ci.com/kavyadevd/AcmeRoboticsPathPlanner.svg?branch=main)](https://app.travis-ci.com/kavyadevd/AcmeRoboticsPathPlanner)
-[![Coverage Status](https://coveralls.io/repos/github/kavyadevd/AcmeRoboticsPathPlanner/badge.svg?branch=main)](https://coveralls.io/github/kavyadevd/AcmeRoboticsPathPlanner?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/kavyadevd/AcmeRoboticsPathPlanner/badge.svg?branch=main)](https://coveralls.io/github/kavyadevd/AcmeRoboticsPathPlanner?branch=main) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 
 </hr>
-This is a C++ project for motion planning of a robotic arm manipulator. The work was proposed and developed for Acme Robotics. The project was developed using standard software development practices.
+This is a C++ project for path planning of a robotic arm manipulator. The work was proposed and developed for Acme Robotics. The project was developed using standard software development practices.
 </br>
+
+## 
+
+<span><img style="align:centre" src="https://www.researchgate.net/profile/Alexandre-Campeau-Lecours/publication/329975514/figure/fig3/AS:710940106452992@1546512738050/UR5-robot-from-Universal-robot-with-the-definition-of-the-the-reference-frame-x-0-y-0.png" alt="cool Robot"></img> [source](https://www.researchgate.net/profile/Alexandre-Campeau-Lecours/publication/329975514/figure/fig3/AS:710940106452992@1546512738050/UR5-robot-from-Universal-robot-with-the-definition-of-the-the-reference-frame-x-0-y-0.png)</span>
 
 ## Installation
 
