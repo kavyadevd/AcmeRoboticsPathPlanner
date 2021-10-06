@@ -19,10 +19,10 @@ class Solver{
   Solver();
 
  /**
-  * @brief Methods to solve IK
+  * @brief Methods to Solve IK
   * @return int flag indicating successful operation
   */  
-  int solve();
+  int PerformIK();
 
    /**
    * @brief Updates the error_tolerance attribute to _error
