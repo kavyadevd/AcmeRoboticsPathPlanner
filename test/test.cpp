@@ -10,11 +10,13 @@
 
 #include <gtest/gtest.h>
 #include "solver.h"  // NOLINT
+#include "state.h"  // NOLINT
+#include "robot.h"  // NOLINT
 
 /**
  * @brief Tests the default constructor
 */
-TEST(TestIKStud, test_the_default_constructor) {
+TEST(TestIKStub, test_the_default_constructor) {
   Solver ik_solver;
   EXPECT_EQ(0, 0);
 }
@@ -22,15 +24,15 @@ TEST(TestIKStud, test_the_default_constructor) {
 /**
  * @brief Tests IK solver stub
 */
-TEST(TestIKStud, should_pass_solver) {
+TEST(TestIKStub, should_pass_solver) {
   Solver ik_solver;
-  EXPECT_EQ(ik_solver.solve(), 0);
+  EXPECT_EQ(ik_solver.PerformIK(), 0);
 }
 
 /**
  * @brief Tests Set Error stub
 */
-TEST(TestIKStud, set_error) {
+TEST(TestIKStub, set_error) {
   Solver ik_solver;
   EXPECT_EQ(ik_solver.SetErrorTolerance(0.007), true);
 }
@@ -38,7 +40,7 @@ TEST(TestIKStud, set_error) {
 /**
  * @brief Tests Get Error stub
 */
-TEST(TestIKStud, get_error) {
+TEST(TestIKStub, get_error) {
   Solver ik_solver;
   EXPECT_EQ(ik_solver.GetErrorTolerance(), 0.0);
 }
@@ -46,7 +48,24 @@ TEST(TestIKStud, get_error) {
 /**
  * @brief Tests error tolance check stub
 */
-TEST(TestIKStud, is_error_tolerable) {
+TEST(TestIKStub, is_error_tolerable) {
   Solver ik_solver;
   EXPECT_EQ(ik_solver.IsErrorTolerable(0.0001), true);
+}
+
+
+/**
+ * @brief Tests State default constructor check stub
+*/
+TEST(TestIKStub, test_state_object) {
+  State state_;
+  EXPECT_EQ(0, 0);
+}
+
+/**
+ * @brief Tests robot default constructor
+*/
+TEST(TestIKStub, test_robot_object) {
+  Robot robotic_arm;
+  EXPECT_EQ(true, true);
 }
