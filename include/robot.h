@@ -15,11 +15,47 @@
 
 class Robot : public State{  // Robot inherits State class public members
  public:
-/**
-* @brief Construct a new robot object. Sets default values to all attributes
-*/
-    Robot();
+    /**
+    * @brief Construct a new robot object. Sets default values to all attributes
+    */
+        Robot();
+
+    /**
+    * @brief Method will set the environment variables
+    * @return bool flag indicating successful operation
+    */
+    bool Initialize();
+
+    /**
+    * @brief Method will set the environment variables
+    * @return bool flag indicating successful operation
+    */
+    bool Solver();
+
+    /**
+    * @brief Method will set the solve for trajectory
+    * @return bool flag indicating successful operation
+    */
+    bool TrajectoryPlanner();
+
+    /**
+    * @brief Method collects waypoints and feeds successive points for simulation
+    * @return bool flag indicating successful operation
+    */
+    bool Controller();
+
+    /**
+    * @brief Method to invoke simulator with desired joint actions
+    * @return bool flag indicating successful operation
+    */
+    bool Simulate();
 };
+
+
+
+
+
+
 
 
 #endif  // ROBOT_H_  // NOLINT
