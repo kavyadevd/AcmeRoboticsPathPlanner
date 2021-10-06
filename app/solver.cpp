@@ -17,3 +17,15 @@ Solver::Solver() {
 int Solver::solve() {
     return 0;
 }
+
+bool Solver::SetErrorTolerance(double _error) {
+    return true;
+}
+
+double Solver::GetErrorTolerance() {
+    return 0.0;
+}
+
+bool Solver::IsErrorTolerable(double _error) {
+    return (error_tolerance = _error);
+}

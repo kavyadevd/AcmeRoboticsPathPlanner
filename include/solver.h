@@ -14,15 +14,39 @@
 class Solver{
  public:
  /**
- * @brief Construct a new PID object. Sets values of kp, ki, kd to 0
+ * @brief Construct a new solver object. Sets default values to all attributes
  */
   Solver();
+
  /**
   * @brief Methods to solve IK
   * @return int flag indicating successful operation
-  */ 
+  */  
   int solve();
+
+   /**
+   * @brief Updates the error_tolerance attribute to _error
+   * @param _error : Integral constant value to be set
+   * @return bool true if value set successful
+   */
+  bool SetErrorTolerance(double _error);
+
+   /**
+   * @brief Fetched the error_tolerance attribute 
+   * @return error_tolerance value of object
+   */
+  double GetErrorTolerance();
+
+   /**
+   * @brief Checks if error is tolerant 
+   * @param _error : double error value in system
+   * @return true if error is tolerant, otherwise returns false
+   */
+  bool IsErrorTolerable(double _error);
+
+
  private:
+  double error_tolerance;  ///< Variable to set error tolerance
 };
 
 #endif  // ACMEROBOTICSPATHPLANNER_INCLUDE_SOLVER_H_  // NOLINT
