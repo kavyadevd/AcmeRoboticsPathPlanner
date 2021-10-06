@@ -18,6 +18,10 @@ This is a C++ project for path planning of a robotic arm manipulator. The work w
 
 <span><img style="align:centre" src="https://www.researchgate.net/profile/Alexandre-Campeau-Lecours/publication/329975514/figure/fig3/AS:710940106452992@1546512738050/UR5-robot-from-Universal-robot-with-the-definition-of-the-the-reference-frame-x-0-y-0.png" alt="cool Robot"></img> [source](https://www.researchgate.net/profile/Alexandre-Campeau-Lecours/publication/329975514/figure/fig3/AS:710940106452992@1546512738050/UR5-robot-from-Universal-robot-with-the-definition-of-the-the-reference-frame-x-0-y-0.png)</span>
 
+## Authors
+1. Kavyashree Devadiga (117398045)
+2. Aswath Muthuselvam (118286204)
+
 ## Installation
 
 The project requires a C++ environment, coppeliasim application for execution.
