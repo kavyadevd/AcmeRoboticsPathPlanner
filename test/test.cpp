@@ -13,5 +13,5 @@
 
 TEST(TestStud, should_pass_solver) {
   Solver ik_solver;
-  EXPECT_EQ(ik_solver.solve(), 1);
+  EXPECT_EQ(ik_solver.solve(), 0);
 }
