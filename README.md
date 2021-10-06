@@ -15,7 +15,7 @@ This is a C++ project for motion planning of a robotic arm manipulator. The work
 
 ## Installation
 
-The project requires C++ environment, coppeliasim application for execution.
+The project requires a C++ environment, coppeliasim application for execution.
 
 ```bash
 git clone --recursive https://github.com/kavyadevd/AcmeRoboticsPathPlanner.git
@@ -25,6 +25,33 @@ cd build
 cmake ..
 make
 ```
+
+Fet Eigen for matrix computations
+```bash
+git clone https://gitlab.com/libeigen/eigen.git
+```
+
+MoveIt
+
+For complete MoveIt installation refer to official documentation [here](https://ros-planning.github.io/moveit_tutorials/doc/getting_started/getting_started.html).
+On Ubuntu 18.04 and above MoveIt can be installed using following commands:
+    
+   ```bash
+   mkdir -p ~/ws_moveit/src
+   cd ~/ws_moveit/src
+
+   wstool init .
+   wstool merge -t . https://raw.githubusercontent.com/ros-planning/moveit/master/moveit.rosinstall
+   wstool update -t .
+  ```
+ 
+ Coppeliasim
+  [Download Coppeliasim](https://www.coppeliarobotics.com/files/CoppeliaSim_Player_V4_2_0_Ubuntu20_04.tar.xz) unpack the compressed file.
+  Run the simulator script by running the following command on cmd:
+  ```bash
+  ./coppeliasim.sh
+  ```
+
 
 ## Building for code coverage
 
@@ -38,6 +65,7 @@ make code_coverage
 
 ## Plugins
 
+
 - CppCheckEclipse
 
     To install and run cppcheck in Eclipse
@@ -45,18 +73,18 @@ make code_coverage
     1. In Eclipse, go to Window -> Preferences -> C/C++ -> cppcheclipse.
     Set cppcheck binary path to "/usr/bin/cppcheck".
 
-    2. To run CPPCheck on a project, right click on the project name in the Project Explorer 
+    2. To run CPPCheck on a project, right-click on the project name in the Project Explorer 
     and choose cppcheck -> Run cppcheck.
 
 
-- Google C++ Sytle
+- Google C++ Style
 
     To include and use Google C++ Style formatter in Eclipse
 
     1. In Eclipse, go to Window -> Preferences -> C/C++ -> Code Style -> Formatter. 
     Import [eclipse-cpp-google-style][reference-id-for-eclipse-cpp-google-style] and apply.
 
-    2. To use Google C++ style formatter, right click on the source code or folder in 
+    2. To use Google C++ style formatter, right-click on the source code or folder in 
     Project Explorer and choose Source -> Format
 
 [reference-id-for-eclipse-cpp-google-style]: https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-cpp-google-style.xml
@@ -67,7 +95,7 @@ make code_coverage
 
 - Doxygen
 
-    To generate the configuration file using doxygen run the following commands
+    The HTML page for project outlines can be generated using the following commands
 
     1.  doxygen -g
     2.  doxygen Doxyfile
