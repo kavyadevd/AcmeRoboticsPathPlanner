@@ -13,3 +13,23 @@
 
 Robot::Robot() {
 }
+
+bool Robot::Initialize() {
+    return true;
+}
+
+bool Robot::Solver() {
+    return true;
+}
+
+bool Robot::TrajectoryPlanner() {
+    return true;
+}
+
+bool Robot::Controller() {
+    return true;
+}
+
+bool Robot::Simulate() {
+    return true;
+}
