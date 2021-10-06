@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
 
-TEST(dummy, should_pass) {
+TEST(TestStud, should_pass_solver) {
   EXPECT_EQ(1, 1);
 }
