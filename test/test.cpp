@@ -69,3 +69,43 @@ TEST(TestIKStub, test_robot_object) {
   Robot robotic_arm;
   EXPECT_EQ(true, true);
 }
+
+/**
+ * @brief Tests robot initialize method
+*/
+TEST(TestIKStub, test_robot_initialize) {
+  Robot robotic_arm;
+  EXPECT_EQ(robotic_arm.Initialize(), true);
+}
+
+/**
+ * @brief Tests robot solve method
+*/
+TEST(TestIKStub, test_solver) {
+  Robot robotic_arm;
+  EXPECT_EQ(robotic_arm.Solver(), true);
+}
+
+/**
+ * @brief Tests robot Trajectory planner
+*/
+TEST(TestIKStub, test_trajectory_planner) {
+  Robot robotic_arm;
+  EXPECT_EQ(robotic_arm.TrajectoryPlanner(), true);
+}
+
+/**
+ * @brief Tests robot controller method
+*/
+TEST(TestIKStub, test_controller) {
+  Robot robotic_arm;
+  EXPECT_EQ(robotic_arm.Controller(), true);
+}
+
+/**
+ * @brief Tests robot simulate method
+*/
+TEST(TestIKStub, test_simulate) {
+  Robot robotic_arm;
+  EXPECT_EQ(robotic_arm.Simulate(), true);
+}
