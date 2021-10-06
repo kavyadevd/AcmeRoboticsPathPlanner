@@ -14,7 +14,7 @@
 /**
  * @brief Tests the default constructor
 */
-TEST(Test_Driven_PID, test_the_default_constructor) {
+TEST(TestIKStud, test_the_default_constructor) {
   Solver ik_solver;
   EXPECT_EQ(0, 0);
 }
@@ -22,7 +22,31 @@ TEST(Test_Driven_PID, test_the_default_constructor) {
 /**
  * @brief Tests IK solver stub
 */
-TEST(TestStud, should_pass_solver) {
+TEST(TestIKStud, should_pass_solver) {
   Solver ik_solver;
   EXPECT_EQ(ik_solver.solve(), 0);
+}
+
+/**
+ * @brief Tests Set Error stub
+*/
+TEST(TestIKStud, set_error) {
+  Solver ik_solver;
+  EXPECT_EQ(ik_solver.SetErrorTolerance(0.007), true);
+}
+
+/**
+ * @brief Tests Get Error stub
+*/
+TEST(TestIKStud, get_error) {
+  Solver ik_solver;
+  EXPECT_EQ(ik_solver.GetErrorTolerance(), 0.0);
+}
+
+/**
+ * @brief Tests error tolance check stub
+*/
+TEST(TestIKStud, is_error_tolerable) {
+  Solver ik_solver;
+  EXPECT_EQ(ik_solver.IsErrorTolerable(0.0001), true);
 }
