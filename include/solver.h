@@ -8,8 +8,8 @@
  * 
  */
 
-#ifndef ACMEROBOTICSPATHPLANNER_INCLUDE_SOLVER_H_  // NOLINT
-#define ACMEROBOTICSPATHPLANNER_INCLUDE_SOLVER_H_
+#ifndef SOLVER_H_  // NOLINT
+#define SOLVER_H_
 
 class Solver{
  public:
@@ -49,4 +49,4 @@ class Solver{
   double error_tolerance;  ///< Variable to set error tolerance
 };
 
-#endif  // ACMEROBOTICSPATHPLANNER_INCLUDE_SOLVER_H_  // NOLINT
+#endif  // SOLVER_H_  // NOLINT
