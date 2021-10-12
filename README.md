@@ -33,7 +33,7 @@ The input to the system will be the desired goal cartesian coordinates. This inp
 
 
 <p> <b>2. Aswath Muthuselvam (118286204)</b></br>Holds interest in Autonomous Mobile Agents, Computer Vision, Simultaneous Localization and Mapping, AI, Real-Time systems, and controls.
-  <a href="https://www.linkedin.com/in/aswathselvam/" rel="nofollow noreferrer">
+  <a href="https://www.linkedin.com/in/aswath-m/" rel="nofollow noreferrer">
     <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin">
   </a> &nbsp; 
   <a href="https://github.com/aswathselvam" rel="nofollow noreferrer">
