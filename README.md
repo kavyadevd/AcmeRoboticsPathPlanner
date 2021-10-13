@@ -40,7 +40,7 @@ Team discussions can be found [here](https://docs.google.com/spreadsheets/d/1zX0
 </div>
 <div>
    <p> <b>2. Aswath Muthuselvam (118286204)</b></br>Holds interest in Autonomous Mobile Agents, Computer Vision, Simultaneous Localization and Mapping, AI, Real-Time systems, and controls. Has a Bachelors's degree in Electrical, Electronics, and Communications Engineering and is currently pursuing Masters of Engineering in Robotics at the University of Maryland College Park.
-      <a href="https://www.linkedin.com/in/aswathselvam/" rel="nofollow noreferrer">
+      <a href="https://www.linkedin.com/in/aswath-m/" rel="nofollow noreferrer">
       <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin">
       </a> &nbsp; 
       <a href="https://github.com/aswathselvam" rel="nofollow noreferrer">
@@ -49,6 +49,7 @@ Team discussions can be found [here](https://docs.google.com/spreadsheets/d/1zX0
    </p>
    </div
 </div>
+
 
 
 ## Installation
