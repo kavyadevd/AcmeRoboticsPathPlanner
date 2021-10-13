@@ -11,7 +11,9 @@
 
 
 </hr>
-This is a C++ project for path planning of a robotic arm manipulator. The work was proposed and developed for Acme Robotics. The project was developed using standard software development practices.
+This is a C++ project for path planning of a robotic arm manipulator. The work was proposed and developed for Acme Robotics. The system will provide a solution for a 6DOF robotic arm path planning consisting of an IK solver and the output will be simulated in a virtual environment.
+The input to the system will be the desired goal cartesian coordinates. This input will be applied to a 6 DOF robotic arm with set initial points and known configuration. Based on this data the IK solver will calculate the configuration of individual arm components. To avoid unforeseen problems, each calculation will be validated against the arm constraints. 
+
 </br>
 
 ## 
@@ -19,8 +21,26 @@ This is a C++ project for path planning of a robotic arm manipulator. The work w
 <span><img style="align:centre" src="https://www.researchgate.net/profile/Alexandre-Campeau-Lecours/publication/329975514/figure/fig3/AS:710940106452992@1546512738050/UR5-robot-from-Universal-robot-with-the-definition-of-the-the-reference-frame-x-0-y-0.png" alt="cool Robot"></img> [source](https://www.researchgate.net/profile/Alexandre-Campeau-Lecours/publication/329975514/figure/fig3/AS:710940106452992@1546512738050/UR5-robot-from-Universal-robot-with-the-definition-of-the-the-reference-frame-x-0-y-0.png)</span>
 
 ## Authors
-1. Kavyashree Devadiga (117398045)
-2. Aswath Muthuselvam (118286204)
+
+<p> <b>1. Kavyashree Devadiga (117398045)</b> </br>Computer buff, interested in smart autonomous systems.
+  <a href="https://www.linkedin.com/in/kavyashree-devadiga/" rel="nofollow noreferrer">
+    <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin">
+  </a> &nbsp; 
+  <a href="https://github.com/kavyadevd" rel="nofollow noreferrer">
+    <img src="https://i.stack.imgur.com/tskMh.png" alt="github">
+  </a>
+</p>
+
+
+<p> <b>2. Aswath Muthuselvam (118286204)</b></br>Holds interest in Autonomous Mobile Agents, Computer Vision, Simultaneous Localization and Mapping, AI, Real-Time systems, and controls.
+  <a href="https://www.linkedin.com/in/aswathselvam/" rel="nofollow noreferrer">
+    <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin">
+  </a> &nbsp; 
+  <a href="https://github.com/aswathselvam" rel="nofollow noreferrer">
+    <img src="https://i.stack.imgur.com/tskMh.png" alt="github">
+  </a>
+</p>
+
 
 ## Installation
 
