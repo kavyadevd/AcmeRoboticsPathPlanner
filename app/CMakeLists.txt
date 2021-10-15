@@ -31,6 +31,6 @@ target_include_directories(lib
         $ENV{HOME}/CoppeliaSim_Edu/programming/remoteApi
 )
 
-add_executable(shell-app main.cpp state.cpp robot.cpp)
+add_executable(shell-app main.cpp state.cpp solver.cpp robot.cpp simulator.cpp)
 
 target_link_libraries(shell-app PRIVATE lib Threads::Threads)
