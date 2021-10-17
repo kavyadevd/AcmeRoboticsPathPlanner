@@ -30,6 +30,9 @@ class Simulator {
 
   void Stop();
 
+  void getJoint();
+  
+
  private:
   int client_ID_;
   bool connection_success_;
