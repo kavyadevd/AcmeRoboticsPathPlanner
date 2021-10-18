@@ -26,8 +26,8 @@ int main() {
   }
 
   robot.Initialize();
-  
-  char *name= "UR5";
+
+  char name[10] = "UR5";
   simxInt parent = simulator.GetObjectHandle(name);
   cout << "Parent: " << parent << endl;
   simxInt child = parent;
