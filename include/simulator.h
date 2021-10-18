@@ -28,14 +28,20 @@ class Simulator {
    */
   bool Initialize();
 
+  /**
+   * @brief Close open CoppeliaSim communication channels.
+   */
   void Stop();
 
-  void getJoint();
-  
+  /**
+   * @brief Method to get robot joint information.
+   */
+  void GetJoint();
 
  private:
-  int client_ID_;
-  bool connection_success_;
+  int client_ID_;  ///< Variable to store active CoppeliaSim communication unique ID.
+                   /// client_ID = -1 if no connection
+  bool connection_success_;  ///< Boolean flag to indicate active connection.
 };
 
 #endif  // SIMULATOR_H  // NOLINT
