@@ -25,7 +25,7 @@ include_directories(
     $ENV{HOME}/CoppeliaSim_Edu/programming/include
 )
 
-add_library(lib STATIC ${SOURCES})
+# add_library(lib STATIC ${SOURCES})
 
 target_include_directories(lib
     PUBLIC
