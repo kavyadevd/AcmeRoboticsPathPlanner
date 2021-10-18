@@ -12,4 +12,13 @@
 #include "state.h"     // NOLINT
 
 State::State() {
+    x = 0.0;
+    y = 0.0;
+    z = 0.0;
+    theta = 0.0;
+    phi = 0.0;
+    alpha = 0.0;
+    velocity = 0.0;
+    acceleration = 0.0;
+    torque = 0.0;
 }

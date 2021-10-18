@@ -35,6 +35,7 @@ script:
 
 after_success:
   - coveralls --root .. -E ".*external.*" -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*"
+  
 
 notifications:
   email: false

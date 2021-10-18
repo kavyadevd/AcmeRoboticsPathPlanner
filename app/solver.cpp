@@ -12,6 +12,7 @@
 #include "solver.h"     // NOLINT
 
 Solver::Solver() {
+    error_tolerance = 0.5;
 }
 
 int Solver::PerformIK() {
@@ -19,13 +20,14 @@ int Solver::PerformIK() {
 }
 
 bool Solver::SetErrorTolerance(double _error) {
+    error_tolerance = _error;
     return true;
 }
 
 double Solver::GetErrorTolerance() {
-    return 0.0;
+    return error_tolerance;
 }
 
 bool Solver::IsErrorTolerable(double _error) {
-    return (error_tolerance = _error);
+    return (error_tolerance <= _error);
 }

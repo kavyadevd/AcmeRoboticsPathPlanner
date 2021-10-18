@@ -8,10 +8,11 @@
  * 
  */
 
-#include "state.h"  //NOLINT
-
 #ifndef ROBOT_H_  // NOLINT
 #define ROBOT_H_
+
+#include "state.h"  // NOLINT
+#include "simulator.h"  // NOLINT
 
 class Robot : public State{  // Robot inherits State class public members
  public:
