@@ -45,19 +45,24 @@ void Simulator::Stop() {
 
 simxInt Simulator::GetObjectHandle(char* name) {
   simxInt handle;
-  simxGetObjectHandle(client_ID_, name, &handle, simx_opmode_oneshot_wait);
+  simxGetObjectHandle(client_ID_, name, &handle,
+   simx_opmode_oneshot_wait);
   return handle;
 }
 
 simxInt Simulator::GetParent(simxInt handle) {
   simxInt parentObjectHandle;
-  simxGetObjectParent(client_ID_, handle, &parentObjectHandle, simx_opmode_blocking);
+  simxGetObjectParent(client_ID_, handle, &parentObjectHandle,
+   simx_opmode_blocking);
   return parentObjectHandle;
 }
 
-simxInt Simulator::GetChild(simxInt parentObjectHandle, simxInt childIndex = 0) {
+simxInt Simulator::GetChild(simxInt parentObjectHandle,
+ simxInt childIndex = 0) {
   simxInt childObjectHandle;
-  simxGetObjectChild(client_ID_, parentObjectHandle , childIndex, &childObjectHandle, simx_opmode_blocking);
+  simxGetObjectChild(client_ID_, parentObjectHandle , childIndex,
+   &childObjectHandle,
+  simx_opmode_blocking);
   return childObjectHandle;
 }
 
