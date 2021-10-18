@@ -12,8 +12,7 @@
 #ifndef SIMULATOR_H_  // NOLINT
 #define SIMULATOR_H_
 
-#include <unistd.h>
-#include <iostream>
+
 extern "C" {
 #include "extApi.h"
 }
@@ -30,8 +29,15 @@ class Simulator {
 
   void Stop();
 
-  void getJoint();
-  
+  int GetClientID();
+
+  simxInt GetObjectHandle(char* name);
+
+  simxInt GetParent(simxInt handle);
+
+  simxInt GetChild(simxInt parentObjectHandle, simxInt childIndex);
+
+  ~Simulator();  
 
  private:
   int client_ID_;
