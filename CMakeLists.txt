@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2.1)
-project (scratch)
+project(acmerobotics)
 set(CMAKE_CXX_STANDARD 14)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -lm -ldl -lpthread")
 
@@ -28,5 +28,5 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 14)
 
 add_subdirectory(app)
-add_subdirectory(test)
-add_subdirectory(vendor/googletest/googletest)
+#add_subdirectory(test)
+#add_subdirectory(vendor/googletest/googletest)
