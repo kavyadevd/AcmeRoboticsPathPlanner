@@ -19,6 +19,11 @@ extern "C" {
 
 class Simulator {
  public:
+ /**
+    * @brief Construct a new Simulator object. Sets default values to all attributes
+    */
+    Simulator();
+
   /**
    * @brief Initialize communication with CoppeliaSim with remoteX API.
    *

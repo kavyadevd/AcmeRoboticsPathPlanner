@@ -13,6 +13,11 @@
 #include <unistd.h>
 #include <iostream>
 
+Simulator::Simulator() {
+  client_ID_ = -1;
+  connection_success_ = false;
+}
+
 bool Simulator::Initialize() {
   // Close any previously unfinished jobs in CoppeliaSim
   simxFinish(-1);
