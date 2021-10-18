@@ -11,7 +11,8 @@
 #ifndef ROBOT_H_  // NOLINT
 #define ROBOT_H_
 
-#include <state.h>
+#include "state.h"
+#include "simulator.h"
 
 class Robot : public State{  // Robot inherits State class public members
  public:

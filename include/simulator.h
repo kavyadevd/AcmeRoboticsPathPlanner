@@ -12,8 +12,7 @@
 #ifndef SIMULATOR_H_  // NOLINT
 #define SIMULATOR_H_
 
-#include <unistd.h>
-#include <iostream>
+
 extern "C" {
 #include "extApi.h"
 }
@@ -33,10 +32,15 @@ class Simulator {
    */
   void Stop();
 
-  /**
-   * @brief Method to get robot joint information.
-   */
-  void GetJoint();
+  int GetClientID();
+
+  simxInt GetObjectHandle(char* name);
+
+  simxInt GetParent(simxInt handle);
+
+  simxInt GetChild(simxInt parentObjectHandle, simxInt childIndex);
+
+  ~Simulator();  
 
  private:
   int client_ID_;  ///< Variable to store active CoppeliaSim communication unique ID.
