@@ -40,7 +40,7 @@ class Simulator {
 
   simxInt GetChild(simxInt parentObjectHandle, simxInt childIndex);
 
-  ~Simulator();  
+  ~Simulator();
 
  private:
   int client_ID_;  ///< Variable to store active CoppeliaSim communication unique ID.
