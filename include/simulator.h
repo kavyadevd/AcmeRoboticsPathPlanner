@@ -34,6 +34,8 @@ class Simulator {
 
   int GetClientID();
 
+  void GetJointMatrix(simxInt joint, float* matrix);
+
   simxInt GetObjectHandle(char* name);
 
   simxInt GetParent(simxInt handle);
