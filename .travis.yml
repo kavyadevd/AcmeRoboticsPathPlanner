@@ -23,8 +23,9 @@ matrix:
 before_install:
   - pip install --user cpp-coveralls
   - wget --no-check-certificate "https://www.coppeliarobotics.com/files/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04.tar.xz"
-  - tar -xzvf CoppeliaSim_Edu_V4_2_0_Ubuntu18_04.tar.xz
+  - tar -xf CoppeliaSim_Edu_V4_2_0_Ubuntu18_04.tar.xz
   - mv CoppeliaSim_Edu_V4_2_0_Ubuntu18_04 CoppeliaSim_Edu
+  - CoppeliaSim_Edu/coppeliaSim.sh AcmeRoboticsPathPlanner/ur5_CoppeliaSim_scene.ttt
 install:
   - sudo apt-get install -y -qq lcov
 script:
@@ -34,7 +35,6 @@ script:
   - cmake -DCOVERAGE=ON -DCMAKE_BUILD_TYPE=Debug ../
   - make
   - make code_coverage
-  - CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/coppeliaSim.sh AcmeRoboticsPathPlanner/ur5_CoppeliaSim_scene.ttt
   - test/cpp-test
 
 after_success:
