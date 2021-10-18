@@ -11,7 +11,7 @@
 <div align="center">
    <h4>Overview</h4>
 </div>
-This is a project for the path planning of a robotic arm manipulator. The work was proposed and developed for Acme Robotics. The system will provide a solution for a 6DOF robotic arm path planning consisting of an IK solver and path planner and the output will be simulated in a virtual environment.
+This is a project for the path planning of a robotic arm manipulator. The work was proposed and developed for Acme Robotics. The system will provide a solution for a 6DOF UR5 robotic arm path planning consisting of an IK solver and path planner and the output will be simulated in a virtual environment.
 The input to the system will be the desired goal cartesian coordinates. This input will be applied to a 6 DOF robotic arm with set initial points and known configuration. Based on this data, the IK solver will calculate the configuration of individual arm components. To avoid unforeseen problems, each calculation will be validated against the arm constraints.
 For the implementation of the IK solver and path planner, we are using the MoveIt library. MoveIt is licensed under BSDv3 (Berkeley Software Distribution).
 It implements a path planner using the Stochastic Trajectory Optimization for Motion Planning (STOMP) algorithm. STOMP generates noisy trajectories and then optimizes them based on a cost function that includes obstacle and smoothness.	Gradients are not used to optimize the path, thus making this algorithm faster than the ones that use gradients. 
@@ -20,8 +20,8 @@ The driver-navigator method will ensure code is inspected on the go and this col
 </br>
 
 ## Project Development Documentation
-The project backlog for AIP process can be found [here](https://docs.google.com/document/d/1RdvYMPEdTKRoNJPfLJrx5js1_1oWBHXO7ZER36gTqio/edit?usp=sharing)
-Team discussions can be found [here](https://docs.google.com/spreadsheets/d/1zX0pAVmc6K0hxXXXkboeQGreZijge_ZQpGS1sxYqzik/edit?usp=sharing)
+The project backlog for AIP process can be found  [here](https://docs.google.com/spreadsheets/d/1zX0pAVmc6K0hxXXXkboeQGreZijge_ZQpGS1sxYqzik/edit?usp=sharing)
+Team discussions can be found [here](https://docs.google.com/document/d/1RdvYMPEdTKRoNJPfLJrx5js1_1oWBHXO7ZER36gTqio/edit?usp=sharing)
 
 ## 
 
@@ -88,7 +88,7 @@ On Ubuntu 18.04 and above MoveIt can be installed using following commands:
   [Download Coppeliasim](https://www.coppeliarobotics.com/files/CoppeliaSim_Player_V4_2_0_Ubuntu20_04.tar.xz) unpack the compressed file.
   Run the simulator script by running the following command on cmd:
   ```bash
-  ./coppeliasim.sh
+  $<CoppeliaSim>/coppeliaSim.sh <AcmeRoboticsPathPlanner>/ur5_CoppeliaSim_scene.ttt
   ```
 
 
@@ -114,7 +114,19 @@ make code_coverage
 
     2. To run CPPCheck on a project, right-click on the project name in the Project Explorer 
     and choose cppcheck -> Run cppcheck.
-
+    
+    3. To run on terminal
+    ```bash
+    cppcheck --enable=all --std=c++11 -I include/ --suppress=missingIncludeSystem $( find . -name *.cpp -or -name *.h | grep -vE -e "^./build/" -e "^./vendor/") >     Results/cppcheckoutput.xml
+    ```
+    Results are present at Results/cppcheckoutput.xml
+    
+- Cpplint
+   1. To run cpplint on terminal
+   ```bash
+   cpplint $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/") $( find . -name *.hpp | grep -vE -e "^./build/" -e "^./vendor/") >                    Results/cpplintoutput.txt
+   ```
+   Results are present at Results/cpplintoutput.xml
 
 - Google C++ Style
 
