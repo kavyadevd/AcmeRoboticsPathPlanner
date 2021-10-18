@@ -17,7 +17,7 @@ bool Simulator::Initialize() {
   // Main connection to CoppeliaSim
   client_ID_ = simxStart((simxChar*)"127.0.0.1", 19997, true, true, 5000, 5);
   sleep(1);
-  connection_success_ = client_ID_ == 1;
+  connection_success_ = client_ID_ != -1;
   return connection_success_;
 }
 
