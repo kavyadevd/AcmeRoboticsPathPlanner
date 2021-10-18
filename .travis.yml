@@ -27,6 +27,7 @@ before_install:
   - mv CoppeliaSim_Edu_V4_2_0_Ubuntu18_04 CoppeliaSim_Edu
   - ls
   - pwd
+  - CoppeliaSim_Edu/libLoadErrorCheck.sh
   - CoppeliaSim_Edu/coppeliaSim.sh ur5_CoppeliaSim_scene.ttt
 install:
   - sudo apt-get install -y -qq lcov
