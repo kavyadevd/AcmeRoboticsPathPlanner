@@ -21,6 +21,7 @@ matrix:
       env: COMPILER=g++-5
 
 before_install:
+  - sudo apt-get install build-essential
   - pip install --user cpp-coveralls
   - wget --no-check-certificate "https://www.coppeliarobotics.com/files/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04.tar.xz"
   - tar -xf CoppeliaSim_Edu_V4_2_0_Ubuntu18_04.tar.xz
