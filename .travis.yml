@@ -25,6 +25,7 @@ before_install:
   - wget --no-check-certificate "https://www.coppeliarobotics.com/files/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04.tar.xz"
   - tar -xf CoppeliaSim_Edu_V4_2_0_Ubuntu18_04.tar.xz
   - mv CoppeliaSim_Edu_V4_2_0_Ubuntu18_04 CoppeliaSim_Edu
+  - ls
   - CoppeliaSim_Edu/coppeliaSim.sh AcmeRoboticsPathPlanner/ur5_CoppeliaSim_scene.ttt
 install:
   - sudo apt-get install -y -qq lcov
