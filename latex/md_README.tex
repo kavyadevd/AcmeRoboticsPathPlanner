@@ -1,0 +1,123 @@
+\href{https://app.travis-ci.com/kavyadevd/AcmeRoboticsPathPlanner}{\texttt{ }} \href{https://coveralls.io/github/kavyadevd/AcmeRoboticsPathPlanner?branch=main}{\texttt{ }} \href{https://opensource.org/licenses/MIT}{\texttt{ }}  \doxysection*{Arm path planner}
+
+ \doxysubsubsection*{A manipulator path planner with IK solver for Acme Robotics }
+
+     \doxyparagraph*{Overview}
+
+  This is a project for the path planning of a robotic arm manipulator. The work was proposed and developed for Acme Robotics. The system will provide a solution for a 6DOF UR5 robotic arm path planning consisting of an IK solver and path planner and the output will be simulated in a virtual environment. The input to the system will be the desired goal cartesian coordinates. This input will be applied to a 6 DOF robotic arm with set initial points and known configuration. Based on this data, the IK solver will calculate the configuration of individual arm components. To avoid unforeseen problems, each calculation will be validated against the arm constraints. For the implementation of the IK solver and path planner, we are using the Move\+It library. Move\+It is licensed under BSDv3 (Berkeley Software Distribution). It implements a path planner using the Stochastic Trajectory Optimization for Motion Planning (STOMP) algorithm. STOMP generates noisy trajectories and then optimizes them based on a cost function that includes obstacle and smoothness. Gradients are not used to optimize the path, thus making this algorithm faster than the ones that use gradients. The development team of two will work together and use agile methodologies. A standard software pair programming will be implemented. The driver-\/navigator method will ensure code is inspected on the go and this collaboration will result in a bug-\/free, robust product. \hypertarget{md_README_autotoc_md0}{}\doxysubsection{Project Development Documentation}\label{md_README_autotoc_md0}
+The project backlog for AIP process can be found \href{https://docs.google.com/spreadsheets/d/1zX0pAVmc6K0hxXXXkboeQGreZijge_ZQpGS1sxYqzik/edit?usp=sharing}{\texttt{ here}} Team discussions can be found \href{https://docs.google.com/document/d/1RdvYMPEdTKRoNJPfLJrx5js1_1oWBHXO7ZER36gTqio/edit?usp=sharing}{\texttt{ here}}\hypertarget{md_README_autotoc_md1}{}\doxysubsection{autotoc\+\_\+md1}\label{md_README_autotoc_md1}
+ \href{https://www.researchgate.net/profile/Alexandre-Campeau-Lecours/publication/329975514/figure/fig3/AS:710940106452992@1546512738050/UR5-robot-from-Universal-robot-with-the-definition-of-the-the-reference-frame-x-0-y-0.png}{\texttt{ source}} \hypertarget{md_README_autotoc_md2}{}\doxysubsection{Authors}\label{md_README_autotoc_md2}
+  
+
+ {\bfseries{1. Kavyashree Devadiga (117398045)}} Computer buff, interested in smart autonomous systems. Has a Bachelors degree in Computer Science and is currently pursuing Masters of Engineering in Robotics at University of Maryland College Park. \href{https://www.linkedin.com/in/kavyashree-devadiga/}{\texttt{  }} ~ \href{https://github.com/kavyadevd}{\texttt{  }} 
+
+   
+
+ {\bfseries{2. Aswath Muthuselvam (118286204)}}Holds interest in Autonomous Mobile Agents, Computer Vision, Simultaneous Localization and Mapping, AI, Real-\/\+Time systems, and controls. Has a Bachelors\textquotesingle{}s degree in Electrical, Electronics, and Communications Engineering and is currently pursuing Masters of Engineering in Robotics at the University of Maryland College Park. \href{https://www.linkedin.com/in/aswath-m/}{\texttt{  }} ~ \href{https://github.com/aswathselvam}{\texttt{  }} 
+
+ \texorpdfstring{$<$}{<}/div 
+
+\hypertarget{md_README_autotoc_md3}{}\doxysubsection{Installation}\label{md_README_autotoc_md3}
+ The project requires a C++ environment, coppeliasim application for execution.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git clone -\/-\/recursive https://github.com/kavyadevd/AcmeRoboticsPathPlanner.git}
+\DoxyCodeLine{cd AcmeRoboticsPathPlanner}
+\DoxyCodeLine{mkdir -\/p build}
+\DoxyCodeLine{cd build}
+\DoxyCodeLine{cmake ..}
+\DoxyCodeLine{make}
+
+\end{DoxyCode}
+
+
+Fet Eigen for matrix computations 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git clone https://gitlab.com/libeigen/eigen.git}
+
+\end{DoxyCode}
+
+
+Move\+It
+
+For complete Move\+It installation refer to official documentation \href{https://ros-planning.github.io/moveit_tutorials/doc/getting_started/getting_started.html}{\texttt{ here}}. On Ubuntu 18.\+04 and above Move\+It can be installed using following commands\+:
+
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir -\/p \string~/ws\_moveit/src}
+\DoxyCodeLine{cd \string~/ws\_moveit/src}
+\DoxyCodeLine{}
+\DoxyCodeLine{wstool init .}
+\DoxyCodeLine{wstool merge -\/t . https://raw.githubusercontent.com/ros-\/planning/moveit/master/moveit.rosinstall}
+\DoxyCodeLine{wstool update -\/t .}
+
+\end{DoxyCode}
+
+
+ Coppeliasim \href{https://www.coppeliarobotics.com/files/CoppeliaSim_Player_V4_2_0_Ubuntu20_04.tar.xz}{\texttt{ Download Coppeliasim}} unpack the compressed file. Run the simulator script by running the following command on cmd\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$<CoppeliaSim>/coppeliaSim.sh <AcmeRoboticsPathPlanner>/ur5\_CoppeliaSim\_scene.ttt}
+
+\end{DoxyCode}
+
+
+\hypertarget{md_README_autotoc_md4}{}\doxysubsection{Building for code coverage}\label{md_README_autotoc_md4}
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt-\/get install lcov}
+\DoxyCodeLine{cmake -\/D COVERAGE=ON -\/D CMAKE\_BUILD\_TYPE=Debug ../}
+\DoxyCodeLine{make}
+\DoxyCodeLine{make code\_coverage}
+
+\end{DoxyCode}
+
+
+\hypertarget{md_README_autotoc_md5}{}\doxysubsection{Plugins}\label{md_README_autotoc_md5}
+
+
+
+\begin{DoxyItemize}
+\item Cpp\+Check\+Eclipse
+
+To install and run cppcheck in Eclipse
+\begin{DoxyEnumerate}
+\item In Eclipse, go to Window -\/\texorpdfstring{$>$}{>} Preferences -\/\texorpdfstring{$>$}{>} C/\+C++ -\/\texorpdfstring{$>$}{>} cppcheclipse. Set cppcheck binary path to \char`\"{}/usr/bin/cppcheck\char`\"{}.
+\item To run CPPCheck on a project, right-\/click on the project name in the Project Explorer and choose cppcheck -\/\texorpdfstring{$>$}{>} Run cppcheck.
+\item To run on terminal 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cppcheck -\/-\/enable=all -\/-\/std=c++11 -\/I include/ -\/-\/suppress=missingIncludeSystem \$( find . -\/name *.cpp -\/or -\/name *.h | grep -\/vE -\/e "{}\string^./build/"{} -\/e "{}\string^./vendor/"{}) >     Results/cppcheckoutput.xml}
+
+\end{DoxyCode}
+ Results are present at Results/cppcheckoutput.\+xml
+\end{DoxyEnumerate}
+\item Cpplint
+\begin{DoxyEnumerate}
+\item To run cpplint on terminal 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cpplint \$( find . -\/name *.cpp | grep -\/vE -\/e "{}\string^./build/"{} -\/e "{}\string^./vendor/"{}) \$( find . -\/name *.hpp | grep -\/vE -\/e "{}\string^./build/"{} -\/e "{}\string^./vendor/"{}) >                    Results/cpplintoutput.txt}
+
+\end{DoxyCode}
+ Results are present at Results/cpplintoutput.\+xml
+\end{DoxyEnumerate}
+\item Google C++ Style
+
+To include and use Google C++ Style formatter in Eclipse
+\begin{DoxyEnumerate}
+\item In Eclipse, go to Window -\/\texorpdfstring{$>$}{>} Preferences -\/\texorpdfstring{$>$}{>} C/\+C++ -\/\texorpdfstring{$>$}{>} Code Style -\/\texorpdfstring{$>$}{>} Formatter. Import \href{https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-cpp-google-style.xml}{\texttt{ eclipse-\/cpp-\/google-\/style}} and apply.
+\item To use Google C++ style formatter, right-\/click on the source code or folder in Project Explorer and choose Source -\/\texorpdfstring{$>$}{>} Format
+\end{DoxyEnumerate}
+\item Git
+
+It is possible to manage version control through Eclipse and the git plugin, but it typically requires creating another project. If you\textquotesingle{}re interested in this, try it out yourself and contact me on Canvas.
+\item Doxygen
+
+The HTML page for project outlines can be generated using the following commands
+\begin{DoxyEnumerate}
+\item doxygen -\/g
+\item doxygen Doxyfile
+\end{DoxyEnumerate}
+\end{DoxyItemize}
+
+\hypertarget{md_README_autotoc_md6}{}\doxysubsection{Licensing}\label{md_README_autotoc_md6}
+The project is licensed under \href{https://opensource.org/licenses/MIT}{\texttt{ MIT License}}. Click \href{https://github.com/kavyadevd/AcmeRoboticsPathPlanner/blob/main/LICENSE}{\texttt{ here}} to know more 
