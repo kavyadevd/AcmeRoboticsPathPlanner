@@ -7,7 +7,6 @@ add_executable(
     ../app/solver.cpp
     ../app/state.cpp
     ../app/robot.cpp
-    ../app/simulator.cpp
 )
 
 target_include_directories(cpp-test PUBLIC ../vendor/googletest/googletest/include 

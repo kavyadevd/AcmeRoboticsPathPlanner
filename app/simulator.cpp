@@ -28,7 +28,10 @@ bool Simulator::Initialize() {
 
   if (connection_success_) {
     simxSynchronous(client_ID_, 0);
+    simxStopSimulation(client_ID_, simx_opmode_oneshot);
+    sleep(1);
     simxStartSimulation(client_ID_, 1);
+    sleep(3);
   }
 
   return connection_success_;
@@ -38,9 +41,12 @@ int Simulator::GetClientID() {
   return client_ID_;
 }
 
-void Simulator::Stop() {
-  simxStopSimulation(client_ID_, simx_opmode_oneshot);
-  simxFinish(client_ID_);
+void Simulator::GetJointMatrix(simxInt joint, float* matrix){
+  simxGetJointMatrix(client_ID_, joint, matrix, simx_opmode_blocking);
+}
+
+void Simulator::Stop() { 
+  simxFinish(client_ID_); 
 }
 
 simxInt Simulator::GetObjectHandle(char* name) {
