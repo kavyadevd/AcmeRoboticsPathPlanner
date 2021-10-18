@@ -1,3 +1,8 @@
+/**
+ * @file test.cpp
+ * @copyright All rights reserved
+ * 
+ **/
 #include <gtest/gtest.h>
 
 int main(int argc, char** argv) {
