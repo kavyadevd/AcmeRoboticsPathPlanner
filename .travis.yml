@@ -23,7 +23,7 @@ matrix:
 before_install:
   - pip install --user cpp-coveralls
   - wget --no-check-certificate "https://www.coppeliarobotics.com/files/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04.tar.xz"
-  - tar -xvf archive.tar.xz
+  - tar -xzvf CoppeliaSim_Edu_V4_2_0_Ubuntu18_04.tar.xz
   - mv CoppeliaSim_Edu_V4_2_0_Ubuntu18_04 CoppeliaSim_Edu
 install:
   - sudo apt-get install -y -qq lcov
