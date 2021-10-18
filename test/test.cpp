@@ -12,7 +12,7 @@
 #include "solver.h"  // NOLINT
 #include "state.h"  // NOLINT
 #include "robot.h"  // NOLINT
-#include "simulator.h"
+#include "simulator.h"  // NOLINT
 
 /**
  * @brief Tests the default constructor
