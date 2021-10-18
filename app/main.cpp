@@ -12,8 +12,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include "simulator.h"
-#include "robot.h"
+#include "include/simulator.h"
+#include "include/robot.h"
 
 using std::cout;
 using std::endl;
