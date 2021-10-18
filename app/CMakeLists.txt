@@ -1,34 +1,7 @@
 find_package(Threads REQUIRED)
 
-find_package(catkin REQUIRED
-  COMPONENTS
-    interactive_markers
-    moveit_core
-    moveit_visual_tools
-    moveit_ros_planning
-    moveit_ros_planning_interface
-    pluginlib
-    geometric_shapes
-    tf2_eigen
-    tf2_geometry_msgs
-)
-
 find_package(Boost REQUIRED system filesystem date_time thread)
 find_package(Eigen3 REQUIRED)
-
-catkin_package(
-  LIBRARIES
-    interactivity_utils
-  INCLUDE_DIRS
-    ${THIS_PACKAGE_INCLUDE_DIRS}
-  CATKIN_DEPENDS
-    moveit_core
-    moveit_visual_tools
-    moveit_ros_planning_interface
-    interactive_markers
-  DEPENDS
-    EIGEN3
-)
 
 add_definitions(-DNON_MATLAB_PARSING)
 add_definitions(-DMAX_EXT_API_CONNECTIONS=255)
