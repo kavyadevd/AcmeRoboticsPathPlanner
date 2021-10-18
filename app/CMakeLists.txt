@@ -1,7 +1,7 @@
 find_package(Threads REQUIRED)
 
-find_package(Boost REQUIRED system filesystem date_time thread)
-find_package(Eigen3 REQUIRED)
+# find_package(Boost REQUIRED system filesystem date_time thread)
+# find_package(Eigen3 REQUIRED)
 
 add_definitions(-DNON_MATLAB_PARSING)
 add_definitions(-DMAX_EXT_API_CONNECTIONS=255)
@@ -25,7 +25,7 @@ include_directories(
     $ENV{HOME}/CoppeliaSim_Edu/programming/include
 )
 
-add_library(lib STATIC ${SOURCES})
+# add_library(lib STATIC ${SOURCES})
 
 target_include_directories(lib
     PUBLIC
