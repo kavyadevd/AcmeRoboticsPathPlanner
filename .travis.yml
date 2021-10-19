@@ -28,7 +28,7 @@ before_install:
   - mv CoppeliaSim_Edu_V4_2_0_Ubuntu16_04 CoppeliaSim_Edu
   - sudo apt-get install '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
   - CoppeliaSim_Edu/libLoadErrorCheck.sh
-  - CoppeliaSim_Edu/coppeliaSim.sh -h ur5_CoppeliaSim_scene.ttt
+  - CoppeliaSim_Edu/coppeliaSim.sh -h ur5_CoppeliaSim_scene.ttt &
 install:
   - sudo apt-get install -y -qq lcov
 script:
