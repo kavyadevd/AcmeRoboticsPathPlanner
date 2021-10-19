@@ -30,21 +30,21 @@ Team discussions can be found [here](https://docs.google.com/document/d/1RdvYMPE
 <div style="display:grid;grid-template-columns:auto auto">
 <div>
    <p> <b>1. Kavyashree Devadiga (117398045)</b> </br>Computer buff, interested in smart autonomous systems. Has a Bachelors degree in Computer Science and is currently pursuing Masters of Engineering in Robotics at University of Maryland College Park.
-      <a href="https://www.linkedin.com/in/kavyashree-devadiga/" rel="nofollow noreferrer">
+      <a href="https://www.linkedin.com/in/kavyashree-devadiga/" title="LinkedIn" rel="nofollow noreferrer">
       <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin">
       </a> &nbsp; 
-      <a href="https://github.com/kavyadevd" rel="nofollow noreferrer">
-      <img src="https://i.stack.imgur.com/tskMh.png" alt="github">
+      <a href="https://github.com/kavyadevd" rel="nofollow noreferrer" title="Github">
+      <img src="https://i.imgur.com/J6LeoUb.png" width="19px" alt="github">
       </a>
    </p>
 </div>
 <div>
    <p> <b>2. Aswath Muthuselvam (118286204)</b></br>Holds interest in Autonomous Mobile Agents, Computer Vision, Simultaneous Localization and Mapping, AI, Real-Time systems, and controls. Has a Bachelors's degree in Electrical, Electronics, and Communications Engineering and is currently pursuing Masters of Engineering in Robotics at the University of Maryland College Park.
-      <a href="https://www.linkedin.com/in/aswath-m/" rel="nofollow noreferrer">
+      <a href="https://www.linkedin.com/in/aswath-m/" title="LinkedIn" rel="nofollow noreferrer">
       <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin">
       </a> &nbsp; 
-      <a href="https://github.com/aswathselvam" rel="nofollow noreferrer">
-      <img src="https://i.stack.imgur.com/tskMh.png" alt="github">
+      <a href="https://github.com/aswathselvam" title="Github" rel="nofollow noreferrer">
+      <img src="https://i.imgur.com/J6LeoUb.png" width="19px" alt="github">
       </a>
    </p>
    </div
