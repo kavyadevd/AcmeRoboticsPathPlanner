@@ -38,7 +38,9 @@ class Simulator {
   void Stop();
 
   /**
-   * @brief Returns client ID of our c++ program assigned by CoppeliaSim .
+   * @brief Returns client ID of our c++ program assigned by CoppeliaSim.
+   * 
+   * @return int returns active CoppeliaSim communication unique ID.
    */
   int GetClientID();
 
@@ -61,7 +63,7 @@ class Simulator {
   /**
    * @brief Initialize communication with CoppeliaSim with remoteX API.
    *
-   * @return true if program connects with CoppeliaSim successfully.
+   * @param Integer reference of Handle(arm joint) to get it's parent.
    * @return Integer reference of parent object.
    */
   simxInt GetParent(simxInt handle);
