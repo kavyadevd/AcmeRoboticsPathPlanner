@@ -114,7 +114,7 @@ TEST(TestIKStub, test_simulate) {
 /**
  * @brief Tests Coppeliasim connection
 */
-TEST(TestIKStub, test_connection) {
-  Simulator sim;
-  EXPECT_EQ((sim.GetClientID() != -1), true);
-}
+// TEST(TestIKStub, test_connection) {
+//   Simulator sim;
+//   EXPECT_EQ((sim.GetClientID() != -1), true);
+// }
