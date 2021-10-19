@@ -43,7 +43,7 @@ TEST(TestIKStub, set_error) {
 */
 TEST(TestIKStub, get_error) {
   Solver ik_solver;
-  EXPECT_EQ(ik_solver.GetErrorTolerance(), 0.0);
+  EXPECT_EQ(ik_solver.GetErrorTolerance(), 0.5);
 }
 
 /**
