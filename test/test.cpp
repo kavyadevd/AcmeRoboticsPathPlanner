@@ -110,3 +110,19 @@ TEST(TestIKStub, test_simulate) {
   Robot robotic_arm;
   EXPECT_EQ(robotic_arm.Simulate(), true);
 }
+
+/**
+ * @brief Tests Coppeliasim Initialization
+*/
+TEST(TestIKStub, test_simulate) {
+  Robot robotic_arm;
+  EXPECT_EQ(robotic_arm.Simulate(), true);
+}
+
+/**
+ * @brief Tests Coppeliasim connection
+*/
+TEST(TestIKStub, test_connection) {
+  Simulator sim;
+  EXPECT_EQ((sim.GetClientID() != -1), true);
+}
