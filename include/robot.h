@@ -25,7 +25,7 @@ class Robot : public State{  // Robot inherits State class public members
     * @brief Method will set the environment variables
     * @return bool flag indicating successful operation
     */
-    bool Initialize();
+    bool Initialize(Simulator* simulator);
 
     /**
     * @brief Method will set the environment variables

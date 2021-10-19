@@ -10,8 +10,12 @@
  */
 
 #include "simulator.h"  // NOLINT
+
 #include <unistd.h>
+
 #include <iostream>
+
+using std::cout;
 
 Simulator::Simulator() {
   client_ID_ = -1;
@@ -22,11 +26,13 @@ bool Simulator::Initialize() {
   // Close any previously unfinished jobs in CoppeliaSim
   simxFinish(-1);
   // Main connection to CoppeliaSim
-  client_ID_ = simxStart((simxChar*)"127.0.0.1", 19997, true, true, 5000, 5);  // NOLINT
+  client_ID_ =
+      simxStart((simxChar*)"127.0.0.1", 19997, true, true, 5000, 5);  // NOLINT
   sleep(1);
   connection_success_ = client_ID_ != -1;
 
   if (connection_success_) {
+    cout << "Connection to CoppeliaSim is successfull";
     simxSynchronous(client_ID_, 0);
     simxStopSimulation(client_ID_, simx_opmode_oneshot);
     sleep(1);
