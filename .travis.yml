@@ -1,7 +1,8 @@
 # We need a decent ubuntu dist
 sudo: required
 dist: xenial
-
+services:
+  - xvfb
 # Modern cpp settings from
 #  http://genbattle.bitbucket.org/blog/2016/01/17/c++-travis-ci/
 language: cpp
@@ -18,10 +19,19 @@ matrix:
             - g++-5
             - cmake
             - cmake-data
+            - libeigen3-dev
       env: COMPILER=g++-5
 
 before_install:
   - pip install --user cpp-coveralls
+  - cd ..
+  - wget --no-check-certificate "https://www.coppeliarobotics.com/files/CoppeliaSim_Edu_V4_2_0_Ubuntu16_04.tar.xz"
+  - tar -xf CoppeliaSim_Edu_V4_2_0_Ubuntu16_04.tar.xz
+  - mv CoppeliaSim_Edu_V4_2_0_Ubuntu16_04 CoppeliaSim_Edu
+  - sudo apt-get install '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
+  - CoppeliaSim_Edu/libLoadErrorCheck.sh
+  - CoppeliaSim_Edu/coppeliaSim.sh -h ./AcmeRoboticsPathPlanner/ur5_CoppeliaSim_scene.ttt &
+  - cd AcmeRoboticsPathPlanner
 install:
   - sudo apt-get install -y -qq lcov
 script:
