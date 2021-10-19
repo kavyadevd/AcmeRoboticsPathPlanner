@@ -37,16 +37,38 @@ class Simulator {
    */
   void Stop();
 
+  /**
+   * @brief Get CoppeliaSim connection ID.
+   * @return int returns active CoppeliaSim communication unique ID.
+   */
   int GetClientID();
 
+  /**
+   * @brief Set Joint matrix values.
+   */
   void GetJointMatrix(simxInt joint, float* matrix);
 
+  /**
+   * @brief Fetch object handle.
+   * @return int returns object handle.
+   */
   simxInt GetObjectHandle(char* name);
 
+  /**
+   * @brief Fetch parent ID.
+   * @return simxInt(int) returns object parent ID.
+   */
   simxInt GetParent(simxInt handle);
 
+  /**
+   * @brief Fetch child ID.
+   * @return simxInt(int) returns object child ID.
+   */
   simxInt GetChild(simxInt parentObjectHandle, simxInt childIndex);
 
+  /**
+   * @brief Simulator destructor.
+   */
   ~Simulator();
 
  private:
