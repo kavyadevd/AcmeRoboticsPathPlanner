@@ -20,9 +20,6 @@ endforeach()
 
 include_directories(
     ${CMAKE_SOURCE_DIR}/include
-    # CoppeliaSim remoteApi headers
-    ${CMAKE_SOURCE_DIR}/../CoppeliaSim_Edu/programming/remoteApi
-    ${CMAKE_SOURCE_DIR}/../CoppeliaSim_Edu/programming/include
 )
 
 add_library(lib STATIC ${SOURCES})
