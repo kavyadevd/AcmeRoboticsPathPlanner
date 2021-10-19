@@ -29,5 +29,5 @@ double Solver::GetErrorTolerance() {
 }
 
 bool Solver::IsErrorTolerable(double _error) {
-    return (error_tolerance <= _error);
+    return (error_tolerance >= _error);
 }
