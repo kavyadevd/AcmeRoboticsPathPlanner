@@ -16,6 +16,20 @@
 #include "solver.h"     // NOLINT
 #include "state.h"      // NOLINT
 
+Simulator simulator;
+
+/**
+ * @brief Tests simulator class
+ */
+TEST(TestSimulatorStub, test_simulator) {
+  EXPECT_EQ(simulator.Initialize(), 1);
+  EXPECT_NE(simulator.GetClientID(), -1);
+  char joint[] = "UR5_joint1";
+  simxInt handle = simulator.GetObjectHandle(joint);
+  EXPECT_NE(simulator.GetParent(handle), -1);
+  EXPECT_NE(simulator.GetChild(handle, 0), -1);
+}
+
 /**
  * @brief Tests the default constructor
  */
@@ -77,7 +91,7 @@ TEST(TestIKStub, test_robot_object) {
  */
 TEST(TestIKStub, test_robot_initialize) {
   Robot robotic_arm;
-  EXPECT_EQ(robotic_arm.Initialize(), true);
+  EXPECT_EQ(robotic_arm.Initialize(&simulator), true);
 }
 
 /**
@@ -110,16 +124,4 @@ TEST(TestIKStub, test_controller) {
 TEST(TestIKStub, test_simulate) {
   Robot robotic_arm;
   EXPECT_EQ(robotic_arm.Simulate(), true);
-}
-
-/**
- * @brief Tests simulator class
- */
-TEST(TestSimulatorStub, test_simulator) {
-  Simulator simulator;
-  EXPECT_EQ(simulator.Initialize(), 1);
-  char* joint = "UR5_joint1";
-  simxInt handle = simulator.GetObjectHandle(joint);
-  EXPECT_NE(simulator.GetParent(handle), -1);
-  EXPECT_NE(simulator.GetChild(handle, 0), -1);
 }
