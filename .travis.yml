@@ -19,6 +19,7 @@ matrix:
             - g++-5
             - cmake
             - cmake-data
+            - libeigen3-dev
       env: COMPILER=g++-5
 
 before_install:
