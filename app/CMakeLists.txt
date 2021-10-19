@@ -8,7 +8,7 @@ add_definitions(-DMAX_EXT_API_CONNECTIONS=255)
 add_definitions(-DDO_NOT_USE_SHARED_MEMORY)
 
 file(GLOB SOURCES CONFIGURE_DEPENDS
-$ENV{HOME}/CoppeliaSim_Edu/programming/remoteApi/*.c
+${CMAKE_SOURCE_DIR}/../CoppeliaSim_Edu/programming/remoteApi/*.c
 )
 
 message(STATUS "SOURCES include dir: ${SOURCES}")
@@ -21,8 +21,8 @@ endforeach()
 include_directories(
     ${CMAKE_SOURCE_DIR}/include
     # CoppeliaSim remoteApi headers
-    CoppeliaSim_Edu/programming/remoteApi
-    CoppeliaSim_Edu/programming/include
+    ${CMAKE_SOURCE_DIR}/../CoppeliaSim_Edu/programming/remoteApi
+    ${CMAKE_SOURCE_DIR}/../CoppeliaSim_Edu/programming/include
 )
 
 add_library(lib STATIC ${SOURCES})
@@ -30,8 +30,8 @@ add_library(lib STATIC ${SOURCES})
 target_include_directories(lib
     PUBLIC
         ${PROJECT_SOURCE_DIR}/include
-        CoppeliaSim_Edu/programming/include
-        CoppeliaSim_Edu/programming/remoteApi
+        ${CMAKE_SOURCE_DIR}/../CoppeliaSim_Edu/programming/include
+        ${CMAKE_SOURCE_DIR}/../CoppeliaSim_Edu/programming/remoteApi
 )
 
 add_executable(shell-app main.cpp state.cpp solver.cpp robot.cpp simulator.cpp)
