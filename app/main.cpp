@@ -28,5 +28,6 @@ int main() {
     return -1;
   }
   robot.Initialize(&simulator);
+  
   return 0;
 }
