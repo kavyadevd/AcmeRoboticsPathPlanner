@@ -3,6 +3,9 @@
  * @author Kavyashree Devadiga (kavya@umd.edu), Aswath Muthuselvam (aswath@umd.edu)
  * @brief File for arm manipulator path planning solver definitions
  * 
+ * @version 0.1
+ * @date 2021-10-05
+ * @copyright  All rights reserved
  * Note: Transformation matrix notations are as follows:
  *  0                               |06R    0P6|
  *      T(θ1,θ2,θ3,θ4,θ5,θ6) =      |          |
@@ -12,13 +15,6 @@
  *                                  |0X6y   0Y6y     0Z6y    0P6y|
  *                            =     |0X6z   0Y6z     0Z6z    0P6z|
  *                                  |  0     0        0        0 |
- * 
- * 
- * 
- * 
- * @version 0.1
- * @date 2021-10-05
- * @copyright All rights reserved 
  * 
  */
 
@@ -48,7 +44,21 @@ bool Solver::IsErrorTolerable(double _error) {
 }
 
 /**
+ * @brief Get the Transformation Matrix
+ * 
+ */
+void GetTransformationMatrix() {
+    // TODO(aswath)
+}
+
+
+/**
  * @brief Fetch angle for wrist frame in relation to the base frame
+ * 0P5 = 0      | 0 |
+ *         T *  | 0 |
+ *       6      |-d6|
+ *              | 1 |
+ * 
  * θ1 = atan2(0P5y,0P5x)+- acos[ d4 / (√ 0P5x^2  + 0P5y^2) ]
  * 
  * @return double 
