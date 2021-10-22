@@ -35,10 +35,20 @@ bool Solver::IsErrorTolerable(double _error) {
 
 /**
  * @brief Fetch angle for wrist frame in relation to the base frame
- * θ1 = atan2(0P5y,0P5x)+- acos[ d4 / (√ P5x^2  + P5y^2) ]
+ * θ1 = atan2(0T5y,0T5x)+- acos[ d4 / (√ 0T5x^2  + 0T5y^2) ]
  * 
  * @return double 
  */
 double GetTheta_1() {
+    return 0.0;
+}
+
+/**
+ * @brief Fetch angle for link 5 
+ * θ5 = acos [ (0T6x sinθ1 - 0T6y cosθ1 - d4) / d6 ]
+ * 
+ * @return double 
+ */
+double GetTheta_5() {
     return 0.0;
 }
