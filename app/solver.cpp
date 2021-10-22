@@ -9,6 +9,7 @@
  */
 
 
+#include<math.h>
 #include "solver.h"     // NOLINT
 
 Solver::Solver() {
@@ -30,4 +31,14 @@ double Solver::GetErrorTolerance() {
 
 bool Solver::IsErrorTolerable(double _error) {
     return (error_tolerance >= _error);
+}
+
+/**
+ * @brief Fetch angle for wrist frame in relation to the base frame
+ * θ1 = atan2(0P5y,0P5x)+- acos[ d4 / (√ P5x^2  + P5y^2) ]
+ * 
+ * @return double 
+ */
+double GetTheta_1() {
+    return 0.0;
 }
