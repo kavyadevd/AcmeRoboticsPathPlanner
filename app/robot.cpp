@@ -44,43 +44,36 @@ bool Robot::Initialize(Simulator* simulator) {
   }
 
   cout << "Starting Froward Kinematics Demo" << endl;
-  simxSetJointTargetPosition(simulator->GetClientID(), j1, 0.0,
+  simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[0], 0.0,
                              simx_opmode_blocking);
-  simxSetJointTargetPosition(simulator->GetClientID(), j1, 18.13,
+  simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[0], 18.13,
                              simx_opmode_blocking);
   sleep(1);
-  simxSetJointTargetPosition(simulator->GetClientID(), j2, 0.6,
+  simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[1], 0.6,
                              simx_opmode_blocking);
-  simxSetJointTargetPosition(simulator->GetClientID(), j3, 0.6,
+  simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[2], 0.6,
                              simx_opmode_blocking);
-  simxSetJointTargetPosition(simulator->GetClientID(), j4, 0.6,
+  simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[3], 0.6,
                              simx_opmode_blocking);
-  simxSetJointTargetPosition(simulator->GetClientID(), j5, 1.2,
+  simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[4], 1.2,
                              simx_opmode_blocking);
-  simxSetJointTargetPosition(simulator->GetClientID(), j6, 1.2,
+  simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[5], 1.2,
                              simx_opmode_blocking);
 
   cout << "\n------Joint matrix--------" << endl;
-  simulator->GetJointMatrix(j1, joint_matrix[1]);
-  simulator->GetJointMatrix(j2, joint_matrix[2]);
-  simulator->GetJointMatrix(j3, joint_matrix[3]);
-  simulator->GetJointMatrix(j4, joint_matrix[4]);
-  simulator->GetJointMatrix(j5, joint_matrix[5]);
-  simulator->GetJointMatrix(j6, joint_matrix[6]);
+    for (int it = 0; it < 6; it++) {
+    cout << "\n------Joint matrix " << it << " --------\n";
+    simulator->GetJointMatrix(joint_handle[it], joint_matrix[it+1]);
 
-  cout << "\n------Link matrix--------" << endl;
-  simulator->GetJointMatrix(l1, joint_matrix[1]);
-  simulator->GetJointMatrix(l2, joint_matrix[2]);
-  simulator->GetJointMatrix(l3, joint_matrix[3]);
-  simulator->GetJointMatrix(l4, joint_matrix[4]);
-  simulator->GetJointMatrix(l5, joint_matrix[5]);
-  simulator->GetJointMatrix(l6, joint_matrix[6]);
+    cout << "\n------Link matrix " << it << " --------\n";
+    simulator->GetJointMatrix(link_handle[it], joint_matrix[it+1]);
+  }
 
   simxFloat* pos;
   *pos = 1;
   sleep(1);
-  simulator->GetJointMatrix(j1, joint_matrix[0]);
-  simulator->SetJointPosition(j1, pos);
+  simulator->GetJointMatrix(joint_handle[0], joint_matrix[0]);
+  simulator->SetJointPosition(joint_handle[0], pos);
   cout << pos[0];
   return true;
 } catch (const char *msg) { /* catch exception if any */
