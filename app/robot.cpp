@@ -28,10 +28,6 @@ bool Robot::Initialize(Simulator* simulator) {
   ///< Variable to store robot link names
   std::vector<char*> link = {"UR5_link1", "UR5_link2", "UR5_link3", "UR5_link4", "UR5_link5", "UR5_link6"};
 
-  std::vector<simxInt> joint_handle;
-  std::vector<simxInt> link_handle;
-  std::vector<float[12]> joint_matrix;
-
   for (int it = 0; it < 6; it++) {
     joint_handle[it] = simulator->GetObjectHandle(joint[it]);
     link_handle[it] = simulator->GetObjectHandle(link[it]);
@@ -59,8 +55,6 @@ bool Robot::Initialize(Simulator* simulator) {
                              simx_opmode_blocking);
   simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[5], 1.2,
                              simx_opmode_blocking);
-
-  cout << "\n------Joint matrix--------" << endl;
     for (int it = 0; it < 6; it++) {
     cout << "\n------Joint matrix " << it << " --------\n";
     simulator->GetJointMatrix(joint_handle[it], joint_matrix[it+1]);
