@@ -61,7 +61,7 @@ class Simulator {
   simxInt GetObjectHandle(char* name);
 
   /**
-   * @brief Initialize communication with CoppeliaSim with remoteX API.
+   * @brief Get Parent object from CoppeliaSim with remoteX API.
    *
    * @param Integer reference of Handle(arm joint) to get it's parent.
    * @return Integer reference of parent object.
@@ -69,13 +69,22 @@ class Simulator {
   simxInt GetParent(simxInt handle);
 
   /**
-   * @brief Initialize communication with CoppeliaSim with remoteX API.
+   * @brief Get child object from CoppeliaSim with remoteX API.
    *
    * @param Integer reference of the parent object.
    * @param To obtain the nth child from current parent object.
    * @return Integer reference of child object.
    */
   simxInt GetChild(simxInt parentObjectHandle, simxInt childIndex);
+
+  /**
+   * @brief Set the joint angle of robotic arm with CoppeliaSim with remoteX API.
+   *
+   * @param Integer reference of the parent object.
+   * @param Position of the arm to rotate(angular degrees or prismatic length).
+   * @return Returns operation status.
+   */
+  simxInt SetJointPosition(simxInt jointHandle, simxFloat* position);
 
   /**
    * @brief Desctructor for Simulator class, calls Simulator::Stop()
