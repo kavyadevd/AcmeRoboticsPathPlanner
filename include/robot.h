@@ -10,7 +10,7 @@
 
 #ifndef ROBOT_H_  // NOLINT
 #define ROBOT_H_
-
+#include <vector>
 #include "state.h"  // NOLINT
 #include "simulator.h"  // NOLINT
 
@@ -50,6 +50,11 @@ class Robot : public State{  // Robot inherits State class public members
     * @return bool flag indicating successful operation
     */
     bool Simulate();
+
+ private:
+    std::vector<simxInt> joint_handle;
+    std::vector<simxInt> link_handle;
+    std::vector<float[12]> joint_matrix;
 };
 
 
