@@ -100,6 +100,8 @@ simxInt Simulator::GetObjectPosition(simxInt objectHandle,
   simxInt status =
       simxGetObjectPosition(client_ID_, objectHandle, relativeObjectHandle,
                             position, simx_opmode_blocking);
+  cout << "x: " << position[0] << " y: " << position[1] << " z: " << position[2]
+       << endl;
   return status;
 }
 

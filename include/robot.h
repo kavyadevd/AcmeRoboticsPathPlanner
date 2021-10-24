@@ -75,6 +75,7 @@ class Robot : public State {  // Robot inherits State class public members
 
  private:
   Simulator* simulator;  ///< Reference object to Simulator class object.
+  simxInt origin_handle;
   std::vector<simxInt> joint_handle;
   std::vector<simxInt> link_handle;
   std::vector<float[12]> joint_matrix;
