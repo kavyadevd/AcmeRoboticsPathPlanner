@@ -30,138 +30,56 @@ using namespace Eigen;
 Robot::Robot() {}
 
 bool Robot::Initialize(Simulator* simulator) {
-  this->simulator = simulator;
+  try {
+  ///< Variable to store robot joint names
+  std::vector<char*> joint = {"UR5_joint1", "UR5_joint2", "UR5_joint3", "UR5_joint4", "UR5_joint5", "UR5_joint6"};
 
-  char name_floor[] = "Floor";
-  char name_joint1[] = "UR5_joint1";
-  char name_joint2[] = "UR5_joint2";
-  char name_joint3[] = "UR5_joint3";
-  char name_joint4[] = "UR5_joint4";
-  char name_joint5[] = "UR5_joint5";
-  char name_joint6[] = "UR5_joint6";
+  ///< Variable to store robot link names
+  std::vector<char*> link = {"UR5_link1", "UR5_link2", "UR5_link3", "UR5_link4", "UR5_link5", "UR5_link6"};
 
-  char name_link1[] = "UR5_link1";
-  char name_link2[] = "UR5_link2";
-  char name_link3[] = "UR5_link3";
-  char name_link4[] = "UR5_link4";
-  char name_link5[] = "UR5_link5";
-  char name_link6[] = "UR5_link6";
+  for (int it = 0; it < 6; it++) {
+    joint_handle[it] = simulator->GetObjectHandle(joint[it]);
+    link_handle[it] = simulator->GetObjectHandle(link[it]);
 
-  simxInt floorh = simulator->GetObjectHandle(name_floor);
-  j1 = simulator->GetObjectHandle(name_joint1);
-  j2 = simulator->GetObjectHandle(name_joint2);
-  j3 = simulator->GetObjectHandle(name_joint3);
-  j4 = simulator->GetObjectHandle(name_joint4);
-  j5 = simulator->GetObjectHandle(name_joint5);
-  j6 = simulator->GetObjectHandle(name_joint6);
+    cout << "\n------Joint matrix " << it << " --------\n";
+    simulator->GetJointMatrix(joint_handle[it], joint_matrix[it+1]);
 
-  simxInt l1 = simulator->GetObjectHandle(name_link1);
-  simxInt l2 = simulator->GetObjectHandle(name_link2);
-  simxInt l3 = simulator->GetObjectHandle(name_link3);
-  simxInt l4 = simulator->GetObjectHandle(name_link4);
-  simxInt l5 = simulator->GetObjectHandle(name_link5);
-  simxInt l6 = simulator->GetObjectHandle(name_link6);
+    cout << "\n------Link matrix " << it << " --------\n";
+    simulator->GetJointMatrix(link_handle[it], joint_matrix[it+1]);
+  }
 
-  // Get joint Matrix
-  float T00[12];
-  float T01[12];
-  float T02[12];
-  float T03[12];
-  float T04[12];
-  float T05[12];
-  float T06[12];
+  cout << "Starting Froward Kinematics Demo" << endl;
+  simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[0], 0.0,
+                             simx_opmode_blocking);
+  simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[0], 18.13,
+                             simx_opmode_blocking);
+  sleep(1);
+  simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[1], 0.6,
+                             simx_opmode_blocking);
+  simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[2], 0.6,
+                             simx_opmode_blocking);
+  simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[3], 0.6,
+                             simx_opmode_blocking);
+  simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[4], 1.2,
+                             simx_opmode_blocking);
+  simxSetJointTargetPosition(simulator->GetClientID(), joint_handle[5], 1.2,
+                             simx_opmode_blocking);
+    for (int it = 0; it < 6; it++) {
+    cout << "\n------Joint matrix " << it << " --------\n";
+    simulator->GetJointMatrix(joint_handle[it], joint_matrix[it+1]);
 
-  simxFloat pos[3];
-
-  //GetEndEffectorPosition();
-  simulator->GetObjectPosition(j1, j1, pos);
-   cout << "\nPosition of 1 wrt to 1:\n"
-       << pos[0] << " " << pos[1] << " " << pos[2]<<endl;
-  simulator->GetObjectPosition(j2, j1, pos);
-   cout << "\nPosition of 2 wrt to 1:\n"
-       << pos[0] << " " << pos[1] << " " << pos[2]<<endl;
-  simulator->GetObjectPosition(j3, j1, pos);
-   cout << "\nPosition of 3 wrt to 1:\n"
-       << pos[0] << " " << pos[1] << " " << pos[2]<<endl;
-  simulator->GetObjectPosition(j4, j1, pos);
-   cout << "\nPosition of 4 wrt to 1:\n"
-       << pos[0] << " " << pos[1] << " " << pos[2]<<endl;
-  simulator->GetObjectPosition(j5, j1, pos);
-   cout << "\nPosition of 5 wrt to 1:\n"
-       << pos[0] << " " << pos[1] << " " << pos[2]<<endl;
-  simulator->GetObjectPosition(j6, j1, pos);
-   cout << "\nPosition of 6 wrt to 1:\n"
-       << pos[0] << " " << pos[1] << " " << pos[2]<<endl;
-  int k;
-  cin>>k;
-
-/*
-  cout << "\n------Joint matrix--------";
-  simulator->GetJointMatrix(j1, T01);
-  simulator->GetJointMatrix(j2, T02);
-  simulator->GetJointMatrix(j3, T03);
-  simulator->GetJointMatrix(j4, T04);
-  simulator->GetJointMatrix(j5, T05);
-  simulator->GetJointMatrix(j6, T06);
-
-  cout << "\n------Link matrix--------";
-  simulator->GetJointMatrix(l1, T01);
-  simulator->GetJointMatrix(l2, T02);
-  simulator->GetJointMatrix(l3, T03);
-  simulator->GetJointMatrix(l4, T04);
-  simulator->GetJointMatrix(l5, T05);
-  simulator->GetJointMatrix(l6, T06);
-
-  //ForwardKinematics(1, 0, 0, 0, 0, 0);
-
-  cout << "\n------Joint matrix--------" << endl;
-  simulator->GetJointMatrix(j1, T01);
-  simulator->GetJointMatrix(j2, T02);
-  simulator->GetJointMatrix(j3, T03);
-  simulator->GetJointMatrix(j4, T04);
-  simulator->GetJointMatrix(j5, T05);
-  simulator->GetJointMatrix(j6, T06);
-
-  cout << "\n------Link matrix--------" << endl;
-  simulator->GetJointMatrix(l1, T01);
-  simulator->GetJointMatrix(l2, T02);
-  simulator->GetJointMatrix(l3, T03);
-  simulator->GetJointMatrix(l4, T04);
-  simulator->GetJointMatrix(l5, T05);
-  simulator->GetJointMatrix(l6, T06);
-*/
-  //&pos = 1;
-  //simulator->SetJointPosition(j1, pos);
-  //cout << pos[0];
-
-  simulator->SetJointTargetAngle(j1, 0.3);
-  simulator->SetJointTargetAngle(j2, 0.3);
-  simulator->SetJointTargetAngle(j3, 0.3);
+    cout << "\n------Link matrix " << it << " --------\n";
+    simulator->GetJointMatrix(link_handle[it], joint_matrix[it+1]);
+  }
 
   sleep(1);
-
-  //GetEndEffectorPosition();
-  simulator->GetObjectPosition(j1, j1, pos);
-   cout << "\nPosition of 1 wrt to 1:\n"
-       << pos[0] << " " << pos[1] << " " << pos[2]<<endl;
-  simulator->GetObjectPosition(j2, j1, pos);
-   cout << "\nPosition of 2 wrt to 1:\n"
-       << pos[0] << " " << pos[1] << " " << pos[2]<<endl;
-  simulator->GetObjectPosition(j3, j1, pos);
-   cout << "\nPosition of 3 wrt to 1:\n"
-       << pos[0] << " " << pos[1] << " " << pos[2]<<endl;
-  simulator->GetObjectPosition(j4, j1, pos);
-   cout << "\nPosition of 4 wrt to 1:\n"
-       << pos[0] << " " << pos[1] << " " << pos[2]<<endl;
-  simulator->GetObjectPosition(j5, j1, pos);
-   cout << "\nPosition of 5 wrt to 1:\n"
-       << pos[0] << " " << pos[1] << " " << pos[2]<<endl;
-  simulator->GetObjectPosition(j6, j1, pos);
-   cout << "\nPosition of 6 wrt to 1:\n"
-       << pos[0] << " " << pos[1] << " " << pos[2]<<endl;
-  cin>>k;
-
+  simulator->GetJointMatrix(joint_handle[0], joint_matrix[0]);
+  simulator->SetJointPosition(joint_handle[0], pos);
+  cout << pos[0];
   return true;
+} catch (const char *msg) { /* catch exception if any */
+  std::cout << "Exception occurred" << std::endl;
+}
 }
 
 void Robot::ForwardKinematics(float t1, float t2, float t3, float t4, float t5,

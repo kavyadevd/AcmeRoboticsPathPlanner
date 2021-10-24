@@ -11,14 +11,13 @@
 
 #ifndef ROBOT_H_  // NOLINT
 #define ROBOT_H_
+#include <Eigen/Dense>
+#include <vector>
 
 #include "simulator.h"  // NOLINT
 #include "state.h"      // NOLINT
-#include <Eigen/Dense>
 
 using namespace Eigen;
-
-
 class Robot : public State {  // Robot inherits State class public members
  public:
   /**
@@ -28,8 +27,6 @@ class Robot : public State {  // Robot inherits State class public members
 
   /**
    * @brief Method will set the environment variables
-   * @param Simulator Use the simulator object to extract information about the
-   * robot from CoppeliaSim.
    * @return bool flag indicating successful operation
    */
   bool Initialize(Simulator* simulator);
@@ -78,12 +75,9 @@ class Robot : public State {  // Robot inherits State class public members
 
  private:
   Simulator* simulator;  ///< Reference object to Simulator class object.
-  simxInt j1;            ///< Joint 1 handle reference.
-  simxInt j2;            ///< Joint 2 handle reference.
-  simxInt j3;            ///< Joint 3 handle reference.
-  simxInt j4;            ///< Joint 4 handle reference.
-  simxInt j5;            ///< Joint 5 handle reference.
-  simxInt j6;            ///< Joint 6 handle reference.
+  std::vector<simxInt> joint_handle;
+  std::vector<simxInt> link_handle;
+  std::vector<float[12]> joint_matrix;
 };
 
 #endif  // ROBOT_H_  // NOLINT
