@@ -30,17 +30,18 @@ Robot::Robot() {}
 
 bool Robot::Initialize(Simulator* simulator) {
   try {
+    this->simulator = simulator;
+
     ///< Variable to store origin
     char origin_name[] = "Floor";
 
     ///< Variable to store robot joint names
-    std::vector<string> joint_names = {"UR5_joint1", "UR5_joint2",
-                                       "UR5_joint3", "UR5_joint4",
-                                       "UR5_joint5", "UR5_joint6"};
+    char joint_names[6][11] = {"UR5_joint1", "UR5_joint2", "UR5_joint3",
+                               "UR5_joint4", "UR5_joint5", "UR5_joint6"};
 
     ///< Variable to store robot link names
-    std::vector<string> link_names = {"UR5_link1", "UR5_link2", "UR5_link3",
-                                      "UR5_link4", "UR5_link5", "UR5_link6"};
+    char link_names[6][11] = {"UR5_link1", "UR5_link2", "UR5_link3",
+                              "UR5_link4", "UR5_link5", "UR5_link6"};
 
     ///< Assign IDs values to handles
     origin_handle = simulator->GetObjectHandle(origin_name);
@@ -50,31 +51,42 @@ bool Robot::Initialize(Simulator* simulator) {
       link_handle.push_back(simulator->GetObjectHandle(link_names[it]));
 
       cout << "\n------Joint matrix " << it << " --------\n";
-      simulator->GetJointMatrix(joint_handle[it], joint_matrix[it + 1]);
+      float* joint_ptr = new float[12];
+      joint_matrix.push_back(joint_ptr);
+      simulator->GetJointMatrix(joint_handle[it], joint_matrix[it]);
 
-      cout << "\n------Link matrix " << it << " --------\n";
-      simulator->GetJointMatrix(link_handle[it], joint_matrix[it + 1]);
+      // cout << "\n------Link matrix " << it << " --------\n";
+      // float* link_ptr = new float[12];
+      // link_matrix.push_back(link_ptr);
+      // simulator->GetJointMatrix(link_handle[it], link_matrix[it]);
     }
 
-    cout << "Starting Froward Kinematics Demo" << endl;
-    ForwardKinematics(1, 0, 0, 0, 0, 0);
+    //< Perform some actions by commanding joint angles(in radians).
+    ForwardKinematics(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 
+    //< Get positions of objects(joints in this case).
     simxFloat position[3];
+    simxFloat orientation[3];
+
     for (int it = 0; it < 6; it++) {
-      cout << "\n------Joint matrix " << it << " --------\n";
-      simulator->GetJointMatrix(joint_handle[it], joint_matrix[it + 1]);
-
-      cout << "\n------Link matrix " << it << " --------\n";
-      simulator->GetJointMatrix(link_handle[it], joint_matrix[it + 1]);
-
       cout << "\n------Joint position of " << it
            << " [x, y, x] wrt to Origin --------\n";
       simulator->GetObjectPosition(joint_handle[it], origin_handle, position);
+      simulator->GetObjectOrientation(joint_handle[it], origin_handle,
+                                      orientation);
     }
 
-    sleep(1);
+    for (int it = 1; it < 6; it++) {
+      cout << "\n---Joint position and orientation of " << it << "  wrt to "
+           << it - 1 << " th joint"
+           << "---\n";
+      simulator->GetObjectPosition(joint_handle[it], joint_handle[it - 1],
+                                   position);
+      simulator->GetObjectOrientation(joint_handle[it], joint_handle[it - 1],
+                                      orientation);
+    }
 
-    simulator->GetJointMatrix(joint_handle.at(0), joint_matrix[0]);
+    //< Set a Joint Position.
     // simulator->SetJointPosition(joint_handle[0], position);
     // cout << position[0];
     return true;
@@ -85,8 +97,8 @@ bool Robot::Initialize(Simulator* simulator) {
 
 void Robot::ForwardKinematics(float t1, float t2, float t3, float t4, float t5,
                               float t6) {
-  cout << "Starting Froward Kinematics" << endl;
-  simulator->SetJointTargetAngle(joint_handle[0], t1);
+  cout << "Starting Froward Kinematics " << endl;
+  simulator->SetJointTargetAngle(joint_handle[1], t1);
   simulator->SetJointTargetAngle(joint_handle[1], t2);
   simulator->SetJointTargetAngle(joint_handle[2], t3);
   simulator->SetJointTargetAngle(joint_handle[3], t4);
