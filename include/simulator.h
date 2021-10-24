@@ -114,6 +114,20 @@ class Simulator {
                             simxFloat* position);
 
   /**
+   * @brief Gets the orientation of object.
+   *
+   * @param objectHandle Integer reference of the joint.
+   * @param relativeObjectHandle Integer reference of the joint with respect
+   * to which orientation needs to be calculated.
+   * @param eulerAngles Float array where the 3 output values(alpha, beta,
+   * gamma) will be stored.
+   * @return Returns operation status.
+   */
+  simxInt GetObjectOrientation(simxInt objectHandle,
+                               simxInt relativeToObjectHandle,
+                               simxFloat* eulerAngles);
+
+  /**
    * @brief Desctructor for Simulator class, calls Simulator::Stop()
    */
   ~Simulator();

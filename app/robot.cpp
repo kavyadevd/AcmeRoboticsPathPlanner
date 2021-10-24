@@ -62,19 +62,28 @@ bool Robot::Initialize(Simulator* simulator) {
     }
 
     //< Perform some actions by commanding joint angles(in radians).
-    ForwardKinematics(1.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+    ForwardKinematics(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 
     //< Get positions of objects(joints in this case).
     simxFloat position[3];
+    simxFloat orientation[3];
+
     for (int it = 0; it < 6; it++) {
       cout << "\n------Joint position of " << it
            << " [x, y, x] wrt to Origin --------\n";
       simulator->GetObjectPosition(joint_handle[it], origin_handle, position);
+      simulator->GetObjectOrientation(joint_handle[it], origin_handle, orientation);
+
     }
 
-    sleep(1);
+    for (int it = 1; it < 6; it++) {
+      cout << "\n------Joint position and orientation of " << it
+           << " [x, y, x] wrt to previous joints --------\n";
+      simulator->GetObjectPosition(joint_handle[it], joint_handle[it-1], position);
+      simulator->GetObjectOrientation(joint_handle[it], joint_handle[it-1], orientation);
 
-    // simulator->GetJointMatrix(joint_handle.at(0), joint_matrix[0]);
+    }
+    //< Set a Joint Position. 
     // simulator->SetJointPosition(joint_handle[0], position);
     // cout << position[0];
     return true;
