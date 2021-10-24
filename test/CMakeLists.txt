@@ -24,6 +24,7 @@ add_executable(
 
 target_include_directories(cpp-test PUBLIC ../vendor/googletest/googletest/include 
                                            ${CMAKE_SOURCE_DIR}/include
+                                           ${EIGEN3_INCLUDE_DIR}
                                            ${CMAKE_SOURCE_DIR}/../CoppeliaSim_Edu/programming/include
                                            ${CMAKE_SOURCE_DIR}/../CoppeliaSim_Edu/programming/remoteApi
                                            )

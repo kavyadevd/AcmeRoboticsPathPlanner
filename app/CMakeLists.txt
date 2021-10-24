@@ -20,6 +20,7 @@ endforeach()
 
 include_directories(
     ${CMAKE_SOURCE_DIR}/include
+    ${EIGEN3_INCLUDE_DIR}
 )
 
 add_library(lib STATIC ${SOURCES})
