@@ -48,11 +48,15 @@ int Simulator::GetClientID() { return client_ID_; }
 
 void Simulator::GetJointMatrix(simxInt joint, float* matrix) {
   simxGetJointMatrix(client_ID_, joint, matrix, simx_opmode_blocking);
-  cout << "Joint matrix of Handle ID"<< joint<<": " << endl
-       << matrix[0] << "\t" << matrix[1] << "\t" << matrix[8] << "\t" << matrix[3] << endl
-       << matrix[4] << "\t" << matrix[5] << "\t" << matrix[9] << "\t" << matrix[7] << endl
-       << matrix[8] << "\t" << matrix[9] << "\t" << matrix[10] << "\t" << matrix[11] << endl
-       << 0 << "\t" << 0 << "\t" << 0 <<  "\t" << 1 << endl << endl;
+  cout << "Joint matrix of Handle ID" << joint << ": " << endl
+       << matrix[0] << "\t" << matrix[1] << "\t" << matrix[8] << "\t"
+       << matrix[3] << endl
+       << matrix[4] << "\t" << matrix[5] << "\t" << matrix[9] << "\t"
+       << matrix[7] << endl
+       << matrix[8] << "\t" << matrix[9] << "\t" << matrix[10] << "\t"
+       << matrix[11] << endl
+       << 0 << "\t" << 0 << "\t" << 0 << "\t" << 1 << endl
+       << endl;
 }
 
 void Simulator::Stop() { simxFinish(client_ID_); }
@@ -78,9 +82,27 @@ simxInt Simulator::GetChild(simxInt parentObjectHandle,
   return childObjectHandle;
 }
 
-simxInt Simulator::SetJointPosition(simxInt jointHandle,simxFloat* position){
-  simxInt h = simxSetJointPosition(client_ID_, jointHandle, *position, simx_opmode_blocking);
-    return h; 
+simxInt Simulator::SetJointPosition(simxInt jointHandle, simxFloat* position) {
+  simxInt status = simxSetJointPosition(client_ID_, jointHandle, *position,
+                                        simx_opmode_blocking);
+  return status;
+}
+
+simxInt Simulator::SetJointTargetAngle(simxInt jointHandle, simxFloat angle) {
+  simxInt status = simxSetJointTargetPosition(client_ID_, jointHandle, angle,
+                                              simx_opmode_blocking);
+  return status;
+}
+
+simxInt Simulator::GetObjectPosition(simxInt objectHandle,
+                                     simxInt relativeObjectHandle,
+                                     simxFloat* position) {
+  simxInt status =
+      simxGetObjectPosition(client_ID_, objectHandle, relativeObjectHandle,
+                            position, simx_opmode_blocking);
+  cout << "x: " << position[0] << " y: " << position[1] << " z: " << position[2]
+       << endl;
+  return status;
 }
 
 Simulator::~Simulator() { Simulator::Stop(); }
