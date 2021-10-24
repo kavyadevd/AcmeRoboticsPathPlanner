@@ -109,7 +109,7 @@ simxInt Simulator::GetObjectOrientation(simxInt objectHandle,
                                simxInt relativeToObjectHandle,
                                simxFloat* eulerAngles){
   simxInt status =
-      simxGetObjectPosition(client_ID_, objectHandle, relativeToObjectHandle,
+      simxGetObjectOrientation(client_ID_, objectHandle, relativeToObjectHandle,
                             eulerAngles, simx_opmode_blocking);
   cout << "alpha: " << eulerAngles[0] << " beta: " << eulerAngles[1] << " gamma: " << eulerAngles[2]
        << endl;
