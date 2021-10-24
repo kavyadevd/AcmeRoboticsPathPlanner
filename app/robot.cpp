@@ -36,12 +36,12 @@ bool Robot::Initialize(Simulator* simulator) {
     char origin_name[] = "Floor";
 
     ///< Variable to store robot joint names
-    std::vector<char*> joint_names = {"UR5_joint1", "UR5_joint2", "UR5_joint3",
-                                      "UR5_joint4", "UR5_joint5", "UR5_joint6"};
+    char joint_names[6][11] = {"UR5_joint1", "UR5_joint2", "UR5_joint3",
+                               "UR5_joint4", "UR5_joint5", "UR5_joint6"};
 
     ///< Variable to store robot link names
-    std::vector<char*> link_names = {"UR5_link1", "UR5_link2", "UR5_link3",
-                                     "UR5_link4", "UR5_link5", "UR5_link6"};
+    char link_names[6][11] = {"UR5_link1", "UR5_link2", "UR5_link3",
+                              "UR5_link4", "UR5_link5", "UR5_link6"};
 
     ///< Assign IDs values to handles
     origin_handle = simulator->GetObjectHandle(origin_name);
@@ -72,18 +72,21 @@ bool Robot::Initialize(Simulator* simulator) {
       cout << "\n------Joint position of " << it
            << " [x, y, x] wrt to Origin --------\n";
       simulator->GetObjectPosition(joint_handle[it], origin_handle, position);
-      simulator->GetObjectOrientation(joint_handle[it], origin_handle, orientation);
-
+      simulator->GetObjectOrientation(joint_handle[it], origin_handle,
+                                      orientation);
     }
 
     for (int it = 1; it < 6; it++) {
-      cout << "\n------Joint position and orientation of " << it
-           << " [x, y, x] wrt to previous joints --------\n";
-      simulator->GetObjectPosition(joint_handle[it], joint_handle[it-1], position);
-      simulator->GetObjectOrientation(joint_handle[it], joint_handle[it-1], orientation);
-
+      cout << "\n---Joint position and orientation of " << it << "  wrt to "
+           << it - 1 << " th joint"
+           << "---\n";
+      simulator->GetObjectPosition(joint_handle[it], joint_handle[it - 1],
+                                   position);
+      simulator->GetObjectOrientation(joint_handle[it], joint_handle[it - 1],
+                                      orientation);
     }
-    //< Set a Joint Position. 
+
+    //< Set a Joint Position.
     // simulator->SetJointPosition(joint_handle[0], position);
     // cout << position[0];
     return true;
