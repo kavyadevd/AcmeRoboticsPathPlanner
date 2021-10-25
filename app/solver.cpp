@@ -57,8 +57,8 @@ int Solver::PerformIK(int client_ID, double goal_x, double goal_y, double goal_z
 
     ikGetObjectTransformation(target_robot_handle, base_robot_handle, &initial_transf);
 
-    C7Vector tr(C4Vector(1, 1, 1), C3Vector::zeroVector);
-    tr.X = C3Vector(0.2, 0.2, 0.4);
+    C7Vector tr(C4Vector(0, 0, 0), C3Vector::zeroVector);
+    tr.X = C3Vector(goal_x, goal_y, goal_z);
     // Slow down the simulation
     simxUChar simWaitingForTrigger = 0;
     while ( (simWaitingForTrigger == 0) )
