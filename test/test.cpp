@@ -35,5 +35,5 @@ TEST(TestSimulatorStub, test_simulator) {
  */
 TEST(TestSimulatorStub, test_robot) {
   Robot robotic_arm(&simulator);
-  EXPECT_EQ(robotic_arm.Solve(1, 1, 1), true);
+  EXPECT_EQ(robotic_arm.Solve(0.1, 0.1, 0.3), true);
 }
