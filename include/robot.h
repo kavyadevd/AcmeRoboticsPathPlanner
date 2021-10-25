@@ -39,7 +39,7 @@ class Robot : public State {  // Robot inherits State class public members
    * @param goal_z Goal position z-cordinate
    * @return slope of the trajectory coordinates
    */
-  vector<double> Robot::TrajectoryPlanner(double goal_x, double goal_y,
+  vector<double> TrajectoryPlanner(double goal_x, double goal_y,
                                         double goal_z);
 
   /**

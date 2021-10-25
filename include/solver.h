@@ -13,9 +13,10 @@
 #include "simulator.h"  // NOLINT
 #include "solver.h"  // NOLINT
 #include <vector>  // NOLINT
+#include <Eigen/Dense>
 
 using std::vector;
-
+using Eigen::MatrixXd;
 class Solver{
  public:
  /**
@@ -30,7 +31,7 @@ class Solver{
   * @param dz z-coordinate of small displacement towards goal position
   * @return MatrixXd Matrix of computed joint angles
   */  
-  MatrixXd PerformIK(double dx, double dy, double dz);
+  bool PerformIK(double dx, double dy, double dz, MatrixXd* q_);
 
    /**
    * @brief Updates the error_tolerance attribute to _error

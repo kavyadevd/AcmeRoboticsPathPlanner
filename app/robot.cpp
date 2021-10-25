@@ -77,7 +77,7 @@ bool Robot::Initialize(Simulator* simulator) {
     simxFloat orientation[3];
     simxFloat matrix[12];
 
-    ChainTransformations();
+    // ChainTransformations();
 
     for (int it = 0; it < 6; it++) {
       cout << "\n------Joint position of " << it + 1
@@ -198,7 +198,9 @@ void Robot::GetEndEffectorPosition() {
 vector<double> Robot::TrajectoryPlanner(double goal_x, double goal_y,
                                         double goal_z) {
   GetEndEffectorPosition();
-  std::vector<double> dx_dy_dz = { (state.x - goal_x)*0.0001, (state.y - goal_y)*0.0001, (state.z - goal_z)*0.0001};
+  std::vector<double> dx_dy_dz = {(state.x - goal_x) * 0.0001,
+                                  (state.y - goal_y) * 0.0001,
+                                  (state.z - goal_z) * 0.0001};
   return dx_dy_dz;
 }
 
@@ -215,23 +217,39 @@ bool Robot::Controller(float t1, float t2, float t3, float t4, float t5,
 
 bool Robot::Solve() {
   double goal_x, goal_y, goal_z;
+  double start_x, start_y, start_z;
+  GetEndEffectorPosition();
+  start_x = state.x;
+  start_y = state.y;
+  start_z = state.z;
   std::cout << "Enter goal x, y, z co-ordinates: ";
   std::cin >> goal_x >> goal_y >> goal_z;
-
-  std::vector<double> dx_dy_dz = TrajectoryPlanner(goal_x, goal_y, goal_z);
-  MatrixXd q_(4,1); 
-  bool status = solver->PerformIK(dx_dy_dz[0], dx_dy_dz[1], dx_dy_dz[2], &q_);
-  double t1, t2, t3, t4, t5, t6;
-  t1 = simulator->GetJointAngle(joint_handle[0]);
-  t2 = simulator->GetJointAngle(joint_handle[1]);
-  t3 = simulator->GetJointAngle(joint_handle[2]);
-  t4 = simulator->GetJointAngle(joint_handle[3]);
-  t5 = simulator->GetJointAngle(joint_handle[4]);
-  t6 = simulator->GetJointAngle(joint_handle[5]);
-  t1 += q_(0, 0);
-  t2 += q_(0, 1);
-  t3 += q_(0, 2);
-
-  Controller(t1, t2, t3, t4, t5, t6);
-  return (q_.rows() > 0);
+  double dxt, dyt, dzt;
+  while (true) {
+    std::vector<double> dx_dy_dz = TrajectoryPlanner(goal_x, goal_y, goal_z);
+    dxt += dx_dy_dz[0];
+    dyt += dx_dy_dz[1];
+    dzt += dx_dy_dz[2];
+    MatrixXd q_(4, 1);
+    bool status = solver->PerformIK(dx_dy_dz[0], dx_dy_dz[1], dx_dy_dz[2], &q_);
+    cout << "\n\nQ is: " << q_.transpose() << endl;
+    double t1, t2, t3, t4, t5, t6;
+    t1 = simulator->GetJointAngle(joint_handle[0]);
+    t2 = simulator->GetJointAngle(joint_handle[1]);
+    t3 = simulator->GetJointAngle(joint_handle[2]);
+    t4 = simulator->GetJointAngle(joint_handle[3]);
+    t5 = simulator->GetJointAngle(joint_handle[4]);
+    t6 = simulator->GetJointAngle(joint_handle[5]);
+    t1 += q_(0, 0);
+    t2 += q_(1, 0);
+    t3 += q_(2, 0);
+    float error = pow(pow((state.x - start_x + dxt), 2) +
+                          pow((state.y - start_y + dxt), 2) +
+                          pow((state.z - start_z + dxt), 2),
+                      0.5);
+    cout << "Error from target position: " << error << endl;
+    Controller(t1, t2, t3, t4, t5, t6);
+    sleep(1);
+  }
+  return true;
 }
