@@ -71,13 +71,13 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9dfe7ae9ce617e8a6398be34284c907a"><td class="memItemLeft" align="right" valign="top"><a id="a9dfe7ae9ce617e8a6398be34284c907a" name="a9dfe7ae9ce617e8a6398be34284c907a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Solver</b> ()</td></tr>
-<tr class="memdesc:a9dfe7ae9ce617e8a6398be34284c907a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new solver object. Sets default values to all attributes. <br /></td></tr>
-<tr class="separator:a9dfe7ae9ce617e8a6398be34284c907a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a708a86142ea9da7f9ae38d42cdbf35b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolver.html#a708a86142ea9da7f9ae38d42cdbf35b5">PerformIK</a> ()</td></tr>
-<tr class="memdesc:a708a86142ea9da7f9ae38d42cdbf35b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methods to Solve IK.  <a href="classSolver.html#a708a86142ea9da7f9ae38d42cdbf35b5">More...</a><br /></td></tr>
-<tr class="separator:a708a86142ea9da7f9ae38d42cdbf35b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a611f3eef0961606e7b925ea89b08ef4c"><td class="memItemLeft" align="right" valign="top"><a id="a611f3eef0961606e7b925ea89b08ef4c" name="a611f3eef0961606e7b925ea89b08ef4c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Solver</b> (<a class="el" href="classSimulator.html">Simulator</a> *simulator, vector&lt; simxInt &gt; joint_handle)</td></tr>
+<tr class="memdesc:a611f3eef0961606e7b925ea89b08ef4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new solver object. Sets default values to all attributes. <br /></td></tr>
+<tr class="separator:a611f3eef0961606e7b925ea89b08ef4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5206431cfe721ef58f1b6b2320b08426"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolver.html#a5206431cfe721ef58f1b6b2320b08426">PerformIK</a> (double dx, double dy, double dz, MatrixXd *q_)</td></tr>
+<tr class="memdesc:a5206431cfe721ef58f1b6b2320b08426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Methods to Solve IK.  <a href="classSolver.html#a5206431cfe721ef58f1b6b2320b08426">More...</a><br /></td></tr>
+<tr class="separator:a5206431cfe721ef58f1b6b2320b08426"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35edab2e30bd439d359ea905a6da8403"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolver.html#a35edab2e30bd439d359ea905a6da8403">SetErrorTolerance</a> (double _error)</td></tr>
 <tr class="memdesc:a35edab2e30bd439d359ea905a6da8403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the error_tolerance attribute to _error.  <a href="classSolver.html#a35edab2e30bd439d359ea905a6da8403">More...</a><br /></td></tr>
 <tr class="separator:a35edab2e30bd439d359ea905a6da8403"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,23 +136,54 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a708a86142ea9da7f9ae38d42cdbf35b5" name="a708a86142ea9da7f9ae38d42cdbf35b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a708a86142ea9da7f9ae38d42cdbf35b5">&#9670;&nbsp;</a></span>PerformIK()</h2>
+<a id="a5206431cfe721ef58f1b6b2320b08426" name="a5206431cfe721ef58f1b6b2320b08426"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5206431cfe721ef58f1b6b2320b08426">&#9670;&nbsp;</a></span>PerformIK()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Solver::PerformIK </td>
+          <td class="memname">bool Solver::PerformIK </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MatrixXd *&#160;</td>
+          <td class="paramname"><em>q_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Methods to Solve IK. </p>
-<dl class="section return"><dt>Returns</dt><dd>int flag indicating successful operation </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dx</td><td>x-coordinate of small displacement towards goal position </td></tr>
+    <tr><td class="paramname">dy</td><td>y-coordinate of small displacement towards goal position </td></tr>
+    <tr><td class="paramname">dz</td><td>z-coordinate of small displacement towards goal position </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>MatrixXd Matrix of computed joint angles </dd></dl>
 
 </div>
 </div>

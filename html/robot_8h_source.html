@@ -70,44 +70,58 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="robot_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef ROBOT_H_  </span><span class="comment">// NOLINT</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define ROBOT_H_</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="state_8h.html">state.h</a>&quot;</span>  <span class="comment">// NOLINT</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="simulator_8h.html">simulator.h</a>&quot;</span>  <span class="comment">// NOLINT</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifndef ROBOT_H_  </span><span class="comment">// NOLINT</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define ROBOT_H_</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;Eigen/Dense&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classRobot.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="classRobot.html">Robot</a> : <span class="keyword">public</span> <a class="code hl_class" href="classState.html">State</a>{  <span class="comment">// Robot inherits State class public members</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classRobot.html#a4fc7c70ae20623f05e06f2ecb388b6c4">   22</a></span>        <a class="code hl_function" href="classRobot.html#a4fc7c70ae20623f05e06f2ecb388b6c4">Robot</a>();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classRobot.html#a601c77805cd6604044b5082639cb0156">   28</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classRobot.html#a601c77805cd6604044b5082639cb0156">Initialize</a>();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classRobot.html#aa0bd5dcb4f2e4579af5a33f27634d5a9">   34</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classRobot.html#aa0bd5dcb4f2e4579af5a33f27634d5a9">Solver</a>();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classRobot.html#ade5e0fc92b914a6f711354fa9a1d8df8">   40</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classRobot.html#ade5e0fc92b914a6f711354fa9a1d8df8">TrajectoryPlanner</a>();</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classRobot.html#a7656e04b2f3af8e6c54526079317bc54">   46</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classRobot.html#a7656e04b2f3af8e6c54526079317bc54">Controller</a>();</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classRobot.html#a14318451c02d2feff767dc9d67356043">   52</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classRobot.html#a14318451c02d2feff767dc9d67356043">Simulate</a>();</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="simulator_8h.html">simulator.h</a>&quot;</span>  <span class="comment">// NOLINT</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="solver_8h.html">solver.h</a>&quot;</span>     <span class="comment">//NOLINT</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="state_8h.html">state.h</a>&quot;</span>      <span class="comment">// NOLINT</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">using namespace </span>Eigen;    <span class="comment">// NOLINT</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classRobot.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="classRobot.html">Robot</a> : <span class="keyword">public</span> <a class="code hl_class" href="classState.html">State</a> {  <span class="comment">// Robot inherits State class public members</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classRobot.html#a4fc7c70ae20623f05e06f2ecb388b6c4">   27</a></span>  <a class="code hl_function" href="classRobot.html#a4fc7c70ae20623f05e06f2ecb388b6c4">Robot</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classRobot.html#a17349ff31450d4e6f8c358b5be47630b">   33</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classRobot.html#a17349ff31450d4e6f8c358b5be47630b">Initialize</a>(<a class="code hl_class" href="classSimulator.html">Simulator</a>* simulator);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classRobot.html#a8475170ae2576e30564dc18f33d27644">   42</a></span>  vector&lt;double&gt; <a class="code hl_function" href="classRobot.html#a8475170ae2576e30564dc18f33d27644">TrajectoryPlanner</a>(<span class="keywordtype">double</span> goal_x, <span class="keywordtype">double</span> goal_y,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                                        <span class="keywordtype">double</span> goal_z);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classRobot.html#a2b27dc3b68b9fda233ebd00ab1d3f0b5">   55</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classRobot.html#a2b27dc3b68b9fda233ebd00ab1d3f0b5">Controller</a>(<span class="keywordtype">float</span> t1, <span class="keywordtype">float</span> t2, <span class="keywordtype">float</span> t3, <span class="keywordtype">float</span> t4, <span class="keywordtype">float</span> t5, <span class="keywordtype">float</span> t6);</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#endif  </span><span class="comment">// ROBOT_H_  // NOLINT</span></div>
-<div class="ttc" id="aclassRobot_html"><div class="ttname"><a href="classRobot.html">Robot</a></div><div class="ttdef"><b>Definition:</b> robot.h:17</div></div>
-<div class="ttc" id="aclassRobot_html_a14318451c02d2feff767dc9d67356043"><div class="ttname"><a href="classRobot.html#a14318451c02d2feff767dc9d67356043">Robot::Simulate</a></div><div class="ttdeci">bool Simulate()</div><div class="ttdoc">Method to invoke simulator with desired joint actions.</div></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classRobot.html#a062a3bb47baed29eca8a119897e58a13">   61</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classRobot.html#a062a3bb47baed29eca8a119897e58a13">Solve</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classRobot.html#a3fd92598913b93c594425ad36c19f133">   67</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classRobot.html#a3fd92598913b93c594425ad36c19f133">ChainTransformations</a>();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classRobot.html#a2e82057002743b08e5836a7b90e0ff5b">   72</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classRobot.html#a2e82057002743b08e5836a7b90e0ff5b">GetEndEffectorPosition</a>();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <a class="code hl_class" href="classSimulator.html">Simulator</a>* simulator;   </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  simxInt origin_handle;  </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <a class="code hl_class" href="classState.html">State</a> state;            </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <a class="code hl_class" href="classSolver.html">Solver</a>* solver;         </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  std::vector&lt;simxInt&gt; joint_handle;  </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  std::vector&lt;simxInt&gt; link_handle;   </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  std::vector&lt;float*&gt; joint_matrix;   </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  std::vector&lt;float*&gt; link_matrix;    </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>};</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#endif  </span><span class="comment">// ROBOT_H_  // NOLINT</span></div>
+<div class="ttc" id="aclassRobot_html"><div class="ttname"><a href="classRobot.html">Robot</a></div><div class="ttdef"><b>Definition:</b> robot.h:22</div></div>
+<div class="ttc" id="aclassRobot_html_a062a3bb47baed29eca8a119897e58a13"><div class="ttname"><a href="classRobot.html#a062a3bb47baed29eca8a119897e58a13">Robot::Solve</a></div><div class="ttdeci">bool Solve()</div><div class="ttdoc">Method to invoke solve with desired joint actions.</div></div>
+<div class="ttc" id="aclassRobot_html_a17349ff31450d4e6f8c358b5be47630b"><div class="ttname"><a href="classRobot.html#a17349ff31450d4e6f8c358b5be47630b">Robot::Initialize</a></div><div class="ttdeci">bool Initialize(Simulator *simulator)</div><div class="ttdoc">Method will set the environment variables.</div></div>
+<div class="ttc" id="aclassRobot_html_a2b27dc3b68b9fda233ebd00ab1d3f0b5"><div class="ttname"><a href="classRobot.html#a2b27dc3b68b9fda233ebd00ab1d3f0b5">Robot::Controller</a></div><div class="ttdeci">bool Controller(float t1, float t2, float t3, float t4, float t5, float t6)</div><div class="ttdoc">Method to execute forward kinematics given the joint angles.</div></div>
+<div class="ttc" id="aclassRobot_html_a2e82057002743b08e5836a7b90e0ff5b"><div class="ttname"><a href="classRobot.html#a2e82057002743b08e5836a7b90e0ff5b">Robot::GetEndEffectorPosition</a></div><div class="ttdeci">void GetEndEffectorPosition()</div><div class="ttdoc">Method to execute forward kinematics given the joint angles.</div></div>
+<div class="ttc" id="aclassRobot_html_a3fd92598913b93c594425ad36c19f133"><div class="ttname"><a href="classRobot.html#a3fd92598913b93c594425ad36c19f133">Robot::ChainTransformations</a></div><div class="ttdeci">void ChainTransformations()</div><div class="ttdoc">Method to execute forward transformation chain given the joint angles.</div></div>
 <div class="ttc" id="aclassRobot_html_a4fc7c70ae20623f05e06f2ecb388b6c4"><div class="ttname"><a href="classRobot.html#a4fc7c70ae20623f05e06f2ecb388b6c4">Robot::Robot</a></div><div class="ttdeci">Robot()</div><div class="ttdoc">Construct a new robot object. Sets default values to all attributes.</div></div>
-<div class="ttc" id="aclassRobot_html_a601c77805cd6604044b5082639cb0156"><div class="ttname"><a href="classRobot.html#a601c77805cd6604044b5082639cb0156">Robot::Initialize</a></div><div class="ttdeci">bool Initialize()</div><div class="ttdoc">Method will set the environment variables.</div></div>
-<div class="ttc" id="aclassRobot_html_a7656e04b2f3af8e6c54526079317bc54"><div class="ttname"><a href="classRobot.html#a7656e04b2f3af8e6c54526079317bc54">Robot::Controller</a></div><div class="ttdeci">bool Controller()</div><div class="ttdoc">Method collects waypoints and feeds successive points for simulation.</div></div>
-<div class="ttc" id="aclassRobot_html_aa0bd5dcb4f2e4579af5a33f27634d5a9"><div class="ttname"><a href="classRobot.html#aa0bd5dcb4f2e4579af5a33f27634d5a9">Robot::Solver</a></div><div class="ttdeci">bool Solver()</div><div class="ttdoc">Method will set the environment variables.</div></div>
-<div class="ttc" id="aclassRobot_html_ade5e0fc92b914a6f711354fa9a1d8df8"><div class="ttname"><a href="classRobot.html#ade5e0fc92b914a6f711354fa9a1d8df8">Robot::TrajectoryPlanner</a></div><div class="ttdeci">bool TrajectoryPlanner()</div><div class="ttdoc">Method will set the solve for trajectory.</div></div>
+<div class="ttc" id="aclassRobot_html_a8475170ae2576e30564dc18f33d27644"><div class="ttname"><a href="classRobot.html#a8475170ae2576e30564dc18f33d27644">Robot::TrajectoryPlanner</a></div><div class="ttdeci">vector&lt; double &gt; TrajectoryPlanner(double goal_x, double goal_y, double goal_z)</div><div class="ttdoc">Method will set the solve for trajectory.</div></div>
+<div class="ttc" id="aclassSimulator_html"><div class="ttname"><a href="classSimulator.html">Simulator</a></div><div class="ttdef"><b>Definition:</b> simulator.h:19</div></div>
+<div class="ttc" id="aclassSolver_html"><div class="ttname"><a href="classSolver.html">Solver</a></div><div class="ttdef"><b>Definition:</b> solver.h:20</div></div>
 <div class="ttc" id="aclassState_html"><div class="ttname"><a href="classState.html">State</a></div><div class="ttdef"><b>Definition:</b> state.h:14</div></div>
-<div class="ttc" id="asimulator_8h_html"><div class="ttname"><a href="simulator_8h.html">simulator.h</a></div><div class="ttdoc">The header file for arm manipulator path simulation.</div></div>
+<div class="ttc" id="asimulator_8h_html"><div class="ttname"><a href="simulator_8h.html">simulator.h</a></div><div class="ttdoc">A program for result simulation implementation.</div></div>
+<div class="ttc" id="asolver_8h_html"><div class="ttname"><a href="solver_8h.html">solver.h</a></div><div class="ttdoc">The header file for arm manipulator path planning IK solver.</div></div>
 <div class="ttc" id="astate_8h_html"><div class="ttname"><a href="state_8h.html">state.h</a></div><div class="ttdoc">The header file for coordinate system used in the project.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

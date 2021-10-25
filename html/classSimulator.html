@@ -82,9 +82,8 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Stop</b> ()</td></tr>
 <tr class="memdesc:ad493423e80256f53c715bb59c16ec78e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends Finish signal to CoppeliaSim . <br /></td></tr>
 <tr class="separator:ad493423e80256f53c715bb59c16ec78e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1394eb4641fcfc0ad0d150893b682f61"><td class="memItemLeft" align="right" valign="top"><a id="a1394eb4641fcfc0ad0d150893b682f61" name="a1394eb4641fcfc0ad0d150893b682f61"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetClientID</b> ()</td></tr>
-<tr class="memdesc:a1394eb4641fcfc0ad0d150893b682f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns client ID of our c++ program assigned by CoppeliaSim . <br /></td></tr>
+<tr class="memitem:a1394eb4641fcfc0ad0d150893b682f61"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulator.html#a1394eb4641fcfc0ad0d150893b682f61">GetClientID</a> ()</td></tr>
+<tr class="memdesc:a1394eb4641fcfc0ad0d150893b682f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns client ID of our c++ program assigned by CoppeliaSim.  <a href="classSimulator.html#a1394eb4641fcfc0ad0d150893b682f61">More...</a><br /></td></tr>
 <tr class="separator:a1394eb4641fcfc0ad0d150893b682f61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1493193ec64fb130d21c490de6694025"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulator.html#a1493193ec64fb130d21c490de6694025">GetJointMatrix</a> (simxInt joint, float *matrix)</td></tr>
 <tr class="memdesc:a1493193ec64fb130d21c490de6694025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets robot's joint matrix of specified joint.  <a href="classSimulator.html#a1493193ec64fb130d21c490de6694025">More...</a><br /></td></tr>
@@ -93,11 +92,26 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>GetClientID</b> ()</td
 <tr class="memdesc:a1c260897112e853ca02c87b81f2a2bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the integer reference of an object given the object's name.  <a href="classSimulator.html#a1c260897112e853ca02c87b81f2a2bf8">More...</a><br /></td></tr>
 <tr class="separator:a1c260897112e853ca02c87b81f2a2bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb13b2a1d82400b875c1cbb0ad4d1ad6"><td class="memItemLeft" align="right" valign="top">simxInt&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulator.html#adb13b2a1d82400b875c1cbb0ad4d1ad6">GetParent</a> (simxInt handle)</td></tr>
-<tr class="memdesc:adb13b2a1d82400b875c1cbb0ad4d1ad6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize communication with CoppeliaSim with remoteX API.  <a href="classSimulator.html#adb13b2a1d82400b875c1cbb0ad4d1ad6">More...</a><br /></td></tr>
+<tr class="memdesc:adb13b2a1d82400b875c1cbb0ad4d1ad6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Parent object from CoppeliaSim with remoteX API.  <a href="classSimulator.html#adb13b2a1d82400b875c1cbb0ad4d1ad6">More...</a><br /></td></tr>
 <tr class="separator:adb13b2a1d82400b875c1cbb0ad4d1ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a645dac5dab8b6d6b712f7b494e01bd55"><td class="memItemLeft" align="right" valign="top">simxInt&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulator.html#a645dac5dab8b6d6b712f7b494e01bd55">GetChild</a> (simxInt parentObjectHandle, simxInt childIndex)</td></tr>
-<tr class="memdesc:a645dac5dab8b6d6b712f7b494e01bd55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize communication with CoppeliaSim with remoteX API.  <a href="classSimulator.html#a645dac5dab8b6d6b712f7b494e01bd55">More...</a><br /></td></tr>
+<tr class="memdesc:a645dac5dab8b6d6b712f7b494e01bd55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get child object from CoppeliaSim with remoteX API.  <a href="classSimulator.html#a645dac5dab8b6d6b712f7b494e01bd55">More...</a><br /></td></tr>
 <tr class="separator:a645dac5dab8b6d6b712f7b494e01bd55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33048f1cc4920f15c93749e294f50b3a"><td class="memItemLeft" align="right" valign="top">simxInt&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulator.html#a33048f1cc4920f15c93749e294f50b3a">SetJointPosition</a> (simxInt jointHandle, simxFloat *position)</td></tr>
+<tr class="memdesc:a33048f1cc4920f15c93749e294f50b3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the joint angle of robotic arm with CoppeliaSim with remoteX API.  <a href="classSimulator.html#a33048f1cc4920f15c93749e294f50b3a">More...</a><br /></td></tr>
+<tr class="separator:a33048f1cc4920f15c93749e294f50b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a528aa676f4116a3e1d610f3a31026c40"><td class="memItemLeft" align="right" valign="top">simxInt&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulator.html#a528aa676f4116a3e1d610f3a31026c40">SetJointTargetAngle</a> (simxInt jointHandle, simxFloat angle)</td></tr>
+<tr class="memdesc:a528aa676f4116a3e1d610f3a31026c40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends command to CoppeliaSim's arm controller to move the arm to set position.  <a href="classSimulator.html#a528aa676f4116a3e1d610f3a31026c40">More...</a><br /></td></tr>
+<tr class="separator:a528aa676f4116a3e1d610f3a31026c40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80959ea59649950e5762e749b867a268"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulator.html#a80959ea59649950e5762e749b867a268">GetJointAngle</a> (simxInt jointHandle)</td></tr>
+<tr class="memdesc:a80959ea59649950e5762e749b867a268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the joint angle of given joint Handle.  <a href="classSimulator.html#a80959ea59649950e5762e749b867a268">More...</a><br /></td></tr>
+<tr class="separator:a80959ea59649950e5762e749b867a268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac941515ddff3c612fc098e3f1913186a"><td class="memItemLeft" align="right" valign="top">simxInt&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulator.html#ac941515ddff3c612fc098e3f1913186a">GetObjectPosition</a> (simxInt objectHandle, simxInt relativeObjectHandle, simxFloat *position)</td></tr>
+<tr class="memdesc:ac941515ddff3c612fc098e3f1913186a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the position of object position.  <a href="classSimulator.html#ac941515ddff3c612fc098e3f1913186a">More...</a><br /></td></tr>
+<tr class="separator:ac941515ddff3c612fc098e3f1913186a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac426cef93e5bf87c0279771bc53b5acf"><td class="memItemLeft" align="right" valign="top">simxInt&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulator.html#ac426cef93e5bf87c0279771bc53b5acf">GetObjectOrientation</a> (simxInt objectHandle, simxInt relativeToObjectHandle, simxFloat *eulerAngles)</td></tr>
+<tr class="memdesc:ac426cef93e5bf87c0279771bc53b5acf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the orientation of object.  <a href="classSimulator.html#ac426cef93e5bf87c0279771bc53b5acf">More...</a><br /></td></tr>
+<tr class="separator:ac426cef93e5bf87c0279771bc53b5acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f49aa04f42060a785adf77346b9de9f"><td class="memItemLeft" align="right" valign="top"><a id="a0f49aa04f42060a785adf77346b9de9f" name="a0f49aa04f42060a785adf77346b9de9f"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~Simulator</b> ()</td></tr>
 <tr class="memdesc:a0f49aa04f42060a785adf77346b9de9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desctructor for <a class="el" href="classSimulator.html">Simulator</a> class, calls <a class="el" href="classSimulator.html#ad493423e80256f53c715bb59c16ec78e" title="Sends Finish signal to CoppeliaSim .">Simulator::Stop()</a> <br /></td></tr>
@@ -130,15 +144,62 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>GetClientID</b> ()</td
       </table>
 </div><div class="memdoc">
 
-<p>Initialize communication with CoppeliaSim with remoteX API. </p>
+<p>Get child object from CoppeliaSim with remoteX API. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Integer</td><td>reference of the parent object. </td></tr>
-    <tr><td class="paramname">To</td><td>obtain the nth child from current parent object. </td></tr>
+    <tr><td class="paramname">parentObjectHandle</td><td>Integer reference of the parent object. </td></tr>
+    <tr><td class="paramname">childIndex</td><td>To obtain the nth child from current parent object. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Integer reference of child object. </dd></dl>
+
+</div>
+</div>
+<a id="a1394eb4641fcfc0ad0d150893b682f61" name="a1394eb4641fcfc0ad0d150893b682f61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1394eb4641fcfc0ad0d150893b682f61">&#9670;&nbsp;</a></span>GetClientID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Simulator::GetClientID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns client ID of our c++ program assigned by CoppeliaSim. </p>
+<dl class="section return"><dt>Returns</dt><dd>int returns active CoppeliaSim communication unique ID. </dd></dl>
+
+</div>
+</div>
+<a id="a80959ea59649950e5762e749b867a268" name="a80959ea59649950e5762e749b867a268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80959ea59649950e5762e749b867a268">&#9670;&nbsp;</a></span>GetJointAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Simulator::GetJointAngle </td>
+          <td>(</td>
+          <td class="paramtype">simxInt&#160;</td>
+          <td class="paramname"><em>jointHandle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the joint angle of given joint Handle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jointHandle</td><td>Integer reference of the joint. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the joint angle. </dd></dl>
 
 </div>
 </div>
@@ -171,8 +232,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>GetClientID</b> ()</td
 <p>Gets robot's joint matrix of specified joint. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Joint</td><td>reference of robot arm as int . </td></tr>
-    <tr><td class="paramname">Matrix</td><td>variable in which the joint matrix is filled by CoppeliaSim. </td></tr>
+    <tr><td class="paramname">joint</td><td>Joint reference of robot arm as int . </td></tr>
+    <tr><td class="paramname">matrix</td><td>Matrix variable in which the joint matrix is filled by CoppeliaSim. </td></tr>
   </table>
   </dd>
 </dl>
@@ -198,11 +259,101 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>GetClientID</b> ()</td
 <p>Get the integer reference of an object given the object's name. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">The</td><td>name of the object. </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the object. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Integer reference to the object. </dd></dl>
+
+</div>
+</div>
+<a id="ac426cef93e5bf87c0279771bc53b5acf" name="ac426cef93e5bf87c0279771bc53b5acf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac426cef93e5bf87c0279771bc53b5acf">&#9670;&nbsp;</a></span>GetObjectOrientation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">simxInt Simulator::GetObjectOrientation </td>
+          <td>(</td>
+          <td class="paramtype">simxInt&#160;</td>
+          <td class="paramname"><em>objectHandle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">simxInt&#160;</td>
+          <td class="paramname"><em>relativeToObjectHandle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">simxFloat *&#160;</td>
+          <td class="paramname"><em>eulerAngles</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the orientation of object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objectHandle</td><td>Integer reference of the joint. </td></tr>
+    <tr><td class="paramname">relativeObjectHandle</td><td>Integer reference of the joint with respect to which orientation needs to be calculated. </td></tr>
+    <tr><td class="paramname">eulerAngles</td><td>Float array where the 3 output values(alpha, beta, gamma) will be stored. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns operation status. </dd></dl>
+
+</div>
+</div>
+<a id="ac941515ddff3c612fc098e3f1913186a" name="ac941515ddff3c612fc098e3f1913186a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac941515ddff3c612fc098e3f1913186a">&#9670;&nbsp;</a></span>GetObjectPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">simxInt Simulator::GetObjectPosition </td>
+          <td>(</td>
+          <td class="paramtype">simxInt&#160;</td>
+          <td class="paramname"><em>objectHandle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">simxInt&#160;</td>
+          <td class="paramname"><em>relativeObjectHandle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">simxFloat *&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the position of object position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objectHandle</td><td>Integer reference of the joint. </td></tr>
+    <tr><td class="paramname">relativeObjectHandle</td><td>Integer reference of the joint with respect to which position needs to be calculated. </td></tr>
+    <tr><td class="paramname">position</td><td>Float array where the 3 output values(x,y,z) will be stored. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns operation status. </dd></dl>
 
 </div>
 </div>
@@ -222,10 +373,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>GetClientID</b> ()</td
       </table>
 </div><div class="memdoc">
 
-<p>Initialize communication with CoppeliaSim with remoteX API. </p>
-<dl class="section return"><dt>Returns</dt><dd>true if program connects with CoppeliaSim successfully. </dd>
-<dd>
-Integer reference of parent object. </dd></dl>
+<p>Get Parent object from CoppeliaSim with remoteX API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>Integer reference of Handle(arm joint) to get it's parent. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Integer reference of parent object. </dd></dl>
 
 </div>
 </div>
@@ -248,6 +403,82 @@ Integer reference of parent object. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>true if program connects with CoppeliaSim successfully. </dd>
 <dd>
 false if failed to connect with CoppeliaSim. </dd></dl>
+
+</div>
+</div>
+<a id="a33048f1cc4920f15c93749e294f50b3a" name="a33048f1cc4920f15c93749e294f50b3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33048f1cc4920f15c93749e294f50b3a">&#9670;&nbsp;</a></span>SetJointPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">simxInt Simulator::SetJointPosition </td>
+          <td>(</td>
+          <td class="paramtype">simxInt&#160;</td>
+          <td class="paramname"><em>jointHandle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">simxFloat *&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the joint angle of robotic arm with CoppeliaSim with remoteX API. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jointHandle</td><td>Integer reference of the parent object. </td></tr>
+    <tr><td class="paramname">position</td><td>Position of the arm to rotate(angular degrees or prismatic length). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns operation status. </dd></dl>
+
+</div>
+</div>
+<a id="a528aa676f4116a3e1d610f3a31026c40" name="a528aa676f4116a3e1d610f3a31026c40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a528aa676f4116a3e1d610f3a31026c40">&#9670;&nbsp;</a></span>SetJointTargetAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">simxInt Simulator::SetJointTargetAngle </td>
+          <td>(</td>
+          <td class="paramtype">simxInt&#160;</td>
+          <td class="paramname"><em>jointHandle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">simxFloat&#160;</td>
+          <td class="paramname"><em>angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sends command to CoppeliaSim's arm controller to move the arm to set position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jointHandle</td><td>Integer reference of the joint. </td></tr>
+    <tr><td class="paramname">angle</td><td>Angle of the arm to rotate(angular degrees or prismatic length). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns operation status. </dd></dl>
 
 </div>
 </div>
