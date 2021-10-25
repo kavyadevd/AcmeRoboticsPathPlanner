@@ -197,9 +197,9 @@ void Robot::GetEndEffectorPosition() {
 vector<double> Robot::TrajectoryPlanner(double goal_x, double goal_y,
                                         double goal_z) {
   GetEndEffectorPosition();
-  std::vector<double> dx_dy_dz = {(state.x - goal_x) * 0.0001,
-                                  (state.y - goal_y) * 0.0001,
-                                  (state.z - goal_z) * 0.0001};
+  std::vector<double> dx_dy_dz = {(goal_x - state.x) * 0.001,
+                                  (goal_y - state.y) * 0.001,
+                                  (goal_z - state.z) * 0.001};
   return dx_dy_dz;
 }
 
@@ -225,29 +225,35 @@ bool Robot::Solve(double goal_x, double goal_y, double goal_z) {
       pow(pow((state.x - goal_x), 2) + pow((state.y - goal_y), 2) +
               pow((state.z - goal_z), 2),
           0.5);
-  float threshold = 1.0;
-  while (absolute_error < threshold) {
+  float threshold = 0.3;
+  double t1, t2, t3, t4, t5, t6;
+
+  while (absolute_error > threshold) {
+
     std::vector<double> dx_dy_dz = TrajectoryPlanner(goal_x, goal_y, goal_z);
     dxt += dx_dy_dz[0];
     dyt += dx_dy_dz[1];
     dzt += dx_dy_dz[2];
-    MatrixXd q_(4, 1);
-    bool status = solver->PerformIK(dx_dy_dz[0], dx_dy_dz[1], dx_dy_dz[2], &q_);
-    if (!status) {
-      cout << "IK calculation failed, trying again in next iteration." << endl;
-      continue;
-    }
-    cout << "\n\nQ is: " << q_.transpose() << endl;
-    double t1, t2, t3, t4, t5, t6;
     t1 = simulator->GetJointAngle(joint_handle[0]);
     t2 = simulator->GetJointAngle(joint_handle[1]);
     t3 = simulator->GetJointAngle(joint_handle[2]);
     t4 = simulator->GetJointAngle(joint_handle[3]);
     t5 = simulator->GetJointAngle(joint_handle[4]);
     t6 = simulator->GetJointAngle(joint_handle[5]);
+
+    MatrixXd q_(4, 1);
+    bool status = solver->PerformIK(dx_dy_dz[0], dx_dy_dz[1], dx_dy_dz[2], &q_);
+    if (!status) {
+      cout << "IK calculation failed, trying again in next iteration." << endl;
+      Controller(t1 + 0.0001, t2 + 0.0001, t3 + 0.0001, t4 + 0.0001,
+                 t5 + 0.0001, t6 + 0.0001);
+      continue;
+    }
+    cout << "\n\nQ is: " << q_.transpose() << endl;
     t1 += q_(0, 0);
     t2 += q_(1, 0);
     t3 += q_(2, 0);
+    t4 += q_(3, 0);
     float error = pow(pow((state.x - start_x + dxt), 2) +
                           pow((state.y - start_y + dyt), 2) +
                           pow((state.z - start_z + dzt), 2),
@@ -261,8 +267,12 @@ bool Robot::Solve(double goal_x, double goal_y, double goal_z) {
         pow(pow((state.x - goal_x), 2) + pow((state.y - goal_y), 2) +
                 pow((state.z - goal_z), 2),
             0.5);
+    cout << "Distance from goal position: " << absolute_error << endl;
+    sleep(0.3);
 
-    sleep(1);
   }
+
+  cout << "Successfully reached goal position! " << absolute_error << endl;
+
   return true;
 }

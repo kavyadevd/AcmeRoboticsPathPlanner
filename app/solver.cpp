@@ -47,7 +47,6 @@ bool Solver::PerformIK(double dx, double dy, double dz, MatrixXd* q_ptr) {
   // float dx = -0.0, dy = 0.001, dz = -0.001;  // For test against hard-coded
   // values
   MatrixXd J(3, 4);
-  sleep(0.80);
   t1 = simulator->GetJointAngle(joint_handle[0]);
   t2 = simulator->GetJointAngle(joint_handle[1]);
   t3 = simulator->GetJointAngle(joint_handle[2]);
@@ -167,10 +166,10 @@ bool Solver::PerformIK(double dx, double dy, double dz, MatrixXd* q_ptr) {
   MatrixXd v(3, 1);
   v << dx, dy, dz;
   MatrixXd q_ = Jp * v;
-  if (abs(q_(0, 0)) > 1.5 || abs(q_(1, 0)) > 1.5 || abs(q_(2, 0)) > 1.5) {
-    std::cout << "Very large angle displacement\n Computing in next iteration "
-                 "after a small perturbation.\n";
-  }
+  // if (abs(q_(0, 0)) > 1.5 || abs(q_(1, 0)) > 1.5 || abs(q_(2, 0)) > 1.5) {
+  // std::cout << "Very large angle displacement\n Computing in next iteration "
+  //            "after a small perturbation.\n";
+  //}
 
   std::cout << "Computed joint angles: " << q_.transpose() << std::endl;
   *q_ptr << q_;
