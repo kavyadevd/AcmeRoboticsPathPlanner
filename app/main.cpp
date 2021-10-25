@@ -29,5 +29,9 @@ int main() {
   }
   Robot robot(&simulator);
   robot.Initialize();
+  std::cout << "Enter goal x, y, z co-ordinates: ";
+  double goal_x, goal_y, goal_z;
+  std::cin >> goal_x >> goal_y >> goal_z;
+  robot.Solve(goal_x, goal_y, goal_z);
   return 0;
 }
