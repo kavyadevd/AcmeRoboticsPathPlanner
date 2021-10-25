@@ -101,6 +101,14 @@ class Simulator {
   simxInt SetJointTargetAngle(simxInt jointHandle, simxFloat angle);
 
   /**
+   * @brief Gets the joint angle of given joint Handle.
+   *
+   * @param jointHandle Integer reference of the joint.
+   * @return Returns the joint angle.
+   */
+  float GetJointAngle(simxInt jointHandle);
+
+  /**
    * @brief Gets the position of object position.
    *
    * @param objectHandle Integer reference of the joint.
@@ -111,7 +119,7 @@ class Simulator {
    * @return Returns operation status.
    */
   simxInt GetObjectPosition(simxInt objectHandle, simxInt relativeObjectHandle,
-                            simxFloat* position);
+                            simxFloat* position);                          
 
   /**
    * @brief Gets the orientation of object.

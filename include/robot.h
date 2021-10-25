@@ -67,6 +67,16 @@ class Robot : public State {  // Robot inherits State class public members
   void ForwardKinematics(float t1, float t2, float t3, float t4, float t5,
                          float t6);
 
+
+    /**
+   * @brief Method to execute forward transformation chain given the joint angles.
+   * @param t1 Angle in radians of joint 1.
+   * @param t2 Angle in radians of joint 2.
+   * @param t3 Angle in radians of joint 3.
+   */
+  void ChainTransformations(float x, float y, float z);
+
+
   /**
    * @brief Method to execute forward kinematics given the joint angles.
    * @return Vector of size 3, containing x,y,z values of end effector.
