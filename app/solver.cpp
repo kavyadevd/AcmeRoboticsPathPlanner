@@ -8,7 +8,7 @@
  * @copyright  All rights reserved
  * Note: Transformation matrix notations are as follows:
  *  0                               |06R    0P6|
- *      T(θ1,θ2,θ3,θ4,θ5,θ6) =      |          |
+ *      T(θ1, θ2, θ3, θ4, θ5, θ6) =      |          |
  *  6                               |0      1  |
  * 
  *                                  |0X6x   0Y6x     0Z6x    0P6x|
@@ -18,15 +18,14 @@
  * 
  */
 
-
 #include<math.h>
+#include<iostream>
 #include "solver.h"     // NOLINT
 #include <Eigen/Dense>
 #include <unistd.h>
 #include <cmath>
 #include <iostream>
 #include <vector>
-
 
 using std::cout;
 using std::endl;
@@ -100,6 +99,10 @@ int Solver::PerformIK() {
   }
 
     return 0;
+    } catch (const char* msg) { /* catch exception if any */
+        std::cout << "Exception occurred" << std::endl;
+        return 0;
+  }
 }
 
 bool Solver::SetErrorTolerance(double _error) {
@@ -131,7 +134,7 @@ void GetTransformationMatrix() {
  *       6      |-d6|
  *              | 1 |
  * 
- * θ1 = atan2(0P5y,0P5x)+- acos[ d4 / (√ 0P5x^2  + 0P5y^2) ]
+ * θ1 = atan2(0P5y, 0P5x)+- acos[ d4 / (√ 0P5x^2  + 0P5y^2) ]
  * 
  * @return double 
  */
