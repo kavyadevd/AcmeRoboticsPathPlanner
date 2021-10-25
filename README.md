@@ -92,6 +92,10 @@ On Ubuntu 18.04 and above MoveIt can be installed using following commands:
   ```
 The Matlab file used for calculations can be found [here](https://drive.google.com/file/d/1btgJoJhWMMR9vwU3pwflIu2xZPp-fAr0/view)
 
+**Example Demo:**
+Below GIF shows end-effector reaching the goal state using Pseudo Inverse Jacobian method.
+![Example demo](assets/clip.gif) 
+
 ## Building for code coverage
 
 ```bash
