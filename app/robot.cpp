@@ -219,7 +219,8 @@ bool Robot::Solve() {
   std::cin >> goal_x >> goal_y >> goal_z;
 
   std::vector<double> dx_dy_dz = TrajectoryPlanner(goal_x, goal_y, goal_z);
-  MatrixXd q_ = solver->PerformIK(dx_dy_dz[0], dx_dy_dz[1], dx_dy_dz[2]);
+  MatrixXd q_(4,1); 
+  bool status = solver->PerformIK(dx_dy_dz[0], dx_dy_dz[1], dx_dy_dz[2], &q_);
   double t1, t2, t3, t4, t5, t6;
   t1 = simulator->GetJointAngle(joint_handle[0]);
   t2 = simulator->GetJointAngle(joint_handle[1]);

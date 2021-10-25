@@ -41,7 +41,7 @@ Solver::Solver(Simulator* simulator, vector<simxInt> joint_handle) {
   error_tolerance = 0.5;
 }
 
-MatrixXd Solver::PerformIK(double dx, double dy, double dz) {
+bool Solver::PerformIK(double dx, double dy, double dz, MatrixXd* q_ptr) {
   try {
     std::cout << "Starting Jacobian inverse motion........ " << std::endl;
     double t1, t2, t3, t4, t5, t6;
@@ -49,8 +49,6 @@ MatrixXd Solver::PerformIK(double dx, double dy, double dz) {
     // float dx = -0.0, dy = 0.001, dz = -0.001; // For test against hard-coded
     // values
     MatrixXd J(3, 4);
-    MatrixXd q(4, 1);
-    MatrixXd q_(4, 1);
     sleep(0.80);
     t1 = simulator->GetJointAngle(joint_handle[0]);
     t2 = simulator->GetJointAngle(joint_handle[1]);
@@ -164,21 +162,23 @@ MatrixXd Solver::PerformIK(double dx, double dy, double dz) {
     std::cout << "Jacobian pseudo inverse: \n" << Jp << std::endl;
     if (Jp(1, 1) != Jp(1, 1)) {
       std::cout << " Singularity " << std::endl;
-      return;
+      return false;
     }
 
     MatrixXd v(3, 1);
     v << dx, dy, dz;
+    MatrixXd q_ = *(q_ptr);
     q_ = Jp * v;
     if (abs(q_(0, 0)) > 108 || abs(q_(1, 0)) > 108 || abs(q_(2, 0)) > 108) {
         std::cout << "Very large angle displacement\n Computing in next iteration after a small perturbation.\n";
     }
     std::cout << "Computed joint angles: " << q_.transpose() << std::endl;
-    return q_;
+    *q_ptr = q_;
+    return true;
 }
 catch (const char* msg) { /* catch exception if any */
   std::cout << "Exception occurred" << std::endl;
-  return;
+  return false;
 }
 }
 
