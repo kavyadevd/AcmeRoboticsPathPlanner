@@ -22,6 +22,9 @@ class Solver{
  /**
   * @brief Methods to Solve IK
   * @param _error : Reference to robot object for IK solution
+  * @param goal_x : x-coordinate of end effector goal position
+  * @param goal_y : y-coordinate of end effector goal position
+  * @param goal_z : z-coordinate of end effector goal position
   * @return int flag indicating successful operation
   */  
   int PerformIK(int client_ID, double goal_x, double goal_y, double goal_z);
