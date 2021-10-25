@@ -90,7 +90,7 @@ On Ubuntu 18.04 and above MoveIt can be installed using following commands:
   ```bash
   $<CoppeliaSim>/coppeliaSim.sh <AcmeRoboticsPathPlanner>/ur5_CoppeliaSim_scene.ttt
   ```
-
+The Matlab file used for calculations can be found [here](https://drive.google.com/file/d/1btgJoJhWMMR9vwU3pwflIu2xZPp-fAr0/view)
 
 ## Building for code coverage
 
