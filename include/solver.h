@@ -10,14 +10,18 @@
 
 #ifndef SOLVER_H_  // NOLINT
 #define SOLVER_H_
-#include "robot.h"
+#include "simulator.h"
+#include "solver.h"
+#include <vector>
+
+using std::vector;
 
 class Solver{
  public:
  /**
  * @brief Construct a new solver object. Sets default values to all attributes
  */
-  Solver();
+  Solver(Simulator* simulator, vector<simxInt> joint_handle);
 
  /**
   * @brief Methods to Solve IK
@@ -52,6 +56,9 @@ class Solver{
 
  private:
   double error_tolerance;  ///< Variable to set error tolerance
+  Simulator* simulator;
+  simxInt* origin_handle;
+  std::vector<simxInt> joint_handle;
 };
 
 #endif  // SOLVER_H_  // NOLINT

@@ -17,6 +17,8 @@
 #include "state.h"      // NOLINT
 
 Simulator simulator;
+Robot robotic_arm;
+
 
 /**
  * @brief Tests simulator class
@@ -90,38 +92,6 @@ TEST(TestIKStub, test_robot_object) {
  * @brief Tests robot initialize method
  */
 TEST(TestIKStub, test_robot_initialize) {
-  Robot robotic_arm;
   EXPECT_EQ(robotic_arm.Initialize(&simulator), true);
 }
 
-/**
- * @brief Tests robot solve method
- */
-TEST(TestIKStub, test_solver) {
-  Robot robotic_arm;
-  EXPECT_EQ(robotic_arm.Solver(), true);
-}
-
-/**
- * @brief Tests robot Trajectory planner
- */
-TEST(TestIKStub, test_trajectory_planner) {
-  Robot robotic_arm;
-  EXPECT_EQ(robotic_arm.TrajectoryPlanner(), true);
-}
-
-/**
- * @brief Tests robot controller method
- */
-TEST(TestIKStub, test_controller) {
-  Robot robotic_arm;
-  EXPECT_EQ(robotic_arm.Controller(), true);
-}
-
-/**
- * @brief Tests robot simulate method
- */
-TEST(TestIKStub, test_simulate) {
-  Robot robotic_arm;
-  EXPECT_EQ(robotic_arm.Simulate(), true);
-}
