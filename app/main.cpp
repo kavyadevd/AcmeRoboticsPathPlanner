@@ -15,8 +15,9 @@
 
 #include <iostream>
 
-#include "robot.h"
-#include "simulator.h"
+#include "robot.h"      // NOLINT
+#include "simulator.h"  // NOLINT
+#include "solver.h"     // NOLINT
 
 using std::cout;
 using std::endl;

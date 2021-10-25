@@ -20,10 +20,6 @@ class State {
     double phi;             ///< Variable to store tposition position phi value
     double alpha;             ///< Variable to store position position alpha value
 
-    double velocity;        ///< Variable to store the robot velocity
-    double acceleration;    ///< Variable to store the robot acceleration
-    double torque;          ///< Variable to store the robot torque
-
 /**
 * @brief Construct a new state object. Sets default values to all attributes
 */

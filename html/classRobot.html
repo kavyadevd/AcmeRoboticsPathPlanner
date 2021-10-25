@@ -93,21 +93,26 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Robot</b> ()</td></tr>
 <tr class="memdesc:a4fc7c70ae20623f05e06f2ecb388b6c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new robot object. Sets default values to all attributes. <br /></td></tr>
 <tr class="separator:a4fc7c70ae20623f05e06f2ecb388b6c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a601c77805cd6604044b5082639cb0156"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#a601c77805cd6604044b5082639cb0156">Initialize</a> ()</td></tr>
-<tr class="memdesc:a601c77805cd6604044b5082639cb0156"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method will set the environment variables.  <a href="classRobot.html#a601c77805cd6604044b5082639cb0156">More...</a><br /></td></tr>
-<tr class="separator:a601c77805cd6604044b5082639cb0156"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0bd5dcb4f2e4579af5a33f27634d5a9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#aa0bd5dcb4f2e4579af5a33f27634d5a9">Solver</a> ()</td></tr>
-<tr class="memdesc:aa0bd5dcb4f2e4579af5a33f27634d5a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method will set the environment variables.  <a href="classRobot.html#aa0bd5dcb4f2e4579af5a33f27634d5a9">More...</a><br /></td></tr>
-<tr class="separator:aa0bd5dcb4f2e4579af5a33f27634d5a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade5e0fc92b914a6f711354fa9a1d8df8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#ade5e0fc92b914a6f711354fa9a1d8df8">TrajectoryPlanner</a> ()</td></tr>
-<tr class="memdesc:ade5e0fc92b914a6f711354fa9a1d8df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method will set the solve for trajectory.  <a href="classRobot.html#ade5e0fc92b914a6f711354fa9a1d8df8">More...</a><br /></td></tr>
-<tr class="separator:ade5e0fc92b914a6f711354fa9a1d8df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7656e04b2f3af8e6c54526079317bc54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#a7656e04b2f3af8e6c54526079317bc54">Controller</a> ()</td></tr>
-<tr class="memdesc:a7656e04b2f3af8e6c54526079317bc54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method collects waypoints and feeds successive points for simulation.  <a href="classRobot.html#a7656e04b2f3af8e6c54526079317bc54">More...</a><br /></td></tr>
-<tr class="separator:a7656e04b2f3af8e6c54526079317bc54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14318451c02d2feff767dc9d67356043"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#a14318451c02d2feff767dc9d67356043">Simulate</a> ()</td></tr>
-<tr class="memdesc:a14318451c02d2feff767dc9d67356043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to invoke simulator with desired joint actions.  <a href="classRobot.html#a14318451c02d2feff767dc9d67356043">More...</a><br /></td></tr>
-<tr class="separator:a14318451c02d2feff767dc9d67356043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17349ff31450d4e6f8c358b5be47630b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#a17349ff31450d4e6f8c358b5be47630b">Initialize</a> (<a class="el" href="classSimulator.html">Simulator</a> *simulator)</td></tr>
+<tr class="memdesc:a17349ff31450d4e6f8c358b5be47630b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method will set the environment variables.  <a href="classRobot.html#a17349ff31450d4e6f8c358b5be47630b">More...</a><br /></td></tr>
+<tr class="separator:a17349ff31450d4e6f8c358b5be47630b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8475170ae2576e30564dc18f33d27644"><td class="memItemLeft" align="right" valign="top">vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#a8475170ae2576e30564dc18f33d27644">TrajectoryPlanner</a> (double goal_x, double goal_y, double goal_z)</td></tr>
+<tr class="memdesc:a8475170ae2576e30564dc18f33d27644"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method will set the solve for trajectory.  <a href="classRobot.html#a8475170ae2576e30564dc18f33d27644">More...</a><br /></td></tr>
+<tr class="separator:a8475170ae2576e30564dc18f33d27644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b27dc3b68b9fda233ebd00ab1d3f0b5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#a2b27dc3b68b9fda233ebd00ab1d3f0b5">Controller</a> (float t1, float t2, float t3, float t4, float t5, float t6)</td></tr>
+<tr class="memdesc:a2b27dc3b68b9fda233ebd00ab1d3f0b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to execute forward kinematics given the joint angles.  <a href="classRobot.html#a2b27dc3b68b9fda233ebd00ab1d3f0b5">More...</a><br /></td></tr>
+<tr class="separator:a2b27dc3b68b9fda233ebd00ab1d3f0b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a062a3bb47baed29eca8a119897e58a13"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#a062a3bb47baed29eca8a119897e58a13">Solve</a> ()</td></tr>
+<tr class="memdesc:a062a3bb47baed29eca8a119897e58a13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to invoke solve with desired joint actions.  <a href="classRobot.html#a062a3bb47baed29eca8a119897e58a13">More...</a><br /></td></tr>
+<tr class="separator:a062a3bb47baed29eca8a119897e58a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fd92598913b93c594425ad36c19f133"><td class="memItemLeft" align="right" valign="top"><a id="a3fd92598913b93c594425ad36c19f133" name="a3fd92598913b93c594425ad36c19f133"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ChainTransformations</b> ()</td></tr>
+<tr class="memdesc:a3fd92598913b93c594425ad36c19f133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to execute forward transformation chain given the joint angles. <br /></td></tr>
+<tr class="separator:a3fd92598913b93c594425ad36c19f133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e82057002743b08e5836a7b90e0ff5b"><td class="memItemLeft" align="right" valign="top"><a id="a2e82057002743b08e5836a7b90e0ff5b" name="a2e82057002743b08e5836a7b90e0ff5b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>GetEndEffectorPosition</b> ()</td></tr>
+<tr class="memdesc:a2e82057002743b08e5836a7b90e0ff5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to execute forward kinematics given the joint angles. <br /></td></tr>
+<tr class="separator:a2e82057002743b08e5836a7b90e0ff5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classState"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classState')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classState.html">State</a></td></tr>
 <tr class="memitem:ab91bb1dd5aa6260ab2a456581daf9ec2 inherit pub_methods_classState"><td class="memItemLeft" align="right" valign="top"><a id="ab91bb1dd5aa6260ab2a456581daf9ec2" name="ab91bb1dd5aa6260ab2a456581daf9ec2"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>State</b> ()</td></tr>
@@ -141,22 +146,10 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>phi</b></td></tr>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>alpha</b></td></tr>
 <tr class="memdesc:a222fada0016c9af3008daafcfcdb0a5c inherit pub_attribs_classState"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable to store position position alpha value. <br /></td></tr>
 <tr class="separator:a222fada0016c9af3008daafcfcdb0a5c inherit pub_attribs_classState"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a198cfb033de21ae3d7870d08685aac42 inherit pub_attribs_classState"><td class="memItemLeft" align="right" valign="top"><a id="a198cfb033de21ae3d7870d08685aac42" name="a198cfb033de21ae3d7870d08685aac42"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>velocity</b></td></tr>
-<tr class="memdesc:a198cfb033de21ae3d7870d08685aac42 inherit pub_attribs_classState"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable to store the robot velocity. <br /></td></tr>
-<tr class="separator:a198cfb033de21ae3d7870d08685aac42 inherit pub_attribs_classState"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68c969e80e5285021343bf3feea3453b inherit pub_attribs_classState"><td class="memItemLeft" align="right" valign="top"><a id="a68c969e80e5285021343bf3feea3453b" name="a68c969e80e5285021343bf3feea3453b"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>acceleration</b></td></tr>
-<tr class="memdesc:a68c969e80e5285021343bf3feea3453b inherit pub_attribs_classState"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable to store the robot acceleration. <br /></td></tr>
-<tr class="separator:a68c969e80e5285021343bf3feea3453b inherit pub_attribs_classState"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a348649c014012be5b9312f4c1104a156 inherit pub_attribs_classState"><td class="memItemLeft" align="right" valign="top"><a id="a348649c014012be5b9312f4c1104a156" name="a348649c014012be5b9312f4c1104a156"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>torque</b></td></tr>
-<tr class="memdesc:a348649c014012be5b9312f4c1104a156 inherit pub_attribs_classState"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable to store the robot torque. <br /></td></tr>
-<tr class="separator:a348649c014012be5b9312f4c1104a156 inherit pub_attribs_classState"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7656e04b2f3af8e6c54526079317bc54" name="a7656e04b2f3af8e6c54526079317bc54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7656e04b2f3af8e6c54526079317bc54">&#9670;&nbsp;</a></span>Controller()</h2>
+<a id="a2b27dc3b68b9fda233ebd00ab1d3f0b5" name="a2b27dc3b68b9fda233ebd00ab1d3f0b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b27dc3b68b9fda233ebd00ab1d3f0b5">&#9670;&nbsp;</a></span>Controller()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,19 +157,65 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>torque</b></td></tr
         <tr>
           <td class="memname">bool Robot::Controller </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>t1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>t2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>t3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>t4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>t5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>t6</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Method collects waypoints and feeds successive points for simulation. </p>
+<p>Method to execute forward kinematics given the joint angles. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t1</td><td>Angle in radians of joint 1. </td></tr>
+    <tr><td class="paramname">t2</td><td>Angle in radians of joint 2. </td></tr>
+    <tr><td class="paramname">t3</td><td>Angle in radians of joint 3. </td></tr>
+    <tr><td class="paramname">t4</td><td>Angle in radians of joint 4. </td></tr>
+    <tr><td class="paramname">t5</td><td>Angle in radians of joint 5. </td></tr>
+    <tr><td class="paramname">t6</td><td>Angle in radians of joint 6. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>bool flag indicating successful operation </dd></dl>
 
 </div>
 </div>
-<a id="a601c77805cd6604044b5082639cb0156" name="a601c77805cd6604044b5082639cb0156"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a601c77805cd6604044b5082639cb0156">&#9670;&nbsp;</a></span>Initialize()</h2>
+<a id="a17349ff31450d4e6f8c358b5be47630b" name="a17349ff31450d4e6f8c358b5be47630b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17349ff31450d4e6f8c358b5be47630b">&#9670;&nbsp;</a></span>Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,7 +223,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>torque</b></td></tr
         <tr>
           <td class="memname">bool Robot::Initialize </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classSimulator.html">Simulator</a> *&#160;</td>
+          <td class="paramname"><em>simulator</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -195,14 +235,14 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>torque</b></td></tr
 
 </div>
 </div>
-<a id="a14318451c02d2feff767dc9d67356043" name="a14318451c02d2feff767dc9d67356043"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14318451c02d2feff767dc9d67356043">&#9670;&nbsp;</a></span>Simulate()</h2>
+<a id="a062a3bb47baed29eca8a119897e58a13" name="a062a3bb47baed29eca8a119897e58a13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a062a3bb47baed29eca8a119897e58a13">&#9670;&nbsp;</a></span>Solve()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Robot::Simulate </td>
+          <td class="memname">bool Robot::Solve </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -210,48 +250,53 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>torque</b></td></tr
       </table>
 </div><div class="memdoc">
 
-<p>Method to invoke simulator with desired joint actions. </p>
+<p>Method to invoke solve with desired joint actions. </p>
 <dl class="section return"><dt>Returns</dt><dd>bool flag indicating successful operation </dd></dl>
 
 </div>
 </div>
-<a id="aa0bd5dcb4f2e4579af5a33f27634d5a9" name="aa0bd5dcb4f2e4579af5a33f27634d5a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0bd5dcb4f2e4579af5a33f27634d5a9">&#9670;&nbsp;</a></span>Solver()</h2>
+<a id="a8475170ae2576e30564dc18f33d27644" name="a8475170ae2576e30564dc18f33d27644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8475170ae2576e30564dc18f33d27644">&#9670;&nbsp;</a></span>TrajectoryPlanner()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Robot::Solver </td>
+          <td class="memname">vector&lt; double &gt; Robot::TrajectoryPlanner </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>goal_x</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Method will set the environment variables. </p>
-<dl class="section return"><dt>Returns</dt><dd>bool flag indicating successful operation </dd></dl>
-
-</div>
-</div>
-<a id="ade5e0fc92b914a6f711354fa9a1d8df8" name="ade5e0fc92b914a6f711354fa9a1d8df8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade5e0fc92b914a6f711354fa9a1d8df8">&#9670;&nbsp;</a></span>TrajectoryPlanner()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">bool Robot::TrajectoryPlanner </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>goal_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>goal_z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Method will set the solve for trajectory. </p>
-<dl class="section return"><dt>Returns</dt><dd>bool flag indicating successful operation </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">goal_x</td><td>Goal position x-cordinate </td></tr>
+    <tr><td class="paramname">goal_y</td><td>Goal position y-cordinate </td></tr>
+    <tr><td class="paramname">goal_z</td><td>Goal position z-cordinate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>slope of the trajectory coordinates </dd></dl>
 
 </div>
 </div>

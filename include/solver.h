@@ -10,19 +10,28 @@
 
 #ifndef SOLVER_H_  // NOLINT
 #define SOLVER_H_
+#include "simulator.h"  // NOLINT
+#include "solver.h"  // NOLINT
+#include <vector>  // NOLINT
+#include <Eigen/Dense>
 
+using std::vector;
+using Eigen::MatrixXd;
 class Solver{
  public:
  /**
  * @brief Construct a new solver object. Sets default values to all attributes
  */
-  Solver();
+  Solver(Simulator* simulator, vector<simxInt> joint_handle);
 
  /**
   * @brief Methods to Solve IK
-  * @return int flag indicating successful operation
+  * @param dx x-coordinate of small displacement towards goal position
+  * @param dy y-coordinate of small displacement towards goal position
+  * @param dz z-coordinate of small displacement towards goal position
+  * @return MatrixXd Matrix of computed joint angles
   */  
-  int PerformIK();
+  bool PerformIK(double dx, double dy, double dz, MatrixXd* q_);
 
    /**
    * @brief Updates the error_tolerance attribute to _error
@@ -47,6 +56,8 @@ class Solver{
 
  private:
   double error_tolerance;  ///< Variable to set error tolerance
+  Simulator* simulator;  ///< Variable reference to active simulator object
+  std::vector<simxInt> joint_handle;  ///< Variable for storing all robot joint handles
 };
 
 #endif  // SOLVER_H_  // NOLINT
