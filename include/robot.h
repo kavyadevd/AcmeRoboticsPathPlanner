@@ -15,10 +15,10 @@
 #include <vector>
 
 #include "simulator.h"  // NOLINT
+#include "solver.h"     //NOLINT
 #include "state.h"      // NOLINT
-#include "solver.h" //NOLINT
 
-using namespace Eigen;
+using namespace Eigen;    // NOLINT
 class Robot : public State {  // Robot inherits State class public members
  public:
   /**
@@ -34,9 +34,13 @@ class Robot : public State {  // Robot inherits State class public members
 
   /**
    * @brief Method will set the solve for trajectory
-   * @return bool flag indicating successful operation
+   * @param goal_x Goal position x-cordinate
+   * @param goal_y Goal position y-cordinate
+   * @param goal_z Goal position z-cordinate
+   * @return slope of the trajectory coordinates
    */
-  bool TrajectoryPlanner();
+  vector<double> Robot::TrajectoryPlanner(double goal_x, double goal_y,
+                                        double goal_z);
 
   /**
    * @brief Method to execute forward kinematics given the joint angles.
@@ -48,8 +52,7 @@ class Robot : public State {  // Robot inherits State class public members
    * @param t6 Angle in radians of joint 6.
    * @return bool flag indicating successful operation
    */
-  bool Controller(float t1, float t2, float t3, float t4, float t5,
-                              float t6);
+  bool Controller(float t1, float t2, float t3, float t4, float t5, float t6);
 
   /**
    * @brief Method to invoke solve with desired joint actions
@@ -58,10 +61,10 @@ class Robot : public State {  // Robot inherits State class public members
   bool Solve();
 
   /**
-   * @brief Method to execute forward transformation chain given the joint angles.
+   * @brief Method to execute forward transformation chain given the joint
+   * angles.
    */
   void ChainTransformations();
-
 
   /**
    * @brief Method to execute forward kinematics given the joint angles.
@@ -69,15 +72,14 @@ class Robot : public State {  // Robot inherits State class public members
   void GetEndEffectorPosition();
 
  private:
-  Simulator* simulator;  ///< Reference object to Simulator class object.
-  simxInt origin_handle; ///< Reference object of origin point.
-  State state;           ///< State of the robotic arm end effector.
+  Simulator* simulator;   ///< Reference object to Simulator class object.
+  simxInt origin_handle;  ///< Reference object of origin point.
+  State state;            ///< State of the robotic arm end effector.
   Solver* solver;         ///< Reference to solver object.
-  std::vector<simxInt> joint_handle; ///< Robotic arm Joint handles. 
-  std::vector<simxInt> link_handle; ///< Robotic arm Link handles.
-  std::vector<float*> joint_matrix; ///< Robotic arm joint matrices.
-  std::vector<float*> link_matrix; ///< Robotic arm link matrices.
-
+  std::vector<simxInt> joint_handle;  ///< Robotic arm Joint handles.
+  std::vector<simxInt> link_handle;   ///< Robotic arm Link handles.
+  std::vector<float*> joint_matrix;   ///< Robotic arm joint matrices.
+  std::vector<float*> link_matrix;    ///< Robotic arm link matrices.
 };
 
 #endif  // ROBOT_H_  // NOLINT
