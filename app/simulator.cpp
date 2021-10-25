@@ -94,12 +94,11 @@ simxInt Simulator::SetJointTargetAngle(simxInt jointHandle, simxFloat angle) {
   return status;
 }
 
-float Simulator::GetJointAngle(simxInt jointHandle){
+float Simulator::GetJointAngle(simxInt jointHandle) {
   float angle;
-  simxGetJointPosition(client_ID_,jointHandle, &angle, simx_opmode_blocking);
+  simxGetJointPosition(client_ID_, jointHandle, &angle, simx_opmode_blocking);
   return angle;
 }
-
 
 simxInt Simulator::GetObjectPosition(simxInt objectHandle,
                                      simxInt relativeObjectHandle,
@@ -121,7 +120,6 @@ simxInt Simulator::GetObjectOrientation(simxInt objectHandle,
   cout << "alpha: " << eulerAngles[0] << " beta: " << eulerAngles[1]
        << " gamma: " << eulerAngles[2] << endl;
   return status;
-  
 }
 
 Simulator::~Simulator() { Simulator::Stop(); }
