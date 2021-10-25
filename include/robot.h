@@ -24,13 +24,13 @@ class Robot : public State {  // Robot inherits State class public members
   /**
    * @brief Construct a new robot object. Sets default values to all attributes
    */
-  Robot();
+  Robot(Simulator* simulator);
 
   /**
    * @brief Method will set the environment variables
    * @return bool flag indicating successful operation
    */
-  bool Initialize(Simulator* simulator);
+  bool Initialize();
 
   /**
    * @brief Method will set the solve for trajectory
@@ -39,7 +39,7 @@ class Robot : public State {  // Robot inherits State class public members
    * @param goal_z Goal position z-cordinate
    * @return slope of the trajectory coordinates
    */
-  vector<double> Robot::TrajectoryPlanner(double goal_x, double goal_y,
+  vector<double> TrajectoryPlanner(double goal_x, double goal_y,
                                         double goal_z);
 
   /**
