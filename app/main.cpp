@@ -22,7 +22,6 @@ using std::endl;
 
 int main() {
   try {
-  Solver solve_ik;
   Simulator simulator;
   Robot robot;
   if (!simulator.Initialize()) {
@@ -32,10 +31,6 @@ int main() {
   sleep(3);
   int client_ID = simulator.GetClientID();
   std::cout << client_ID << std::endl;
-  double goal_x, goal_y, goal_z;
-  std::cout << "Enter goal x,y,z co-ordinates: ";
-  std::cin >> goal_x >> goal_y >> goal_z;
-  solve_ik.PerformIK(client_ID, goal_x, goal_y, goal_z);
   return 0;
   } catch (const char* msg) { /* catch exception if any */
         std::cout << "Exception occurred" << std::endl;
