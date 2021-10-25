@@ -229,6 +229,7 @@ bool Robot::Solve(double goal_x, double goal_y, double goal_z) {
   double t1, t2, t3, t4, t5, t6;
 
   while (absolute_error > threshold) {
+
     std::vector<double> dx_dy_dz = TrajectoryPlanner(goal_x, goal_y, goal_z);
     dxt += dx_dy_dz[0];
     dyt += dx_dy_dz[1];
@@ -259,7 +260,7 @@ bool Robot::Solve(double goal_x, double goal_y, double goal_z) {
                       0.5);
     cout << "Error from current desired position: " << error << endl;
     if (solver->IsErrorTolerable(error)) {
-      cout << "Waypoint Error is within tolerable limits" << endl;
+      cout << "Error is within tolerable limits" << endl;
     }
     Controller(t1, t2, t3, t4, t5, t6);
     absolute_error =
@@ -268,6 +269,7 @@ bool Robot::Solve(double goal_x, double goal_y, double goal_z) {
             0.5);
     cout << "Distance from goal position: " << absolute_error << endl;
     sleep(0.3);
+
   }
 
   cout << "Successfully reached goal position! " << absolute_error << endl;
