@@ -16,6 +16,7 @@
 
 #include "simulator.h"  // NOLINT
 #include "state.h"      // NOLINT
+#include "solver.h" //NOLINT
 
 using namespace Eigen;
 class Robot : public State {  // Robot inherits State class public members
@@ -32,28 +33,10 @@ class Robot : public State {  // Robot inherits State class public members
   bool Initialize(Simulator* simulator);
 
   /**
-   * @brief Method will set the environment variables
-   * @return bool flag indicating successful operation
-   */
-  bool Solver();
-
-  /**
    * @brief Method will set the solve for trajectory
    * @return bool flag indicating successful operation
    */
   bool TrajectoryPlanner();
-
-  /**
-   * @brief Method collects waypoints and feeds successive points for simulation
-   * @return bool flag indicating successful operation
-   */
-  bool Controller();
-
-  /**
-   * @brief Method to invoke simulator with desired joint actions
-   * @return bool flag indicating successful operation
-   */
-  bool Simulate();
 
   /**
    * @brief Method to execute forward kinematics given the joint angles.
@@ -63,33 +46,37 @@ class Robot : public State {  // Robot inherits State class public members
    * @param t4 Angle in radians of joint 4.
    * @param t5 Angle in radians of joint 5.
    * @param t6 Angle in radians of joint 6.
+   * @return bool flag indicating successful operation
    */
-  void ForwardKinematics(float t1, float t2, float t3, float t4, float t5,
-                         float t6);
+  bool Controller(float t1, float t2, float t3, float t4, float t5,
+                              float t6);
 
+  /**
+   * @brief Method to invoke solve with desired joint actions
+   * @return bool flag indicating successful operation
+   */
+  bool Solve();
 
-    /**
+  /**
    * @brief Method to execute forward transformation chain given the joint angles.
-   * @param t1 Angle in radians of joint 1.
-   * @param t2 Angle in radians of joint 2.
-   * @param t3 Angle in radians of joint 3.
    */
-  void ChainTransformations(float x, float y, float z);
+  void ChainTransformations();
 
 
   /**
    * @brief Method to execute forward kinematics given the joint angles.
-   * @return Vector of size 3, containing x,y,z values of end effector.
    */
-  VectorXf GetEndEffectorPosition();
+  void GetEndEffectorPosition();
 
  private:
   Simulator* simulator;  ///< Reference object to Simulator class object.
-  simxInt origin_handle;
-  std::vector<simxInt> joint_handle;
-  std::vector<simxInt> link_handle;
-  std::vector<float*> joint_matrix;
-  std::vector<float*> link_matrix;
+  simxInt origin_handle; ///< Reference object of origin point.
+  State state;           ///< State of the robotic arm end effector.
+  Solver* solver;         ///< Reference to solver object.
+  std::vector<simxInt> joint_handle; ///< Robotic arm Joint handles. 
+  std::vector<simxInt> link_handle; ///< Robotic arm Link handles.
+  std::vector<float*> joint_matrix; ///< Robotic arm joint matrices.
+  std::vector<float*> link_matrix; ///< Robotic arm link matrices.
 
 };
 
