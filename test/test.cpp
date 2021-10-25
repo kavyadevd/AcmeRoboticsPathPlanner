@@ -17,8 +17,6 @@
 #include "state.h"      // NOLINT
 
 Simulator simulator;
-Robot robotic_arm;
-
 
 /**
  * @brief Tests simulator class
@@ -32,10 +30,12 @@ TEST(TestSimulatorStub, test_simulator) {
   EXPECT_NE(simulator.GetChild(handle, 0), -1);
 }
 
+
 /**
  * @brief Tests Robot class
  */
-TEST(TestSimulatorStub, test_simulator) {
-  robotic_arm = new Robot(&simulator);
+TEST(TestSimulatorStub, test_robot) {
+  Robot robotic_arm(&simulator);
+  robotic_arm.Solve(1, 1, 1);
   EXPECT_NE(robotic_arm.Initialize(), -1);
 }

@@ -38,14 +38,13 @@ using std::vector;
 Solver::Solver(Simulator* simulator, vector<simxInt> joint_handle) {
   this->simulator = simulator;
   this->joint_handle = joint_handle;
-  error_tolerance = 0.5;
+  SetErrorTolerance(0.5);
 }
 
 bool Solver::PerformIK(double dx, double dy, double dz, MatrixXd* q_ptr) {
   std::cout << "Starting Jacobian inverse motion........ " << std::endl;
-  double t1, t2, t3, t4, t5, t6;
-  int i = 0;
-  // float dx = -0.0, dy = 0.001, dz = -0.001; // For test against hard-coded
+  double t1, t2, t3, t4;  // t5, t6;
+  // float dx = -0.0, dy = 0.001, dz = -0.001;  // For test against hard-coded
   // values
   MatrixXd J(3, 4);
   sleep(0.80);
@@ -53,8 +52,8 @@ bool Solver::PerformIK(double dx, double dy, double dz, MatrixXd* q_ptr) {
   t2 = simulator->GetJointAngle(joint_handle[1]);
   t3 = simulator->GetJointAngle(joint_handle[2]);
   t4 = simulator->GetJointAngle(joint_handle[3]);
-  t5 = simulator->GetJointAngle(joint_handle[4]);
-  t6 = simulator->GetJointAngle(joint_handle[5]);
+  //t5 = simulator->GetJointAngle(joint_handle[4]);
+  //t6 = simulator->GetJointAngle(joint_handle[5]);
 
   // Computing Jacobian Matrix. Constant values for calculation obtained using
   // MATLAB simulation
@@ -169,10 +168,11 @@ bool Solver::PerformIK(double dx, double dy, double dz, MatrixXd* q_ptr) {
   v << dx, dy, dz;
   MatrixXd q_ = *(q_ptr);
   q_ = Jp * v;
-  if (abs(q_(0, 0)) > 108 || abs(q_(1, 0)) > 108 || abs(q_(2, 0)) > 108) {
+  if (abs(q_(0, 0)) > 1.5 || abs(q_(1, 0)) > 1.5 || abs(q_(2, 0)) > 1.5) {
     std::cout << "Very large angle displacement\n Computing in next iteration "
                  "after a small perturbation.\n";
   }
+
   std::cout << "Computed joint angles: " << q_.transpose() << std::endl;
   *q_ptr << q_;
   return true;

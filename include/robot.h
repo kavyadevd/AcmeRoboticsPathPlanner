@@ -56,9 +56,12 @@ class Robot : public State {  // Robot inherits State class public members
 
   /**
    * @brief Method to invoke solve with desired joint actions
+   * @param goal_x Goal position x-cordinate
+   * @param goal_y Goal position y-cordinate
+   * @param goal_z Goal position z-cordinate
    * @return bool flag indicating successful operation
    */
-  bool Solve();
+  bool Solve(double goal_x, double goal_y, double goal_z);
 
   /**
    * @brief Method to execute forward transformation chain given the joint
