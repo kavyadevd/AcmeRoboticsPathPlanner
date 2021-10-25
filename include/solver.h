@@ -25,13 +25,12 @@ class Solver{
 
  /**
   * @brief Methods to Solve IK
-  * @param _error : Reference to robot object for IK solution
-  * @param goal_x : x-coordinate of end effector goal position
-  * @param goal_y : y-coordinate of end effector goal position
-  * @param goal_z : z-coordinate of end effector goal position
-  * @return int flag indicating successful operation
+  * @param dx x-coordinate of small displacement towards goal position
+  * @param dy y-coordinate of small displacement towards goal position
+  * @param dz z-coordinate of small displacement towards goal position
+  * @return MatrixXd Matrix of computed joint angles
   */  
-  int PerformIK(int client_ID, double goal_x, double goal_y, double goal_z);
+  MatrixXd PerformIK(double dx, double dy, double dz);
 
    /**
    * @brief Updates the error_tolerance attribute to _error
