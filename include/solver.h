@@ -10,9 +10,9 @@
 
 #ifndef SOLVER_H_  // NOLINT
 #define SOLVER_H_
-#include "simulator.h"
-#include "solver.h"
-#include <vector>
+#include "simulator.h"  // NOLINT
+#include "solver.h"  // NOLINT
+#include <vector>  // NOLINT
 
 using std::vector;
 
@@ -56,9 +56,8 @@ class Solver{
 
  private:
   double error_tolerance;  ///< Variable to set error tolerance
-  Simulator* simulator;
-  simxInt* origin_handle;
-  std::vector<simxInt> joint_handle;
+  Simulator* simulator;  ///< Variable reference to active simulator object
+  std::vector<simxInt> joint_handle;  ///< Variable for storing all robot joint handles
 };
 
 #endif  // SOLVER_H_  // NOLINT
