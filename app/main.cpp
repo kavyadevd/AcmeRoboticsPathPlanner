@@ -24,10 +24,10 @@ using std::endl;
 
 int main() {
   Simulator simulator;
-  Robot robot;
   if (!simulator.Initialize()) {
     return -1;
   }
-  robot.Initialize(&simulator);
+  Robot robot(&simulator);
+  robot.Initialize();
   return 0;
 }

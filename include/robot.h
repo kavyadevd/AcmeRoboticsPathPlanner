@@ -24,13 +24,13 @@ class Robot : public State {  // Robot inherits State class public members
   /**
    * @brief Construct a new robot object. Sets default values to all attributes
    */
-  Robot();
+  Robot(Simulator* simulator);
 
   /**
    * @brief Method will set the environment variables
    * @return bool flag indicating successful operation
    */
-  bool Initialize(Simulator* simulator);
+  bool Initialize();
 
   /**
    * @brief Method will set the solve for trajectory
