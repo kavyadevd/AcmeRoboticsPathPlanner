@@ -10,6 +10,7 @@
 
 #ifndef SOLVER_H_  // NOLINT
 #define SOLVER_H_
+#include "robot.h"
 
 class Solver{
  public:
@@ -20,9 +21,10 @@ class Solver{
 
  /**
   * @brief Methods to Solve IK
+  * @param _error : Reference to robot object for IK solution
   * @return int flag indicating successful operation
   */  
-  int PerformIK();
+  int PerformIK(int client_ID);
 
    /**
    * @brief Updates the error_tolerance attribute to _error
