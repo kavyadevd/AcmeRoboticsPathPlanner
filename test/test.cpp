@@ -31,3 +31,11 @@ TEST(TestSimulatorStub, test_simulator) {
   EXPECT_NE(simulator.GetParent(handle), -1);
   EXPECT_NE(simulator.GetChild(handle, 0), -1);
 }
+
+/**
+ * @brief Tests Robot class
+ */
+TEST(TestSimulatorStub, test_simulator) {
+  robotic_arm = new Robot(&simulator);
+  EXPECT_NE(robotic_arm.Initialize(), -1);
+}

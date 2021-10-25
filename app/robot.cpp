@@ -28,11 +28,8 @@ using std::cout;
 using std::endl;
 using std::vector;
 
-Robot::Robot() {}
+Robot::Robot(Simulator* simulator) {
 
-bool Robot::Initialize(Simulator* simulator) {
-  State state;
-  try {
     this->simulator = simulator;
     ///< Variable to store origin
     char origin_name[] = "Floor";
@@ -64,6 +61,12 @@ bool Robot::Initialize(Simulator* simulator) {
     }
 
     this->solver = new Solver(simulator, joint_handle);
+}
+
+bool Robot::Initialize() {
+  State state;
+  try {
+
     float theta = 0.5;
     //< Perform some actions by commanding joint angles(in radians).
     Controller(theta, theta, theta, theta, theta, theta);
