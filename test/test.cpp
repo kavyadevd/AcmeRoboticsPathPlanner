@@ -43,7 +43,7 @@ TEST(TestIKStub, test_the_default_constructor) {
  */
 TEST(TestIKStub, should_pass_solver) {
   Solver ik_solver;
-  EXPECT_EQ(ik_solver.PerformIK(simulator.GetClientID()), 0);
+  EXPECT_EQ(ik_solver.PerformIK(simulator.GetClientID(), 0, 0, 0), 0);
 }
 
 /**
