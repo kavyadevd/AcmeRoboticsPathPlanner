@@ -39,12 +39,13 @@ Solver::Solver(Simulator* simulator, vector<simxInt> joint_handle) {
     error_tolerance = 0.5;
 }
 
-int Solver::PerformIK() {
+int Solver::PerformIK(int client_ID, double goal_x, double goal_y, double goal_z) {
   try {
   std::cout << "Starting Jacobian inverse motion........ " << std::endl;
   double t1, t2, t3, t4, t5, t6;
   int i = 0;
-  float dx = -0.0, dy = 0.001, dz = -0.001;
+  // float dx = -0.0, dy = 0.001, dz = -0.001; // For test against hard-coded values
+  float dx = goal_x, dy = goal_y, dz = goal_z;
   MatrixXd J(3, 4);
   MatrixXd q(4, 1);
   MatrixXd q_(4, 1);
