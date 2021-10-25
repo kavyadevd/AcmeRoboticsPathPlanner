@@ -28,59 +28,54 @@ using std::cout;
 using std::endl;
 using std::vector;
 
-Robot::Robot(Simulator* simulator) {
+Robot::Robot(Simulator* simulator_) {
+  simulator = simulator_;
+  ///< Variable to store origin
+  char origin_name[] = "Floor";
 
-    this->simulator = simulator;
-    ///< Variable to store origin
-    char origin_name[] = "Floor";
+  ///< Variable to store robot joint names
+  char joint_names[6][11] = {"UR5_joint1", "UR5_joint2", "UR5_joint3",
+                             "UR5_joint4", "UR5_joint5", "UR5_joint6"};
 
-    ///< Variable to store robot joint names
-    char joint_names[6][11] = {"UR5_joint1", "UR5_joint2", "UR5_joint3",
-                               "UR5_joint4", "UR5_joint5", "UR5_joint6"};
+  ///< Variable to store robot link names
+  char link_names[6][11] = {"UR5_link1", "UR5_link2", "UR5_link3",
+                            "UR5_link4", "UR5_link5", "UR5_link6"};
 
-    ///< Variable to store robot link names
-    char link_names[6][11] = {"UR5_link1", "UR5_link2", "UR5_link3",
-                              "UR5_link4", "UR5_link5", "UR5_link6"};
+  ///< Assign IDs values to handles
+  origin_handle = simulator->GetObjectHandle(origin_name);
 
-    ///< Assign IDs values to handles
-    origin_handle = simulator->GetObjectHandle(origin_name);
+  for (int it = 0; it < 6; it++) {
+    joint_handle.push_back(simulator->GetObjectHandle(joint_names[it]));
+    link_handle.push_back(simulator->GetObjectHandle(link_names[it]));
 
-    for (int it = 0; it < 6; it++) {
-      joint_handle.push_back(simulator->GetObjectHandle(joint_names[it]));
-      link_handle.push_back(simulator->GetObjectHandle(link_names[it]));
+    // cout << "\n------Joint matrix " << it + 1 << " --------\n";
+    // float* joint_ptr = new float[12];
+    // joint_matrix.push_back(joint_ptr);
+    // simulator->GetJointMatrix(joint_handle[it], joint_matrix[it]);
 
-      // cout << "\n------Joint matrix " << it + 1 << " --------\n";
-      // float* joint_ptr = new float[12];
-      // joint_matrix.push_back(joint_ptr);
-      // simulator->GetJointMatrix(joint_handle[it], joint_matrix[it]);
+    // cout << "\n------Link matrix " << it << " --------\n";
+    // float* link_ptr = new float[12];
+    // link_matrix.push_back(link_ptr);
+    // simulator->GetJointMatrix(link_handle[it], link_matrix[it]);
+  }
 
-      // cout << "\n------Link matrix " << it << " --------\n";
-      // float* link_ptr = new float[12];
-      // link_matrix.push_back(link_ptr);
-      // simulator->GetJointMatrix(link_handle[it], link_matrix[it]);
-    }
-
-    this->solver = new Solver(simulator, joint_handle);
+  solver = new Solver(simulator, joint_handle);
 }
 
 bool Robot::Initialize() {
   State state;
   try {
-
     float theta = 0.5;
     //< Perform some actions by commanding joint angles(in radians).
     Controller(theta, theta, theta, theta, theta, theta);
 
     sleep(1);
 
-    Solve();
-
     //< Get positions of objects(joints in this case).
     simxFloat position[3];
     simxFloat orientation[3];
-    simxFloat matrix[12];
 
-    // ChainTransformations();
+    ChainTransformations();
 
     for (int it = 0; it < 6; it++) {
       cout << "\n------Joint position of " << it + 1
@@ -113,16 +108,17 @@ bool Robot::Initialize() {
     return true;
   } catch (const char* msg) { /* catch exception if any */
     std::cout << "Exception occurred" << std::endl;
+    return false;
   }
 }
 
 void Robot::ChainTransformations() {
   cout << "\nTransfomation matrix chain from Origin to End Effector:" << endl;
-  double t1, t2, t3, t4, t5, t6;
+  double t1, t2, t3, t4, t5;  // t6;
   double a1 = -0.0703083;
   double d1 = 0.0660392;
   double a2 = 0.425103;
-  double d2 = 0;
+  // double d2 = 0;
   double a3 = 0.392149;
   double a4 = 0.0455737;
   double d4 = 0.0397052;
@@ -134,7 +130,7 @@ void Robot::ChainTransformations() {
   t3 = simulator->GetJointAngle(joint_handle[2]);
   t4 = simulator->GetJointAngle(joint_handle[3]);
   t5 = simulator->GetJointAngle(joint_handle[4]);
-  t6 = simulator->GetJointAngle(joint_handle[5]);
+  // t6 = simulator->GetJointAngle(joint_handle[5]);
 
   // Vector3f ot; << 0.3, -0.275, 0.04315;
   Matrix4d T(4, 4);
@@ -218,23 +214,29 @@ bool Robot::Controller(float t1, float t2, float t3, float t4, float t5,
   return true;
 }
 
-bool Robot::Solve() {
-  double goal_x, goal_y, goal_z;
+bool Robot::Solve(double goal_x, double goal_y, double goal_z) {
   double start_x, start_y, start_z;
   GetEndEffectorPosition();
   start_x = state.x;
   start_y = state.y;
   start_z = state.z;
-  std::cout << "Enter goal x, y, z co-ordinates: ";
-  std::cin >> goal_x >> goal_y >> goal_z;
-  double dxt, dyt, dzt;
-  while (true) {
+  double dxt = 0, dyt = 0, dzt = 0;
+  float absolute_error =
+      pow(pow((state.x - goal_x), 2) + pow((state.y - goal_y), 2) +
+              pow((state.z - goal_z), 2),
+          0.5);
+  float threshold = 1.0;
+  while (absolute_error < threshold) {
     std::vector<double> dx_dy_dz = TrajectoryPlanner(goal_x, goal_y, goal_z);
     dxt += dx_dy_dz[0];
     dyt += dx_dy_dz[1];
     dzt += dx_dy_dz[2];
     MatrixXd q_(4, 1);
     bool status = solver->PerformIK(dx_dy_dz[0], dx_dy_dz[1], dx_dy_dz[2], &q_);
+    if (!status) {
+      cout << "IK calculation failed, trying again in next iteration." << endl;
+      continue;
+    }
     cout << "\n\nQ is: " << q_.transpose() << endl;
     double t1, t2, t3, t4, t5, t6;
     t1 = simulator->GetJointAngle(joint_handle[0]);
@@ -247,11 +249,19 @@ bool Robot::Solve() {
     t2 += q_(1, 0);
     t3 += q_(2, 0);
     float error = pow(pow((state.x - start_x + dxt), 2) +
-                          pow((state.y - start_y + dxt), 2) +
-                          pow((state.z - start_z + dxt), 2),
+                          pow((state.y - start_y + dyt), 2) +
+                          pow((state.z - start_z + dzt), 2),
                       0.5);
-    cout << "Error from target position: " << error << endl;
+    cout << "Error from current desired position: " << error << endl;
+    if (solver->IsErrorTolerable(error)) {
+      cout << "Error is within tolerable limits" << endl;
+    }
     Controller(t1, t2, t3, t4, t5, t6);
+    absolute_error =
+        pow(pow((state.x - goal_x), 2) + pow((state.y - goal_y), 2) +
+                pow((state.z - goal_z), 2),
+            0.5);
+
     sleep(1);
   }
   return true;
