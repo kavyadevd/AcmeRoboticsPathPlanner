@@ -24,7 +24,7 @@ class Solver{
   * @param _error : Reference to robot object for IK solution
   * @return int flag indicating successful operation
   */  
-  int PerformIK(int client_ID);
+  int PerformIK(int client_ID, double goal_x, double goal_y, double goal_z);
 
    /**
    * @brief Updates the error_tolerance attribute to _error
