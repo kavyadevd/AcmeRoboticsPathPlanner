@@ -52,8 +52,8 @@ bool Solver::PerformIK(double dx, double dy, double dz, MatrixXd* q_ptr) {
   t2 = simulator->GetJointAngle(joint_handle[1]);
   t3 = simulator->GetJointAngle(joint_handle[2]);
   t4 = simulator->GetJointAngle(joint_handle[3]);
-  //t5 = simulator->GetJointAngle(joint_handle[4]);
-  //t6 = simulator->GetJointAngle(joint_handle[5]);
+  // t5 = simulator->GetJointAngle(joint_handle[4]);
+  // t6 = simulator->GetJointAngle(joint_handle[5]);
 
   // Computing Jacobian Matrix. Constant values for calculation obtained using
   // MATLAB simulation
@@ -166,8 +166,7 @@ bool Solver::PerformIK(double dx, double dy, double dz, MatrixXd* q_ptr) {
 
   MatrixXd v(3, 1);
   v << dx, dy, dz;
-  MatrixXd q_ = *(q_ptr);
-  q_ = Jp * v;
+  MatrixXd q_ = Jp * v;
   if (abs(q_(0, 0)) > 1.5 || abs(q_(1, 0)) > 1.5 || abs(q_(2, 0)) > 1.5) {
     std::cout << "Very large angle displacement\n Computing in next iteration "
                  "after a small perturbation.\n";

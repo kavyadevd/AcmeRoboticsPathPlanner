@@ -18,7 +18,7 @@
 #include "solver.h"     //NOLINT
 #include "state.h"      // NOLINT
 
-using namespace Eigen;    // NOLINT
+using namespace Eigen;        // NOLINT
 class Robot : public State {  // Robot inherits State class public members
  public:
   /**
@@ -39,8 +39,7 @@ class Robot : public State {  // Robot inherits State class public members
    * @param goal_z Goal position z-cordinate
    * @return slope of the trajectory coordinates
    */
-  vector<double> TrajectoryPlanner(double goal_x, double goal_y,
-                                        double goal_z);
+  vector<double> TrajectoryPlanner(double goal_x, double goal_y, double goal_z);
 
   /**
    * @brief Method to execute forward kinematics given the joint angles.

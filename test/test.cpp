@@ -30,12 +30,10 @@ TEST(TestSimulatorStub, test_simulator) {
   EXPECT_NE(simulator.GetChild(handle, 0), -1);
 }
 
-
 /**
  * @brief Tests Robot class
  */
 TEST(TestSimulatorStub, test_robot) {
   Robot robotic_arm(&simulator);
-  robotic_arm.Solve(1, 1, 1);
-  EXPECT_NE(robotic_arm.Initialize(), -1);
+  EXPECT_EQ(robotic_arm.Solve(1, 1, 1), true);
 }

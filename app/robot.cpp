@@ -28,8 +28,8 @@ using std::cout;
 using std::endl;
 using std::vector;
 
-Robot::Robot(Simulator* simulator) {
-  this->simulator = simulator;
+Robot::Robot(Simulator* simulator_) {
+  simulator = simulator_;
   ///< Variable to store origin
   char origin_name[] = "Floor";
 
@@ -59,7 +59,7 @@ Robot::Robot(Simulator* simulator) {
     // simulator->GetJointMatrix(link_handle[it], link_matrix[it]);
   }
 
-  this->solver = new Solver(simulator, joint_handle);
+  solver = new Solver(simulator, joint_handle);
 }
 
 bool Robot::Initialize() {
@@ -221,7 +221,12 @@ bool Robot::Solve(double goal_x, double goal_y, double goal_z) {
   start_y = state.y;
   start_z = state.z;
   double dxt = 0, dyt = 0, dzt = 0;
-  while (true) {
+  float absolute_error =
+      pow(pow((state.x - goal_x), 2) + pow((state.y - goal_y), 2) +
+              pow((state.z - goal_z), 2),
+          0.5);
+  float threshold = 1.0;
+  while (absolute_error < threshold) {
     std::vector<double> dx_dy_dz = TrajectoryPlanner(goal_x, goal_y, goal_z);
     dxt += dx_dy_dz[0];
     dyt += dx_dy_dz[1];
@@ -247,11 +252,16 @@ bool Robot::Solve(double goal_x, double goal_y, double goal_z) {
                           pow((state.y - start_y + dyt), 2) +
                           pow((state.z - start_z + dzt), 2),
                       0.5);
-    cout << "Error from target position: " << error << endl;
+    cout << "Error from current desired position: " << error << endl;
     if (solver->IsErrorTolerable(error)) {
       cout << "Error is within tolerable limits" << endl;
     }
     Controller(t1, t2, t3, t4, t5, t6);
+    absolute_error =
+        pow(pow((state.x - goal_x), 2) + pow((state.y - goal_y), 2) +
+                pow((state.z - goal_z), 2),
+            0.5);
+
     sleep(1);
   }
   return true;

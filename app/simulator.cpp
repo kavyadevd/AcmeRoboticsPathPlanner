@@ -33,7 +33,7 @@ bool Simulator::Initialize() {
   connection_success_ = client_ID_ != -1;
 
   if (connection_success_) {
-    cout << "Connection to CoppeliaSim is successfull"<<endl;
+    cout << "Connection to CoppeliaSim is successfull" << endl;
     simxSynchronous(client_ID_, 0);
     simxStopSimulation(client_ID_, simx_opmode_oneshot);
     sleep(1);
