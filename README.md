@@ -13,8 +13,7 @@
 </div>
 This is a project for the path planning of a robotic arm manipulator. The work was proposed and developed for Acme Robotics. The system will provide a solution for a 6DOF UR5 robotic arm path planning consisting of an IK solver and path planner and the output will be simulated in a virtual environment.
 The input to the system will be the desired goal cartesian coordinates. This input will be applied to a 6 DOF robotic arm with set initial points and known configuration. Based on this data, the IK solver will calculate the configuration of individual arm components. To avoid unforeseen problems, each calculation will be validated against the arm constraints.
-For the implementation of the IK solver and path planner, we are using the MoveIt library. MoveIt is licensed under BSDv3 (Berkeley Software Distribution).
-It implements a path planner using the Stochastic Trajectory Optimization for Motion Planning (STOMP) algorithm. STOMP generates noisy trajectories and then optimizes them based on a cost function that includes obstacle and smoothness.	Gradients are not used to optimize the path, thus making this algorithm faster than the ones that use gradients. 
+For the implementation of the IK solver and path planner, we are using Pseudo Inverse of Jacobian method to control the end effector by feeding very small joint angles. The trajectory is generated based on a linear path from start to end position.
 The development team of two will work together and use agile methodologies. A standard software pair programming will be implemented. 
 The driver-navigator method will ensure code is inspected on the go and this collaboration will result in a bug-free, robust product.
 </br>
@@ -90,11 +89,14 @@ On Ubuntu 18.04 and above MoveIt can be installed using following commands:
   ```bash
   $<CoppeliaSim>/coppeliaSim.sh <AcmeRoboticsPathPlanner>/ur5_CoppeliaSim_scene.ttt
   ```
-The Matlab file used for calculations can be found [here](https://drive.google.com/file/d/1btgJoJhWMMR9vwU3pwflIu2xZPp-fAr0/view)
+The Matlab file used for calculation of Transformation matrices and Jacobian of UR5 robot arm can be found [here](https://drive.google.com/file/d/1btgJoJhWMMR9vwU3pwflIu2xZPp-fAr0/view)
 
 **Example Demo:**
 Below GIF shows end-effector reaching the goal state using Pseudo Inverse Jacobian method.
 ![Example demo](assets/clip.gif) 
+
+**Our UML diagram**
+![UML_diagram](assets/uml.png) 
 
 ## Building for code coverage
 
