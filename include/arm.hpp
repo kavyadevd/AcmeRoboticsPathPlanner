@@ -18,7 +18,7 @@
 
 class Arm : public Simulator {
  public:
-    explicit Arm(int client_id);
+    explicit Arm(int client_id_) {client_id = client_id_;}
     ~Arm();
     int GetClientID();
  private:
