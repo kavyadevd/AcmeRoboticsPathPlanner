@@ -30,19 +30,19 @@ class Simulator {
    * @return true if program connects with CoppeliaSim successfully.
    * @return false if failed to connect with CoppeliaSim.
    */
-  bool Initialize();
+  virtual bool Initialize();
 
   /**
    * @brief Sends Finish signal to CoppeliaSim .
    */
-  void Stop();
+  virtual void Stop();
 
   /**
    * @brief Returns client ID of our c++ program assigned by CoppeliaSim.
    *
    * @return int returns active CoppeliaSim communication unique ID.
    */
-  int GetClientID();
+  virtual int GetClientID();
 
   /**
    * @brief Gets robot's joint matrix of specified joint.
@@ -51,7 +51,7 @@ class Simulator {
    * @param matrix Matrix variable in which the joint matrix is filled by
    * CoppeliaSim.
    */
-  void GetJointMatrix(simxInt joint, float* matrix);
+  virtual void GetJointMatrix(simxInt joint, float* matrix);
 
   /**
    * @brief Get the integer reference of an object given the object's name.
@@ -59,7 +59,7 @@ class Simulator {
    * @param name The name of the object.
    * @return Integer reference to the object.
    */
-  simxInt GetObjectHandle(char* name);
+  virtual simxInt GetObjectHandle(char* name);
 
   /**
    * @brief Get Parent object from CoppeliaSim with remoteX API.
@@ -67,7 +67,7 @@ class Simulator {
    * @param handle Integer reference of Handle(arm joint) to get it's parent.
    * @return Integer reference of parent object.
    */
-  simxInt GetParent(simxInt handle);
+  virtual simxInt GetParent(simxInt handle);
 
   /**
    * @brief Get child object from CoppeliaSim with remoteX API.
@@ -76,7 +76,7 @@ class Simulator {
    * @param childIndex To obtain the nth child from current parent object.
    * @return Integer reference of child object.
    */
-  simxInt GetChild(simxInt parentObjectHandle, simxInt childIndex);
+  virtual simxInt GetChild(simxInt parentObjectHandle, simxInt childIndex);
 
   /**
    * @brief Set the joint angle of robotic arm with CoppeliaSim with remoteX
@@ -87,7 +87,7 @@ class Simulator {
    * length).
    * @return Returns operation status.
    */
-  simxInt SetJointPosition(simxInt jointHandle, simxFloat* position);
+  virtual simxInt SetJointPosition(simxInt jointHandle, simxFloat* position);
 
   /**
    * @brief Sends command to CoppeliaSim's arm controller to move the arm to set
@@ -98,7 +98,7 @@ class Simulator {
    * length).
    * @return Returns operation status.
    */
-  simxInt SetJointTargetAngle(simxInt jointHandle, simxFloat angle);
+  virtual simxInt SetJointTargetAngle(simxInt jointHandle, simxFloat angle);
 
   /**
    * @brief Gets the joint angle of given joint Handle.
@@ -106,7 +106,7 @@ class Simulator {
    * @param jointHandle Integer reference of the joint.
    * @return Returns the joint angle.
    */
-  float GetJointAngle(simxInt jointHandle);
+  virtual float GetJointAngle(simxInt jointHandle);
 
   /**
    * @brief Gets the position of object position.
@@ -118,8 +118,8 @@ class Simulator {
    * stored.
    * @return Returns operation status.
    */
-  simxInt GetObjectPosition(simxInt objectHandle, simxInt relativeObjectHandle,
-                            simxFloat* position);                          
+  virtual simxInt GetObjectPosition(simxInt objectHandle, simxInt relativeObjectHandle,
+                            simxFloat* position);
 
   /**
    * @brief Gets the orientation of object.
@@ -131,14 +131,14 @@ class Simulator {
    * gamma) will be stored.
    * @return Returns operation status.
    */
-  simxInt GetObjectOrientation(simxInt objectHandle,
+  virtual simxInt GetObjectOrientation(simxInt objectHandle,
                                simxInt relativeToObjectHandle,
                                simxFloat* eulerAngles);
 
   /**
    * @brief Desctructor for Simulator class, calls Simulator::Stop()
    */
-  ~Simulator();
+  virtual ~Simulator();
 
  private:
   int client_ID_;  ///< Variable to store active CoppeliaSim communication
