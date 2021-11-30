@@ -67,7 +67,7 @@ class Simulator {
    * @param handle Integer reference of Handle(arm joint) to get it's parent.
    * @return Integer reference of parent object.
    */
-  simxInt GetParent(simxInt handle) = 0;
+  simxInt GetParent(simxInt handle);
 
   /**
    * @brief Get child object from CoppeliaSim with remoteX API.
