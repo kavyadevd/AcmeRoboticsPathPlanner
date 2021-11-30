@@ -107,6 +107,9 @@ make
 make code_coverage
 ```
 
+## GMOCK
+A new class is created in the branch GMock_Extra_Credit named "ARM". Arm class inherits Simulator class.
+The mock files are present in the [/mock folder](https://github.com/kavyadevd/AcmeRoboticsPathPlanner/tree/GMock_Extra_Credit/mock)
 
 ## Plugins
 
